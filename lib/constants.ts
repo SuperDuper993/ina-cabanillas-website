@@ -18,9 +18,14 @@ export const BRAND = {
 
 export const IMAGES = {
   hero: "https://static.wixstatic.com/media/c4e6cf_978f0f6e700a47e39f31373d8fe9dd4a~mv2.jpg",
+  heroMobile: "https://static.wixstatic.com/media/c4e6cf_524ec0cdf0734318b52eac5677659b81~mv2.jpg",
   scene: "https://static.wixstatic.com/media/c4e6cf_bd071f59268f417ca2479eb1f3418a43~mv2.jpg",
   bookPortrait: "https://static.wixstatic.com/media/c4e6cf_a7f8a78450b74172a792d41f58323cc8~mv2.jpg",
+  bookStack: "https://static.wixstatic.com/media/c4e6cf_c776e1dfbf86473596107bd0b02ddfa0~mv2.jpg",
   portrait: "https://static.wixstatic.com/media/c4e6cf_14bc54b26dfc45a7837d3fd895a2d242~mv2.jpg",
+  talkDscf2554: "https://static.wixstatic.com/media/c4e6cf_608ea11dd3464dd3b401bf98702e2d4c~mv2.jpg",
+  talkDscf2561: "https://static.wixstatic.com/media/c4e6cf_02d8406dd376416c8f8903ddb06b9530~mv2.jpg",
+  talkImg1465: "https://static.wixstatic.com/media/c4e6cf_616d653fd6eb4d6fbe675707962c4fd7~mv2.jpg",
   video: "https://video.wixstatic.com/video/c4e6cf_13471530aee84b40bc2283246ad67926/file",
 } as const;
 

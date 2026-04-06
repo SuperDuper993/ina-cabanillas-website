@@ -67,6 +67,9 @@ export function ContactSection() {
             <p className="text-white/60 leading-relaxed">
               Planlegger du en konferanse, fagdag eller kick-off? Ta kontakt for å diskutere hvordan Ina kan bidra til ditt arrangement.
             </p>
+            <p className="text-white/35 text-sm">
+              Pris tilpasses format, publikum og omfang.
+            </p>
             <div className="flex flex-col gap-3 mt-2">
               <div className="flex items-center gap-3">
                 <span className="text-sm">📍</span>

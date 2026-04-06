@@ -4,16 +4,33 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 
-const navLinks = [
-  { href: "#om", label: "Om Ina" },
-  { href: "#foredrag", label: "Foredrag" },
+const navLinksNO = [
+  { href: "/#om", label: "Om Ina" },
+  { href: "/#foredrag", label: "Foredrag" },
   { href: "/presse", label: "I media" },
   { href: "/kjop-bok", label: "Boken" },
 ];
 
-export function Navbar() {
+const navLinksEN = [
+  { href: "/en#about", label: "About" },
+  { href: "/en#talks", label: "Keynotes" },
+  { href: "/en/press", label: "In the media" },
+];
+
+interface NavbarProps {
+  lang?: "no" | "en";
+}
+
+export function Navbar({ lang = "no" }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const isEN = lang === "en";
+  const navLinks = isEN ? navLinksEN : navLinksNO;
+  const bookHref = isEN ? "/en#contact" : "/#kontakt";
+  const bookLabel = isEN ? "Book Ina" : "Book Ina";
+  const noHref = isEN ? "/" : "/";
+  const enHref = isEN ? "/en" : "/en";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -51,11 +68,36 @@ export function Navbar() {
             </Link>
           ))}
           <Link
-            href="#kontakt"
+            href={bookHref}
             className="text-sm font-semibold px-5 py-2 rounded-full bg-brand-indigo text-white hover:bg-brand-indigo/90 transition-all hover:-translate-y-0.5"
           >
-            Book Ina
+            {bookLabel}
           </Link>
+          {/* Language switcher */}
+          <div className="flex items-center gap-1 ml-1 border border-brand-border rounded-full px-2 py-1">
+            <Link
+              href={noHref}
+              className={cn(
+                "text-[11px] font-semibold px-2 py-0.5 rounded-full transition-colors",
+                !isEN
+                  ? "bg-brand-indigo text-white"
+                  : "text-brand-muted hover:text-foreground"
+              )}
+            >
+              NO
+            </Link>
+            <Link
+              href={enHref}
+              className={cn(
+                "text-[11px] font-semibold px-2 py-0.5 rounded-full transition-colors",
+                isEN
+                  ? "bg-brand-indigo text-white"
+                  : "text-brand-muted hover:text-foreground"
+              )}
+            >
+              EN
+            </Link>
+          </div>
         </div>
 
         {/* Mobile hamburger */}
@@ -84,12 +126,39 @@ export function Navbar() {
             </Link>
           ))}
           <Link
-            href="#kontakt"
+            href={bookHref}
             className="block text-center text-sm font-semibold px-5 py-2 rounded-full bg-brand-indigo text-white"
             onClick={() => setMobileOpen(false)}
           >
-            Book Ina
+            {bookLabel}
           </Link>
+          {/* Mobile language switcher */}
+          <div className="flex items-center gap-2 pt-2 border-t border-brand-border">
+            <Link
+              href={noHref}
+              className={cn(
+                "text-xs font-semibold px-3 py-1 rounded-full border transition-colors",
+                !isEN
+                  ? "bg-brand-indigo text-white border-brand-indigo"
+                  : "text-brand-muted border-brand-border hover:text-foreground"
+              )}
+              onClick={() => setMobileOpen(false)}
+            >
+              NO
+            </Link>
+            <Link
+              href={enHref}
+              className={cn(
+                "text-xs font-semibold px-3 py-1 rounded-full border transition-colors",
+                isEN
+                  ? "bg-brand-indigo text-white border-brand-indigo"
+                  : "text-brand-muted border-brand-border hover:text-foreground"
+              )}
+              onClick={() => setMobileOpen(false)}
+            >
+              EN
+            </Link>
+          </div>
         </div>
       )}
     </nav>
