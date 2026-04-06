@@ -2,25 +2,94 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1A1A1A;
+
+  /* Ina Cabanillas Brand — StudyBuddies-harmonisert */
+  --brand-indigo: #2B1FA0;
+  --brand-dark: #1E1A3A;
+  --brand-muted: #64608E;
+  --brand-lavender: #F4F2F9;
+  --brand-light-lav: #E8E5F2;
+  --brand-border: #E0DDF0;
+
+  /* shadcn compatibility */
+  --primary: var(--brand-indigo);
+  --primary-foreground: #ffffff;
+  --secondary: var(--brand-light-lav);
+  --secondary-foreground: var(--brand-indigo);
+  --muted: var(--brand-lavender);
+  --muted-foreground: var(--brand-muted);
+  --accent: var(--brand-lavender);
+  --accent-foreground: var(--brand-indigo);
+  --border: var(--brand-border);
+  --input: var(--brand-border);
+  --ring: var(--brand-indigo);
+  --card: #ffffff;
+  --card-foreground: var(--foreground);
+  --popover: #ffffff;
+  --popover-foreground: var(--foreground);
+  --destructive: #C0392B;
+  --destructive-foreground: #ffffff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-brand-indigo: var(--brand-indigo);
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-muted: var(--brand-muted);
+  --color-brand-lavender: var(--brand-lavender);
+  --color-brand-light-lav: var(--brand-light-lav);
+  --color-brand-border: var(--brand-border);
+  --font-sans: var(--font-dm-sans);
+  --font-serif: var(--font-dm-serif);
+
+  /* Animations */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+  }
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans, 'DM Sans', sans-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif, 'DM Serif Display', serif);
+  font-weight: 400;
+}
+
+/* Selection color */
+::selection {
+  background: var(--brand-indigo);
+  color: white;
 }

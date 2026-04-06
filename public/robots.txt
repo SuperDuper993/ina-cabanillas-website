@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /hvordan-lede-genz/
+
+# Host
+Host: https://www.inacabanillas.com
+
+# Sitemaps
+Sitemap: https://www.inacabanillas.com/sitemap.xml
