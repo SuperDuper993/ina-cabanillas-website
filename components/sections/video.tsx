@@ -16,9 +16,12 @@ export function VideoSection() {
             <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
               Se Ina i aksjon
             </p>
-            <h2 className="text-3xl md:text-4xl text-foreground">
+            <h2 className="text-3xl md:text-4xl text-foreground mb-3">
               Fra scenen
             </h2>
+            <p className="text-brand-muted leading-relaxed max-w-2xl">
+              Ta en sniktitt på Ina i aksjon — på scenen foran 300 mennesker. Foredraget varer ca. 45 minutter og tilpasses alltid ditt publikum.
+            </p>
           </div>
 
           <div className="rounded-2xl overflow-hidden shadow-xl">

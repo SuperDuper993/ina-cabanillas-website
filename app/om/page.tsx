@@ -5,22 +5,23 @@ import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import ShimmerButton from "@/components/ui/shimmer-button";
 
 const roles = [
   {
     emoji: "🎤",
     title: "Foredragsholder",
-    description: "Keynote-speaker om Gen Z, ledelse og tilhørighet. Har holdt foredrag for alt fra statlige etater til internasjonale konferanser. Kjent for å kombinere humor, ærlighet og innsikt som faktisk sitter.",
+    description: "Keynote-speaker om Gen Z, ledelse og tilhørighet. Kjent for å kombinere humor, ærlighet og innsikt som faktisk sitter.",
   },
   {
     emoji: "🚀",
     title: "Gründer",
-    description: "Founder og daglig leder av StudyBuddies — en EdTech-plattform for høyere utdanning. Bygget fordi ingen verktøy fantes da hun selv slet. Nå hjelper den tusenvis av studenter med å finne fellesskap og faglig støtte.",
+    description: "Founder og daglig leder av StudyBuddies — en EdTech-plattform som hjelper studenter finne fellesskap og faglig støtte.",
   },
   {
     emoji: "📖",
     title: "Forfatter",
-    description: "Skrev «Hvordan forstå og lede Gen Z» (2025) — en praktisk guide til ledere som vil forstå, motivere og beholde unge talent. Ikke teori, men verktøy.",
+    description: "Skrev «Hvordan forstå og lede Gen Z» — en praktisk guide til ledere som vil forstå og beholde unge talent.",
   },
 ];
 
@@ -37,7 +38,6 @@ const education = [
 ];
 
 const mediaLogos = ["NRK", "TV 2", "Dagsnytt 18", "Dagsavisen", "kode24", "forskning.no", "Khrono"];
-
 const stages = ["SHE Conference", "Katapult Future Fest", "NRK Debatten", "Arendalsuka", "WOW-konferansen"];
 
 const fadeUp = {
@@ -47,47 +47,48 @@ const fadeUp = {
   transition: { duration: 0.5, ease: "easeOut" as const },
 };
 
+/* Dyslexia-friendly text classes */
+const bodyText = "text-[#1a1a1a] text-lg leading-[1.85] text-left";
+const sectionPad = "py-20 md:py-28";
+const textMax = "max-w-[680px]";
+
 export default function OmPage() {
   return (
     <>
       <Navbar />
       <main>
-        {/* Hero */}
-        <section className="pt-28 pb-20 bg-brand-lavender">
+        {/* 1. HERO — Image + intro */}
+        <section className="pt-28 pb-16 md:pb-20 bg-white">
           <div className="max-w-[1080px] mx-auto px-6">
-            <motion.div {...fadeUp} className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
-              <div>
-                <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-4">
+            <motion.div {...fadeUp} className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center">
+              {/* Text — left on desktop */}
+              <div className="order-2 md:order-1">
+                <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-5">
                   Om Ina
                 </p>
-                <h1 className="text-4xl md:text-5xl text-foreground leading-[1.1] mb-6">
-                  Hun får folk til å komme i gang
+                <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] text-[#0f0f0f] leading-[1.15] mb-6 font-bold">
+                  Ina Cabanillas Hansen
                 </h1>
-                <p className="text-brand-muted text-lg leading-relaxed mb-8">
-                  Gründer, foredragsholder og stemme for en generasjon. Ina gir folk verktøy til å mestre og tro på seg selv — ikke bare inspirasjon, men konkrete neste steg.
+                <p className={`${bodyText} mb-6`}>
+                  Gen Z-er, foredragsholder, forfatter og gründer. En av Skandinavias mest etterspurte stemmer innen generasjon Z, ledelse og tilhørighet.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <Link
-                    href="/#kontakt"
-                    className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-brand-indigo text-white font-semibold text-sm hover:bg-brand-indigo/90 transition-all hover:-translate-y-0.5"
-                  >
-                    Book meg som foredragsholder
-                  </Link>
-                  <Link
-                    href="/#kontakt"
-                    className="inline-flex items-center justify-center px-8 py-3.5 rounded-full border border-brand-indigo text-brand-indigo font-semibold text-sm hover:bg-brand-indigo/5 transition-all"
-                  >
-                    Ta kontakt
-                  </Link>
+                <div className="flex flex-wrap gap-2">
+                  {["HER Awards 2024", "LinkedIn Topp 200", "BI + UC Berkeley", "Gründer, StudyBuddies"].map((tag) => (
+                    <span key={tag} className="text-sm font-medium text-brand-indigo bg-brand-lavender border border-brand-indigo/15 rounded-full px-4 py-1.5">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
-              <div>
+
+              {/* Image — right on desktop, top on mobile */}
+              <div className="order-1 md:order-2">
                 <Image
                   src="/images/ina-om-meg.jpg"
                   alt="Ina Cabanillas Hansen"
                   width={520}
                   height={650}
-                  className="w-full rounded-2xl object-cover object-top shadow-lg"
+                  className="w-full aspect-[3/4] rounded-2xl object-cover object-[center_20%] shadow-lg"
                   priority
                 />
               </div>
@@ -95,87 +96,154 @@ export default function OmPage() {
           </div>
         </section>
 
-        {/* Min historie */}
-        <section className="py-24 bg-white">
-          <div className="max-w-[1080px] mx-auto px-6">
-            <motion.div {...fadeUp} className="max-w-3xl mx-auto">
-              <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
-                Min historie
-              </p>
-              <h2 className="text-3xl md:text-4xl text-foreground leading-snug mb-8">
-                Hvorfor jeg gjør dette
-              </h2>
-              <div className="space-y-5 text-brand-muted leading-relaxed text-lg">
-                <p>
-                  Jeg er ikke et produkt av systemet. Jeg er et resultat av å ha overlevd det — og valgt å gjøre det bedre for andre.
-                </p>
-                <p>
-                  Da jeg startet på universitetet, slet jeg. Jeg fant ikke noen å skrive oppgave med, ble ensom og var nær ved å droppe ut. Jeg spurte professoren om hjelp. Han hadde ingen verktøy. Jeg ville ikke at andre skulle ha den opplevelsen — så jeg bygde løsningen selv. Det ble starten på StudyBuddies.
-                </p>
-                <p>
-                  Det som reddet meg var tilhørighet: en venn fra Nord-Norge som flyttet ned, og idretten som ga meg en arena for mestring. De erfaringene er grunnlaget for alt jeg bygger og sier.
-                </p>
-                <p>
-                  Underveis oppdaget jeg noe viktig: de samme utfordringene jeg opplevde som student, opplever Gen Z i arbeidslivet. Mangel på tilhørighet, forståelse og gode ledere som ser oss. Så jeg begynte å holde foredrag om det — og snur narrativet fra «Gen Z er problemet» til «ledere er problemet».
-                </p>
-                <p>
-                  I dag gir jeg ledere, HR-ansvarlige og organisasjoner konkrete verktøy for å forstå hva unge faktisk trenger for å trives og bli. Ikke bare inspirasjon — men innsikt og spark bak.
-                </p>
+        {/* 2. HISTORIEN — Én sammenhengende lesebolk */}
+        <section className={`${sectionPad} bg-white`}>
+          <div className={`${textMax} mx-auto px-6`}>
+            <motion.div {...fadeUp}>
+              {/* Heading */}
+              <div className="mb-10">
+                <div className="w-10 h-1 bg-brand-indigo rounded-full mb-5" />
+                <h2 className="text-[28px] md:text-[32px] font-bold text-[#0f0f0f]">
+                  Hvorfor startet jeg?
+                </h2>
               </div>
 
-              {/* Sitat */}
-              <div className="mt-10 border-l-4 border-brand-indigo pl-6">
-                <p className="text-foreground text-xl font-serif italic leading-relaxed">
-                  «Hun fikk meg til å føle at jeg hørte til, og at jeg kunne få til det jeg ville.»
+              <div className="space-y-7">
+                {/* Åpning */}
+                <p className="text-[#1a1a1a] text-xl md:text-2xl font-serif leading-[1.6]">
+                  Hun pakket laptopen sin, gikk gjennom et bibliotek med 200 mennesker, og møtte blikkene til ingen.
                 </p>
-                <p className="text-brand-muted text-sm mt-3">
-                  — Slik vil Ina bli husket.
+                <p className={bodyText}>
+                  Det var da jeg skjønte det.
+                </p>
+
+                {/* Story */}
+                <p className={bodyText}>
+                  Første studieår. Nord-Norge til Oslo. Pandemi.
+                </p>
+                <p className={bodyText}>
+                  Vi hadde gruppeeksamener ment for fem — jeg tok dem alle alene, hjemme, i stillhet. Dag etter dag. Nær ved å gi opp.
+                </p>
+                <p className={bodyText}>
+                  Det som reddet meg var ikke et program. Det var én venninne som sa: «Jeg tar eksamen med deg.»
+                </p>
+                <p className={bodyText}>
+                  Men bestevenninnen min hadde ikke den venninnen.
+                </p>
+                <p className={`${bodyText} text-brand-indigo font-semibold`}>
+                  Hun droppet ut av drømmestudiet sitt.
+                </p>
+                <p className={bodyText}>
+                  Ikke fordi hun ikke var god nok. Ikke fordi hun ikke ville nok. Fordi hun ikke hadde noen.
+                </p>
+                <p className={bodyText}>
+                  Det øyeblikket satt seg. Ikke som inspirasjon, men som sinne. Stille, bestemt sinne over at dette bare er sånn det er — og ingen gjør noe med det.
+                </p>
+                <p className={bodyText}>
+                  Jeg søkte etter løsninger. Fant ingen. Så jeg bestemte meg for å bygge en selv.
+                </p>
+                <p className={bodyText}>
+                  Jeg har elsket å stå på scene siden jeg var liten. Jeg visste bare ikke hva jeg skulle si — før nå.
+                </p>
+
+                {/* Innsikt */}
+                <p className={bodyText}>
+                  Det jeg fant gjennom forskning og arbeid endret måten jeg ser på alt:
+                </p>
+                <p className="text-[#1a1a1a] text-xl md:text-2xl font-serif leading-[1.5]">
+                  Problemene vi sliter med på studiet er de nøyaktig samme vi møter i arbeidslivet.
+                </p>
+                <p className={bodyText}>
+                  Ensomheten. Mangelen på tilhørighet. Følelsen av å ikke høre til.
+                </p>
+                <p className="text-[#0f0f0f] text-xl font-semibold leading-[1.4]">
+                  Det er ikke et Gen Z-problem. Det er et lederproblem.
+                </p>
+
+                {/* Utfordring */}
+                <p className={bodyText}>
+                  Tenk på din første arbeidsdag. Hvordan ble du møtt?
+                </p>
+                <p className={bodyText}>
+                  Nå tenk på hvordan unge ansatte blir møtt i din organisasjon — i dag.
+                </p>
+                <p className="text-brand-indigo text-xl md:text-2xl font-serif font-semibold leading-[1.3]">
+                  Er du fornøyd med det svaret?
                 </p>
               </div>
             </motion.div>
           </div>
         </section>
 
-        {/* Bilder fra scenen */}
-        <section className="py-16 bg-brand-lavender">
+        {/* Spacer mellom historie og bio */}
+        <div className="h-4 bg-brand-lavender" />
+
+        {/* 6. BIO */}
+        <section className={`${sectionPad} bg-brand-lavender`}>
           <div className="max-w-[1080px] mx-auto px-6">
-            <motion.div {...fadeUp} className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              <Image
-                src="/images/ina-ganeshfoto.jpg"
-                alt="Ina Cabanillas Hansen"
-                width={400}
-                height={500}
-                className="w-full h-64 md:h-80 rounded-2xl object-cover object-top"
-              />
-              <Image
-                src="/images/ina-mo-i-rana.jpg"
-                alt="Ina Cabanillas Hansen"
-                width={400}
-                height={500}
-                className="w-full h-64 md:h-80 rounded-2xl object-cover object-top"
-              />
-              <Image
-                src="/images/ina-wow.jpg"
-                alt="Ina Cabanillas Hansen"
-                width={400}
-                height={500}
-                className="w-full h-64 md:h-80 rounded-2xl object-cover object-top col-span-2 md:col-span-1"
-              />
+            <motion.div {...fadeUp} className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-start">
+              <div>
+                <Image
+                  src="/images/ina-mo-i-rana.jpg"
+                  alt="Ina Cabanillas Hansen foredrag"
+                  width={520}
+                  height={650}
+                  className="w-full rounded-2xl object-cover object-top shadow-lg"
+                />
+              </div>
+              <div className="flex flex-col gap-7">
+                <h2 className="text-3xl md:text-4xl text-[#0f0f0f] leading-snug font-bold">
+                  En Gen Z-forsker som studerer sin egen generasjon
+                </h2>
+                <div className="space-y-6">
+                  <p className={bodyText}>
+                    Ina Cabanillas Hansen er en av Skandinavias mest etterspurte stemmer innen Gen Z, ledelse og tilhørighet i arbeidslivet.
+                  </p>
+                  <p className={bodyText}>
+                    Hun er keynote-speaker, forfatter og gründer av StudyBuddies — en plattform som hjelper studenter bygge fellesskap og faglig støttenettverk.
+                  </p>
+                  <p className={bodyText}>
+                    Med bakgrunn i HR og ledelse fra BI Handelshøyskolen og UC Berkeley kombinerer hun forskning, egne erfaringer som Gen Z-profesjonell og et skarpt blikk på generasjonsskillet.
+                  </p>
+                  <p className={bodyText}>
+                    Hun gir ledere praktiske verktøy de kan bruke med én gang.
+                  </p>
+                  <p className={bodyText}>
+                    Kåret til «Årets unge inspirasjon» i Norge. En av LinkedIns globale Topp 200 Voices innen inkludering og mangfold.
+                  </p>
+                  <p className={bodyText}>
+                    Har holdt foredrag for alt fra statlige etater til internasjonale innovasjonsfestivaler.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-3 mt-3">
+                  {[
+                    { value: "6/6", label: "Talerlisten" },
+                    { value: "BI + UC Berkeley", label: "HR og ledelse" },
+                    { value: "Topp 200", label: "LinkedIn Voices" },
+                    { value: "StudyBuddies", label: "Gründer" },
+                  ].map((h) => (
+                    <div key={h.label} className="bg-white rounded-xl px-5 py-4">
+                      <p className="font-bold text-brand-indigo text-base">{h.value}</p>
+                      <p className="text-[#555] text-sm mt-0.5">{h.label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </motion.div>
           </div>
         </section>
 
-        {/* Kjerneverdier */}
-        <section className="py-24 bg-brand-lavender">
+        {/* Verdier */}
+        <section className={`${sectionPad} bg-white`}>
           <div className="max-w-[1080px] mx-auto px-6">
             <motion.div {...fadeUp}>
               <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
                 Verdier
               </p>
-              <h2 className="text-3xl md:text-4xl text-foreground mb-12">
+              <h2 className="text-3xl md:text-4xl text-[#0f0f0f] font-bold mb-12">
                 Det jeg står for
               </h2>
-
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {[
                   { title: "Tilhørighet", desc: "Folk skal føle at de hører til. Alltid." },
@@ -184,12 +252,9 @@ export default function OmPage() {
                   { title: "Mestring", desc: "Gi folk verktøy — ikke bare inspirasjon." },
                   { title: "Ærlighet", desc: "Ingen fluff. Ingen fasade." },
                 ].map((v) => (
-                  <div
-                    key={v.title}
-                    className="bg-white rounded-2xl p-7 flex flex-col gap-3 hover:shadow-lg transition-shadow duration-300"
-                  >
-                    <h3 className="font-serif text-xl text-foreground">{v.title}</h3>
-                    <p className="text-brand-muted text-sm leading-relaxed">{v.desc}</p>
+                  <div key={v.title} className="bg-brand-lavender rounded-2xl p-7 flex flex-col gap-3 hover:shadow-lg transition-shadow duration-300">
+                    <h3 className="font-serif text-xl text-[#0f0f0f] font-semibold">{v.title}</h3>
+                    <p className="text-[#444] text-base leading-[1.7]">{v.desc}</p>
                   </div>
                 ))}
               </div>
@@ -197,26 +262,22 @@ export default function OmPage() {
           </div>
         </section>
 
-        {/* Mine roller */}
-        <section className="py-24 bg-white">
+        {/* Roller */}
+        <section className={`${sectionPad} bg-brand-lavender`}>
           <div className="max-w-[1080px] mx-auto px-6">
             <motion.div {...fadeUp}>
               <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
                 Mine roller
               </p>
-              <h2 className="text-3xl md:text-4xl text-foreground mb-12">
+              <h2 className="text-3xl md:text-4xl text-[#0f0f0f] font-bold mb-12">
                 Tre roller, ett mål
               </h2>
-
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {roles.map((role) => (
-                  <div
-                    key={role.title}
-                    className="bg-brand-lavender rounded-2xl p-7 flex flex-col gap-4 hover:shadow-lg transition-shadow duration-300"
-                  >
+                  <div key={role.title} className="bg-white rounded-2xl p-7 flex flex-col gap-4 hover:shadow-lg transition-shadow duration-300">
                     <span className="text-3xl">{role.emoji}</span>
-                    <h3 className="font-serif text-xl text-foreground">{role.title}</h3>
-                    <p className="text-brand-muted text-sm leading-relaxed">{role.description}</p>
+                    <h3 className="font-serif text-xl text-[#0f0f0f] font-semibold">{role.title}</h3>
+                    <p className="text-[#444] text-base leading-[1.7]">{role.description}</p>
                   </div>
                 ))}
               </div>
@@ -225,43 +286,42 @@ export default function OmPage() {
         </section>
 
         {/* Utdanning + Awards */}
-        <section className="py-24 bg-brand-lavender">
+        <section className={`${sectionPad} bg-white`}>
           <div className="max-w-[1080px] mx-auto px-6">
             <motion.div {...fadeUp} className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
               <div>
                 <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
                   Utdanning
                 </p>
-                <h2 className="text-3xl md:text-4xl text-foreground leading-snug mb-8">
+                <h2 className="text-3xl md:text-4xl text-[#0f0f0f] font-bold leading-snug mb-8">
                   Akademisk bakgrunn
                 </h2>
                 <div className="space-y-4">
                   {education.map((edu) => (
-                    <div key={edu.school} className="bg-white rounded-xl px-6 py-4">
-                      <p className="font-semibold text-foreground">{edu.school}</p>
-                      <p className="text-brand-muted text-sm mt-1">{edu.field}</p>
+                    <div key={edu.school} className="bg-brand-lavender rounded-xl px-6 py-5">
+                      <p className="font-semibold text-[#0f0f0f] text-base">{edu.school}</p>
+                      <p className="text-[#555] text-sm mt-1">{edu.field}</p>
                     </div>
                   ))}
                 </div>
               </div>
-
               <div>
                 <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
                   Priser og anerkjennelse
                 </p>
-                <h2 className="text-3xl md:text-4xl text-foreground leading-snug mb-8">
+                <h2 className="text-3xl md:text-4xl text-[#0f0f0f] font-bold leading-snug mb-8">
                   Awards
                 </h2>
                 <div className="space-y-4">
                   {awards.map((award) => (
-                    <div key={award.name} className="bg-white rounded-xl px-6 py-4">
+                    <div key={award.name} className="bg-brand-lavender rounded-xl px-6 py-5">
                       <div className="flex items-center gap-2">
                         <span className="text-xs font-semibold text-brand-indigo bg-brand-light-lav px-2.5 py-0.5 rounded-full">
                           {award.year}
                         </span>
-                        <p className="font-semibold text-foreground">{award.name}</p>
+                        <p className="font-semibold text-[#0f0f0f] text-base">{award.name}</p>
                       </div>
-                      <p className="text-brand-muted text-sm mt-1">{award.org}</p>
+                      <p className="text-[#555] text-sm mt-1">{award.org}</p>
                     </div>
                   ))}
                 </div>
@@ -271,39 +331,31 @@ export default function OmPage() {
         </section>
 
         {/* Sett og hørt */}
-        <section className="py-24 bg-white">
+        <section className={`${sectionPad} bg-brand-lavender`}>
           <div className="max-w-[1080px] mx-auto px-6">
             <motion.div {...fadeUp} className="text-center">
               <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
                 Sett og hørt
               </p>
-              <h2 className="text-3xl md:text-4xl text-foreground mb-4">
+              <h2 className="text-3xl md:text-4xl text-[#0f0f0f] font-bold mb-4">
                 Omtalt i media
               </h2>
-              <p className="text-brand-muted mb-10 max-w-lg mx-auto">
+              <p className="text-[#555] text-lg mb-10 max-w-lg mx-auto leading-[1.7]">
                 Ina er en av Norges mest siterte stemmer på Gen Z og ledelse.
               </p>
-
               <div className="flex flex-wrap justify-center gap-4 mb-12">
                 {mediaLogos.map((name) => (
-                  <span
-                    key={name}
-                    className="text-sm font-semibold text-brand-muted/60 border border-brand-border rounded-full px-5 py-2 bg-brand-lavender"
-                  >
+                  <span key={name} className="text-sm font-semibold text-[#666] border border-brand-border rounded-full px-5 py-2 bg-white">
                     {name}
                   </span>
                 ))}
               </div>
-
-              <p className="text-xs font-semibold tracking-widest uppercase text-brand-muted mb-4">
+              <p className="text-xs font-semibold tracking-widest uppercase text-[#888] mb-4">
                 Scener
               </p>
               <div className="flex flex-wrap justify-center gap-3">
                 {stages.map((name) => (
-                  <span
-                    key={name}
-                    className="text-sm font-medium text-brand-indigo bg-brand-lavender border border-brand-indigo/20 rounded-full px-5 py-2"
-                  >
+                  <span key={name} className="text-sm font-medium text-brand-indigo bg-white border border-brand-indigo/20 rounded-full px-5 py-2">
                     {name}
                   </span>
                 ))}
@@ -312,53 +364,29 @@ export default function OmPage() {
           </div>
         </section>
 
-        {/* Fra scenen */}
-        <section className="py-24 bg-brand-lavender">
-          <div className="max-w-[1080px] mx-auto px-6">
-            <motion.div {...fadeUp} className="max-w-3xl mx-auto text-center">
+        {/* CTA — Foredrag */}
+        <section className="py-24 md:py-32 bg-white">
+          <div className={`${textMax} mx-auto px-6`}>
+            <motion.div {...fadeUp} className="text-center">
               <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
-                Fra scenen
+                Foredrag
               </p>
-              <h2 className="text-3xl md:text-4xl text-foreground mb-8">
-                Hva folk sier etter et foredrag
+              <h2 className="text-3xl md:text-4xl text-[#0f0f0f] font-bold mb-6">
+                Book Ina som foredragsholder
               </h2>
-              <div className="space-y-6">
-                <blockquote className="border-l-4 border-brand-indigo pl-6 text-left">
-                  <p className="text-foreground text-lg font-serif italic leading-relaxed">
-                    «Hun gir deg innsikt og spark bak.»
-                  </p>
-                </blockquote>
-                <blockquote className="border-l-4 border-brand-indigo pl-6 text-left">
-                  <p className="text-foreground text-lg font-serif italic leading-relaxed">
-                    «Hun endrer måten du tenker på folk — og får deg til å gjøre noe med det.»
-                  </p>
-                </blockquote>
-              </div>
-              <p className="text-brand-muted text-base mt-8 leading-relaxed">
-                Folk sier at foredraget fikk dem til å reflektere. At hun er litt voksen sjef med humor. Hun utfordrer og underholder på samme tid.
+              <p className="text-[#444] text-lg leading-[1.8] mb-4">
+                Et foredrag med Ina varer ca. 45 minutter og tilpasses alltid ditt publikum, din bransje og dine utfordringer.
               </p>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Final CTA */}
-        <section className="py-20 bg-brand-dark">
-          <div className="max-w-[1080px] mx-auto px-6">
-            <motion.div {...fadeUp} className="flex flex-col items-center gap-7 text-center">
-              <p className="text-xs font-semibold tracking-widest uppercase text-white/50">
-                Neste steg
+              <p className="text-[#444] text-lg leading-[1.8] mb-6">
+                Hun kombinerer forskning, personlige erfaringer og humor — og gir salen noe de kan bruke med én gang.
               </p>
-              <h2 className="text-2xl md:text-3xl text-white leading-snug max-w-lg">
-                Klar for et foredrag som faktisk sitter?
-              </h2>
-              <p className="text-white/60 max-w-md">
-                Ta kontakt for å diskutere et foredrag tilpasset din organisasjon, konferanse eller fagdag.
+              <p className="text-[#0f0f0f] font-bold text-xl mb-10">
+                Pris fra 35 000 kr + mva
               </p>
-              <Link
-                href="/#kontakt"
-                className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-white text-brand-indigo font-semibold text-sm hover:bg-white/90 transition-all hover:-translate-y-0.5"
-              >
-                Book meg som foredragsholder
+              <Link href="/#kontakt">
+                <ShimmerButton className="mx-auto">
+                  Book foredrag →
+                </ShimmerButton>
               </Link>
             </motion.div>
           </div>

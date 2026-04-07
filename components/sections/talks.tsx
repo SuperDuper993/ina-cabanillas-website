@@ -18,9 +18,12 @@ export function TalksSection() {
             <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
               Foredrag
             </p>
-            <h2 className="text-3xl md:text-4xl text-foreground">
+            <h2 className="text-3xl md:text-4xl text-foreground mb-3">
               Foredragstemaer
             </h2>
+            <p className="text-brand-muted leading-relaxed">
+              Hvert foredrag varer ca. 45 minutter og tilpasses din bransje, ditt publikum og dine utfordringer.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

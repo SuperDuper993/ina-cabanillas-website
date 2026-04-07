@@ -25,6 +25,10 @@ export const metadata: Metadata = {
   authors: [{ name: "Ina Cabanillas Hansen" }],
   alternates: {
     canonical: 'https://www.inacabanillas.com',
+    languages: {
+      'en': 'https://www.inacabanillas.com/en',
+      'nb-NO': 'https://www.inacabanillas.com',
+    },
   },
   openGraph: {
     title: "Ina Cabanillas | Foredragsholder om Gen Z og tilhørighet",

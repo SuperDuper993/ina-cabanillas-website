@@ -20,7 +20,11 @@ const personSchema = {
   alumniOf: [
     {
       "@type": "EducationalOrganization",
-      name: "UC Berkeley",
+      name: "BI Handelshøyskolen",
+    },
+    {
+      "@type": "EducationalOrganization",
+      name: "UC Berkeley Haas School of Business",
     },
   ],
   affiliation: {

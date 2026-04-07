@@ -1,18 +1,6 @@
 'use client';
 import React from "react";
-import { AnimatedGroup } from "@/components/ui/animated-group";
-
-const transitionVariants = {
-  item: {
-    hidden: { opacity: 0, filter: "blur(12px)", y: 12 },
-    visible: {
-      opacity: 1,
-      filter: "blur(0px)",
-      y: 0,
-      transition: { type: "spring" as const, bounce: 0.3, duration: 1.5 },
-    },
-  },
-};
+import { motion } from "framer-motion";
 
 export interface ClientLogo {
   name: string;
@@ -26,47 +14,31 @@ interface CustomersSectionProps {
 
 export function CustomersSection({ clients = [], className }: CustomersSectionProps) {
   return (
-    <section className={`bg-white py-16 md:py-24 ${className ?? ""}`}>
+    <section className={`bg-white py-16 md:py-20 ${className ?? ""}`}>
       <div className="mx-auto max-w-5xl px-6">
-        <p className="text-center text-sm font-semibold uppercase tracking-widest text-gray-400 mb-10">
-          De stoler på meg
+        <p className="text-center text-sm font-semibold uppercase tracking-widest text-brand-muted mb-10">
+          Har holdt foredrag for
         </p>
-        <AnimatedGroup
-          variants={{
-            container: {
-              visible: {
-                transition: { staggerChildren: 0.05, delayChildren: 0.3 },
-              },
-            },
-            ...transitionVariants,
-          }}
-          className="flex flex-wrap items-center justify-center gap-x-10 gap-y-8"
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="flex flex-wrap items-center justify-center gap-3"
         >
-          {clients.map((client, index) => {
-            const src = `https://logo.clearbit.com/${client.domain}`;
-            return (
-              <div
-                key={index}
-                className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
-              >
-                <img
-                  src={src}
-                  alt={`${client.name} logo`}
-                  height={48}
-                  style={{ height: "48px", width: "auto", objectFit: "contain" }}
-                  onError={(e) => {
-                    const target = e.currentTarget;
-                    target.style.display = "none";
-                    const badge = document.createElement("span");
-                    badge.textContent = client.name;
-                    badge.className = "text-xs font-medium text-gray-500 border border-gray-200 rounded px-2 py-1";
-                    target.parentNode?.appendChild(badge);
-                  }}
-                />
-              </div>
-            );
-          })}
-        </AnimatedGroup>
+          {clients.map((client, index) => (
+            <motion.span
+              key={index}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: index * 0.03 }}
+              className="text-sm font-semibold text-brand-muted/60 border border-brand-border rounded-full px-5 py-2.5 bg-brand-lavender hover:bg-brand-light-lav hover:text-brand-indigo transition-all duration-300 cursor-default"
+            >
+              {client.name}
+            </motion.span>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

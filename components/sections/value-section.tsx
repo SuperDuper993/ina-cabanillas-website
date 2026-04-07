@@ -18,7 +18,7 @@ const values = [
         <path d="M7 10L9 12L13 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
-    text: "Innsikt i hva Gen Z faktisk trenger for å bli",
+    text: "Innsikt i hva Gen Z faktisk trenger for å bli værende",
   },
   {
     icon: (

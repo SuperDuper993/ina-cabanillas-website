@@ -96,7 +96,7 @@ export function ContactSection() {
                     <path d="M2 8H14M8 2C6 4 5.5 6 5.5 8C5.5 10 6 12 8 14M8 2C10 4 10.5 6 10.5 8C10.5 10 10 12 8 14" stroke="currentColor" strokeWidth="1.2" className="text-brand-indigo" />
                   </svg>
                 </div>
-                <span className="text-foreground text-sm">Norsk & English</span>
+                <span className="text-foreground text-sm">Norsk og engelsk</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-lg bg-brand-lavender flex items-center justify-center flex-shrink-0">
