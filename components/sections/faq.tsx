@@ -1,96 +1,124 @@
 'use client';
 
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const FAQ_ITEMS = [
   {
     question: "Hvem er Ina Cabanillas?",
     answer:
-      "Ina Cabanillas Hansen er en Gen Z-foredragsholder, forfatter og gründer fra Bodø, Norge. Hun hjelper ledere og organisasjoner med å forstå, tiltrekke og beholde unge talenter. Hun er grunnlegger av StudyBuddies og forfatter av boken «Hvordan forstå og lede Gen Z» (2025). Hun har vunnet prisen Årets unge inspirasjon (2025) og er kåret til LinkedIn Topp 200 Voices innen inkludering og mangfold.",
+      "Ina er Gen Z-er, foredragsholder, forfatter og gründer av StudyBuddies. Hun hjelper ledere med å skape tilhørighet for unge ansatte — med innsikt fra innsiden av generasjonen. Vinner av HER Awards 2024 og en av LinkedIns Topp 200 Voices globalt.",
   },
   {
-    question: "Hva snakker Ina Cabanillas om?",
+    question: "Hva snakker Ina om?",
     answer:
-      "Ina holder foredrag om Gen Z og ledelse, rekruttering og medarbeiderretensjon, tilhørighet i en teknologidrevet verden — og skreddersydde temaer tilpasset organisasjonens utfordringer. Hennes mest bookede foredrag er «Gen Z og ledelse: Hva unge faktisk trenger for å bli», der hun gir konkrete verktøy til ledere basert på forskning og egne erfaringer.",
+      "Ina snakker om tilhørighet — hvorfor unge slutter, hva de faktisk trenger fra ledere, og konkrete grep du kan ta for å beholde dem. Foredraget tilpasses din bransje og ditt publikum.",
   },
   {
-    question: "Hvordan booker man Ina som foredragsholder?",
+    question: "Hvem passer foredraget for?",
     answer:
-      "Fyll ut kontaktskjemaet lenger opp på denne siden, eller ta kontakt via LinkedIn. Ina holder foredrag på konferanser, fagdager, kick-offer, ledermøter og HR-arrangementer — på norsk og engelsk.",
+      "HR-ledere, mellomledere, konferanser og fagdager. Særlig virksomheter som ansetter unge eller ønsker å beholde dem.",
+  },
+  {
+    question: "Hva koster et foredrag?",
+    answer:
+      "Pris fra 35 000 kr + mva. Tilpasses format, varighet og publikum. Ta kontakt for et uforpliktende tilbud.",
+  },
+  {
+    question: "Hvordan booker man Ina?",
+    answer:
+      "Fyll ut kontaktskjemaet på denne siden, så svarer jeg innen 24 timer.",
   },
   {
     question: "Hva er StudyBuddies?",
     answer:
-      "StudyBuddies er en startup grunnlagt av Ina som kobler sammen studenter for å motvirke ensomhet og frafall i høyere utdanning. Plattformen hjelper studenter med å finne medstudenter å samarbeide med, noe som forbedrer både faglige resultater og psykisk helse.",
+      "StudyBuddies er en AI-drevet EdTech-plattform for universiteter og høyskoler som hjelper studenter med å samarbeide bedre og gjennomføre studiene. Lær mer på studybuddies.no",
   },
   {
-    question: "Hvilke priser har Ina Cabanillas vunnet?",
+    question: "Where can I book Ina as a speaker?",
     answer:
-      "Årets unge inspirasjon (2025) — nasjonal pris for inkludering, fellesskap og studenters psykiske helse. LinkedIn Topp 200 Voices (2025) — globalt anerkjent innen inkludering og mangfold. Nominert til Årets kvinnelige gründer i Vestland (2024).",
-  },
-  {
-    question: "Where can I book Ina Cabanillas as a speaker?",
-    answer:
-      "Ina Cabanillas Hansen is available for speaking engagements worldwide and speaks in both Norwegian and English on Gen Z leadership, workplace belonging, recruitment, and AI in the workplace. Use the contact form on this page or connect on LinkedIn at linkedin.com/in/ina-cabanillas. She has spoken at Arendalsuka, SHE Conference, Katapult Future Fest, WOW-konferansen, and many corporate events.",
+      "You can reach out via the contact form on this page. Ina speaks in both Norwegian and English and usually responds within 24 hours.",
   },
 ];
 
-function FaqItem({ question, answer }: { question: string; answer: string }) {
-  const [open, setOpen] = useState(false);
-
+function FaqItem({ question, answer, isOpen, onToggle }: { question: string; answer: string; isOpen: boolean; onToggle: () => void }) {
   return (
-    <div className="border-b border-white/10 last:border-b-0">
+    <div className="border-b border-brand-border last:border-b-0">
       <button
         className="w-full flex items-center justify-between gap-4 py-5 text-left group"
-        onClick={() => setOpen((prev) => !prev)}
-        aria-expanded={open}
+        onClick={onToggle}
+        aria-expanded={isOpen}
       >
-        <span className="text-white/90 text-sm md:text-base font-medium group-hover:text-white transition-colors">
+        <span className="text-foreground text-base font-medium group-hover:text-brand-indigo transition-colors">
           {question}
         </span>
         <span
-          className="flex-shrink-0 w-6 h-6 rounded-full border border-white/20 flex items-center justify-center text-white/50 group-hover:border-brand-indigo group-hover:text-brand-indigo transition-colors"
+          className="flex-shrink-0 text-brand-muted group-hover:text-brand-indigo transition-all"
           aria-hidden="true"
         >
           <svg
-            width="10"
-            height="10"
-            viewBox="0 0 10 10"
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
             fill="none"
-            className={`transition-transform duration-200 ${open ? 'rotate-45' : ''}`}
+            className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
           >
-            <path d="M5 1V9M1 5H9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </span>
       </button>
-      {open && (
-        <div className="pb-5 pr-10">
-          <p className="text-white/55 text-sm leading-relaxed">{answer}</p>
-        </div>
-      )}
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
+            <div className="pb-5 pr-10">
+              <p className="text-brand-muted text-sm leading-relaxed">{answer}</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
 
 export function FaqSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
   return (
-    <section id="faq" className="py-24 bg-brand-dark">
+    <section id="faq" className="py-24 bg-brand-lavender">
       <div className="max-w-[1080px] mx-auto px-6">
-        <div className="max-w-2xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="max-w-2xl mx-auto"
+        >
           <div className="mb-10 text-center">
             <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
               Ofte stilte spørsmål
             </p>
-            <h2 className="text-3xl md:text-4xl text-white leading-snug">
+            <h2 className="text-3xl md:text-4xl text-foreground leading-snug">
               Spørsmål og svar
             </h2>
           </div>
-          <div>
-            {FAQ_ITEMS.map((item) => (
-              <FaqItem key={item.question} question={item.question} answer={item.answer} />
+          <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm">
+            {FAQ_ITEMS.map((item, i) => (
+              <FaqItem
+                key={item.question}
+                question={item.question}
+                answer={item.answer}
+                isOpen={openIndex === i}
+                onToggle={() => setOpenIndex(openIndex === i ? null : i)}
+              />
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

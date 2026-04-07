@@ -1,3 +1,6 @@
+'use client';
+import { motion } from 'framer-motion';
+
 const forYou = [
   "Leder team med unge ansatte",
   "Planlegger konferanse om fremtidens arbeidsliv",
@@ -33,50 +36,57 @@ export function WhoSection() {
   return (
     <section className="py-24 bg-brand-lavender">
       <div className="max-w-[1080px] mx-auto px-6">
-        <div className="mb-12 text-center max-w-2xl mx-auto">
-          <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
-            Hvem er dette for?
-          </p>
-          <h2 className="text-3xl md:text-4xl text-foreground leading-snug">
-            Er dette for deg?
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-          {/* For you */}
-          <div className="bg-white rounded-2xl p-8 flex flex-col gap-5">
-            <div>
-              <span className="inline-block text-xs font-semibold tracking-wide uppercase px-3 py-1 rounded-full bg-brand-light-lav text-brand-indigo mb-3">
-                Dette passer for deg som
-              </span>
-            </div>
-            <ul className="flex flex-col gap-3">
-              {forYou.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <CheckIcon />
-                  <span className="text-foreground text-sm leading-relaxed">{item}</span>
-                </li>
-              ))}
-            </ul>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <div className="mb-12 text-center max-w-2xl mx-auto">
+            <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
+              Hvem er dette for?
+            </p>
+            <h2 className="text-3xl md:text-4xl text-foreground leading-snug">
+              Er dette for deg?
+            </h2>
           </div>
 
-          {/* Not for you */}
-          <div className="bg-white/60 rounded-2xl p-8 flex flex-col gap-5 border border-brand-border">
-            <div>
-              <span className="inline-block text-xs font-semibold tracking-wide uppercase px-3 py-1 rounded-full bg-brand-border text-brand-muted mb-3">
-                Dette er IKKE for deg som
-              </span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            {/* For you */}
+            <div className="bg-white rounded-2xl p-8 flex flex-col gap-5">
+              <div>
+                <span className="inline-block text-xs font-semibold tracking-wide uppercase px-3 py-1 rounded-full bg-brand-light-lav text-brand-indigo mb-3">
+                  Dette passer for deg som
+                </span>
+              </div>
+              <ul className="flex flex-col gap-3">
+                {forYou.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <CheckIcon />
+                    <span className="text-foreground text-sm leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <ul className="flex flex-col gap-3">
-              {notForYou.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <CrossIcon />
-                  <span className="text-brand-muted text-sm leading-relaxed">{item}</span>
-                </li>
-              ))}
-            </ul>
+
+            {/* Not for you */}
+            <div className="bg-white/60 rounded-2xl p-8 flex flex-col gap-5 border border-brand-border">
+              <div>
+                <span className="inline-block text-xs font-semibold tracking-wide uppercase px-3 py-1 rounded-full bg-brand-border text-brand-muted mb-3">
+                  Dette er IKKE for deg som
+                </span>
+              </div>
+              <ul className="flex flex-col gap-3">
+                {notForYou.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <CrossIcon />
+                    <span className="text-brand-muted text-sm leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

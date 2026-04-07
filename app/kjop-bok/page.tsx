@@ -30,7 +30,7 @@ export default function KjopBokPage() {
               />
             </div>
             <div>
-              <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">Debutbok</p>
+              <p className="text-xs font-semibold tracking-widest uppercase text-white/50 mb-3">Debutbok</p>
               <h1 className="font-serif text-3xl md:text-4xl text-white mb-4 leading-tight">
                 Hvordan forstå og lede Gen Z
               </h1>

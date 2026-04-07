@@ -1,3 +1,5 @@
+'use client';
+import { motion } from 'framer-motion';
 import Link from "next/link";
 
 const values = [
@@ -42,16 +44,22 @@ export function ValueSection() {
   return (
     <section className="py-24 bg-white">
       <div className="max-w-[1080px] mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-start"
+        >
           <div>
             <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
               Hva du får
             </p>
             <h2 className="text-3xl md:text-4xl text-foreground leading-snug mb-5">
-              Hva du får
+              Ikke bare inspirasjon — verktøy
             </h2>
             <p className="text-brand-muted leading-relaxed">
-              Et foredrag med Ina er ikke generisk inspirasjon — det er forskning, ærlighet og verktøy pakket inn i en time som faktisk sitter.
+              Et foredrag med Ina gir lederne dine noe de kan bruke med én gang. Forskning, ærlighet og konkrete grep for å skape tilhørighet — pakket inn i en time som faktisk sitter.
             </p>
           </div>
 
@@ -77,7 +85,7 @@ export function ValueSection() {
               </Link>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

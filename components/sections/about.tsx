@@ -1,3 +1,5 @@
+'use client';
+import { motion } from 'framer-motion';
 import Image from "next/image";
 import { IMAGES } from "@/lib/constants";
 
@@ -12,7 +14,13 @@ export function AboutSection() {
   return (
     <section id="om" className="py-24 bg-white">
       <div className="max-w-[1080px] mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center"
+        >
           <div className="order-2 md:order-1">
             <Image
               src={IMAGES.bookPortrait}
@@ -57,7 +65,7 @@ export function AboutSection() {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

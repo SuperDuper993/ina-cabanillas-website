@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { NeonButton } from "@/components/ui/neon-button";
 
 const occasions = [
@@ -47,9 +48,15 @@ export function ContactSectionEN() {
   return (
     <section id="contact" className="py-24 bg-brand-dark">
       <div className="max-w-[1080px] mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20"
+        >
           <div className="flex flex-col gap-6">
-            <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo">
+            <p className="text-xs font-semibold tracking-widest uppercase text-white/50">
               Contact
             </p>
             <h2 className="text-3xl md:text-4xl text-white leading-snug">
@@ -84,7 +91,7 @@ export function ContactSectionEN() {
                 <span className="text-4xl">✓</span>
                 <h3 className="text-xl text-white font-serif">Thank you for your enquiry!</h3>
                 <p className="text-white/50 text-sm">I&apos;ll get back to you as soon as possible.</p>
-                <button onClick={() => setStatus('idle')} className="text-brand-indigo text-sm mt-4 hover:underline">
+                <button onClick={() => setStatus('idle')} className="text-white/70 text-sm mt-4 hover:underline hover:text-white">
                   Send another enquiry
                 </button>
               </div>
@@ -152,7 +159,7 @@ export function ContactSectionEN() {
               </form>
             )}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

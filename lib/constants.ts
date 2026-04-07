@@ -4,7 +4,7 @@ export const BRAND = {
   name: "Ina Cabanillas",
   fullName: "Ina Cabanillas Hansen",
   tagline: "Tilhørighet er konkurransefortrinnet dere mangler",
-  description: "Gen Z-er, foredragsholder, forfatter og gründer. Jeg hjelper ledere med å forstå, beholde og utvikle unge talent gjennom innsikt, forskning og teknologi.",
+  description: "Unge slutter ikke fordi jobben er kjedelig. De slutter fordi de ikke hører til. Jeg hjelper ledere med å skape tilhørighet for Gen Z — gjennom innsikt, ærlighet og verktøy som faktisk virker.",
   email: "cabanillas1401@gmail.com", // NOT displayed publicly
   vippsLink: "https://betal.vipps.no/12ku4f",
   linkedin: "https://www.linkedin.com/in/ina-cabanillas/",
@@ -29,9 +29,24 @@ export const IMAGES = {
   video: "https://video.wixstatic.com/video/c4e6cf_13471530aee84b40bc2283246ad67926/file",
 } as const;
 
-export const LOGOS = [
-  "NAV", "Politiet", "Falck", "UiO", "WOW-konferansen",
-  "SHE Conference", "Arendalsuka", "Lastebilforbundet", "Debatten NRK", "BISO",
+export const CLIENTS = [
+  { name: "NAV", domain: "nav.no" },
+  { name: "Politiet", domain: "politiet.no" },
+  { name: "NRK", domain: "nrk.no" },
+  { name: "TV 2", domain: "tv2.no" },
+  { name: "UiO", domain: "uio.no" },
+  { name: "Arendalsuka", domain: "arendalsuka.no" },
+  { name: "SHE Conference", domain: "sheconference.no" },
+  { name: "Katapult Future Fest", domain: "katapultfuturefest.com" },
+  { name: "BISO", domain: "biso.no" },
+  { name: "HVL", domain: "hvl.no" },
+  { name: "Høyskolen Kristiania", domain: "kristiania.no" },
+  { name: "Negotia", domain: "negotia.no" },
+  { name: "Norsk Sykepleierforbund", domain: "nsf.no" },
+  { name: "Mosjøen Næringsforening", domain: "mosjoennf.no" },
+  { name: "Norges Lastebileier-Forbund", domain: "lastebil.no" },
+  { name: "Eiendomsmegler 1", domain: "eiendomsmegler1.no" },
+  { name: "Rana Gruber", domain: "ranagruber.no" },
 ];
 
 export const STATS = [

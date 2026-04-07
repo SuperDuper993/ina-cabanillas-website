@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 
 const navLinksNO = [
-  { href: "/#om", label: "Om Ina" },
+  { href: "/om", label: "Om Ina" },
   { href: "/#foredrag", label: "Foredrag" },
   { href: "/presse", label: "I media" },
   { href: "/kjop-bok", label: "Boken" },

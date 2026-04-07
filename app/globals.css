@@ -93,3 +93,11 @@ h1, h2, h3, h4 {
   background: var(--brand-indigo);
   color: white;
 }
+
+/* Shimmer button — diagonal light sweep
+   Total cycle: 3.5s. Sweep takes ~34% (1.2s), rest is pause. */
+@keyframes shimmer-sweep {
+  0% { left: -50%; }
+  34% { left: 150%; }
+  100% { left: 150%; }
+}

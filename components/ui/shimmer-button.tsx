@@ -15,12 +15,22 @@ export default function ShimmerButton({
   return (
     <button
       className={cn(
-        'inline-flex h-12 animate-[shimmer2_2s_infinite_linear] items-center justify-center rounded-full border border-brand-indigo/20 bg-[linear-gradient(110deg,#2B1FA0,45%,#4a3fd4,55%,#2B1FA0)] bg-[length:200%_100%] px-8 font-semibold text-white transition-all hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-indigo',
+        'relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full bg-brand-indigo px-8 font-semibold text-white transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_8px_24px_rgba(43,31,160,0.35)] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-indigo',
         className
       )}
       {...props}
     >
-      {children}
+      {/* Diagonal shimmer overlay */}
+      <span
+        className="pointer-events-none absolute top-0 h-full w-1/2 -skew-x-12"
+        style={{
+          background:
+            'linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)',
+          animation: 'shimmer-sweep 3.5s ease-in-out infinite',
+        }}
+        aria-hidden="true"
+      />
+      <span className="relative z-10">{children}</span>
     </button>
   )
 }

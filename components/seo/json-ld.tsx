@@ -68,7 +68,6 @@ const personSchema = {
     BRAND.linkedin,
     BRAND.instagram,
     BRAND.tiktok,
-    BRAND.talerlisten,
   ],
 };
 

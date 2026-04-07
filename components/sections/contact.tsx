@@ -1,7 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { NeonButton } from "@/components/ui/neon-button";
+import { motion, AnimatePresence } from 'framer-motion';
+import Link from "next/link";
+import { BRAND } from "@/lib/constants";
+import ShimmerButton from "@/components/ui/shimmer-button";
 
 const occasions = [
   "",
@@ -54,87 +57,204 @@ export function ContactSection() {
   }
 
   return (
-    <section id="kontakt" className="py-24 bg-brand-dark">
+    <section id="kontakt" className="py-24 bg-white">
       <div className="max-w-[1080px] mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20"
+        >
+          {/* Left column — info + trust signals */}
           <div className="flex flex-col gap-6">
             <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo">
               Kontakt
             </p>
-            <h2 className="text-3xl md:text-4xl text-white leading-snug">
-              Book Ina
+            <h2 className="text-3xl md:text-4xl text-foreground leading-snug">
+              Book Ina som foredragsholder
             </h2>
-            <p className="text-white/60 leading-relaxed">
-              Planlegger du en konferanse, fagdag eller kick-off? Ta kontakt for å diskutere hvordan Ina kan bidra til ditt arrangement.
+            <p className="text-brand-muted leading-relaxed text-base">
+              Planlegger du konferanse, fagdag eller kick-off? Ta kontakt, så finner vi et format som passer.
             </p>
-            <p className="text-white/35 text-sm">
-              Pris tilpasses format, publikum og omfang.
-            </p>
-            <div className="flex flex-col gap-3 mt-2">
+
+            {/* Trust signals */}
+            <div className="flex flex-col gap-4 mt-2">
               <div className="flex items-center gap-3">
-                <span className="text-sm">📍</span>
-                <span className="text-white/50 text-sm">Oslo, Norge</span>
+                <div className="w-9 h-9 rounded-lg bg-brand-lavender flex items-center justify-center flex-shrink-0">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M8 1C4.69 1 2 3.69 2 7C2 11.5 8 15 8 15C8 15 14 11.5 14 7C14 3.69 11.31 1 8 1Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" className="text-brand-indigo" />
+                    <circle cx="8" cy="7" r="2" stroke="currentColor" strokeWidth="1.5" className="text-brand-indigo" />
+                  </svg>
+                </div>
+                <span className="text-foreground text-sm">Oslo, Norge (tilgjengelig nasjonalt)</span>
               </div>
               <div className="flex items-center gap-3">
-                <span className="text-sm">🌐</span>
-                <span className="text-white/50 text-sm">Norsk & English</span>
+                <div className="w-9 h-9 rounded-lg bg-brand-lavender flex items-center justify-center flex-shrink-0">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <circle cx="8" cy="8" r="6" stroke="currentColor" strokeWidth="1.5" className="text-brand-indigo" />
+                    <path d="M2 8H14M8 2C6 4 5.5 6 5.5 8C5.5 10 6 12 8 14M8 2C10 4 10.5 6 10.5 8C10.5 10 10 12 8 14" stroke="currentColor" strokeWidth="1.2" className="text-brand-indigo" />
+                  </svg>
+                </div>
+                <span className="text-foreground text-sm">Norsk & English</span>
               </div>
-              <a href="https://www.linkedin.com/in/ina-cabanillas/" target="_blank" rel="noopener" className="text-white/40 text-sm hover:text-white/70 transition-colors mt-2">
-                LinkedIn →
-              </a>
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-lg bg-brand-lavender flex items-center justify-center flex-shrink-0">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M8 14C11.31 14 14 11.31 14 8C14 4.69 11.31 2 8 2C4.69 2 2 4.69 2 8C2 11.31 4.69 14 8 14Z" stroke="currentColor" strokeWidth="1.5" className="text-brand-indigo" />
+                    <path d="M8 5V8L10 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" className="text-brand-indigo" />
+                  </svg>
+                </div>
+                <span className="text-foreground text-sm">Svar innen 24 timer</span>
+              </div>
             </div>
+
+            {/* LinkedIn button */}
+            <Link
+              href={BRAND.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-brand-border text-brand-indigo font-medium text-sm hover:bg-brand-lavender transition-colors self-start mt-2"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              Finn meg på LinkedIn
+            </Link>
+
+            {/* Pricing */}
+            <div className="bg-brand-lavender rounded-xl px-6 py-4 mt-2">
+              <p className="font-semibold text-foreground text-base">Pris fra 35 000 kr + mva</p>
+              <p className="text-brand-muted text-sm mt-1">
+                Tilpasses format, varighet og publikum. Ta kontakt for et uforpliktende tilbud.
+              </p>
+            </div>
+
           </div>
 
+          {/* Right column — form */}
           <div>
             {status === 'success' ? (
-              <div className="flex flex-col items-center justify-center h-full gap-4 text-center">
-                <span className="text-4xl">✓</span>
-                <h3 className="text-xl text-white font-serif">Takk for henvendelsen!</h3>
-                <p className="text-white/50 text-sm">Jeg svarer så snart jeg kan.</p>
+              <div className="flex flex-col items-center justify-center h-full gap-4 text-center bg-brand-lavender rounded-2xl p-10">
+                <div className="w-14 h-14 rounded-full bg-brand-indigo/10 flex items-center justify-center">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M5 13L9 17L19 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-brand-indigo" />
+                  </svg>
+                </div>
+                <h3 className="text-xl text-foreground font-serif">Takk for henvendelsen!</h3>
+                <p className="text-brand-muted text-sm">Jeg svarer så snart jeg kan, vanligvis innen 24 timer.</p>
                 <button onClick={() => setStatus('idle')} className="text-brand-indigo text-sm mt-4 hover:underline">
                   Send en ny henvendelse
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                <div className="grid grid-cols-2 gap-4">
+              <form onSubmit={handleSubmit} className="flex flex-col gap-5 bg-brand-lavender rounded-2xl p-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-white/40 text-xs font-medium mb-1.5" htmlFor="navn">Navn *</label>
-                    <input id="navn" name="navn" type="text" required className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/25 text-sm focus:outline-none focus:border-brand-indigo/50 transition-colors" />
+                    <label className="block text-foreground text-sm font-medium mb-2" htmlFor="navn">
+                      Navn <span className="text-brand-indigo">*</span>
+                    </label>
+                    <input
+                      id="navn"
+                      name="navn"
+                      type="text"
+                      required
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-brand-border text-foreground text-base placeholder-brand-muted/40 focus:outline-none focus:border-brand-indigo focus:ring-1 focus:ring-brand-indigo/20 transition-all"
+                      placeholder="Ditt navn"
+                    />
                   </div>
                   <div>
-                    <label className="block text-white/40 text-xs font-medium mb-1.5" htmlFor="epost">E-post *</label>
-                    <input id="epost" name="epost" type="email" required className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/25 text-sm focus:outline-none focus:border-brand-indigo/50 transition-colors" />
+                    <label className="block text-foreground text-sm font-medium mb-2" htmlFor="epost">
+                      E-post <span className="text-brand-indigo">*</span>
+                    </label>
+                    <input
+                      id="epost"
+                      name="epost"
+                      type="email"
+                      required
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-brand-border text-foreground text-base placeholder-brand-muted/40 focus:outline-none focus:border-brand-indigo focus:ring-1 focus:ring-brand-indigo/20 transition-all"
+                      placeholder="din@epost.no"
+                    />
                   </div>
                 </div>
+
                 <div>
-                  <label className="block text-white/40 text-xs font-medium mb-1.5" htmlFor="organisasjon">Organisasjon</label>
-                  <input id="organisasjon" name="organisasjon" type="text" className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/25 text-sm focus:outline-none focus:border-brand-indigo/50 transition-colors" />
+                  <label className="block text-foreground text-sm font-medium mb-2" htmlFor="organisasjon">
+                    Organisasjon <span className="text-brand-muted text-xs font-normal">(valgfritt)</span>
+                  </label>
+                  <input
+                    id="organisasjon"
+                    name="organisasjon"
+                    type="text"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-brand-border text-foreground text-base placeholder-brand-muted/40 focus:outline-none focus:border-brand-indigo focus:ring-1 focus:ring-brand-indigo/20 transition-all"
+                    placeholder="Bedrift eller organisasjon"
+                  />
                 </div>
+
                 <div>
-                  <label className="block text-white/40 text-xs font-medium mb-1.5" htmlFor="anledning">Anledning</label>
-                  <select id="anledning" name="anledning" className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-brand-indigo/50 transition-colors appearance-none">
-                    {occasions.map((o) => (
-                      <option key={o} value={o} className="bg-brand-dark">{o || 'Velg type arrangement...'}</option>
-                    ))}
-                  </select>
+                  <label className="block text-foreground text-sm font-medium mb-2" htmlFor="anledning">
+                    Anledning <span className="text-brand-muted text-xs font-normal">(valgfritt)</span>
+                  </label>
+                  <div className="relative">
+                    <select
+                      id="anledning"
+                      name="anledning"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-brand-border text-foreground text-base focus:outline-none focus:border-brand-indigo focus:ring-1 focus:ring-brand-indigo/20 transition-all appearance-none pr-10"
+                    >
+                      {occasions.map((o) => (
+                        <option key={o} value={o}>{o || 'Velg type arrangement...'}</option>
+                      ))}
+                    </select>
+                    <svg className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-brand-muted" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
                 </div>
+
                 <div>
-                  <label className="block text-white/40 text-xs font-medium mb-1.5" htmlFor="melding">Melding</label>
-                  <textarea id="melding" name="melding" rows={3} placeholder="Fortell gjerne litt om arrangementet..." className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/25 text-sm focus:outline-none focus:border-brand-indigo/50 transition-colors resize-none" />
+                  <label className="block text-foreground text-sm font-medium mb-2" htmlFor="melding">
+                    Melding
+                  </label>
+                  <textarea
+                    id="melding"
+                    name="melding"
+                    rows={4}
+                    placeholder="Fortell gjerne litt om arrangementet, dato og publikum..."
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-brand-border text-foreground text-base placeholder-brand-muted/40 focus:outline-none focus:border-brand-indigo focus:ring-1 focus:ring-brand-indigo/20 transition-all resize-none"
+                  />
                 </div>
-                <label className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" checked={newsletter} onChange={(e) => setNewsletter(e.target.checked)} className="rounded border-white/20 bg-white/5 text-brand-indigo" />
-                  <span className="text-white/40 text-xs">Hold meg oppdatert om nye foredrag og artikler</span>
+
+                <label className="flex items-start gap-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={newsletter}
+                    onChange={(e) => setNewsletter(e.target.checked)}
+                    className="mt-0.5 rounded border-brand-border bg-white text-brand-indigo focus:ring-brand-indigo/20"
+                  />
+                  <span className="text-brand-muted text-sm leading-relaxed">
+                    Hold meg oppdatert om nye foredrag og artikler
+                  </span>
                 </label>
-                <NeonButton variant="solid" size="lg" type="submit" className="w-full mt-2" disabled={status === 'sending'}>
-                  {status === 'sending' ? 'Sender...' : status === 'error' ? 'Prøv igjen' : 'Send henvendelse'}
-                </NeonButton>
-                {status === 'error' && <p className="text-red-400 text-xs text-center">Noe gikk galt. Prøv igjen.</p>}
+
+                <ShimmerButton
+                  type="submit"
+                  disabled={status === 'sending'}
+                  className="w-full mt-1 h-auto py-4 text-base disabled:opacity-60 disabled:hover:scale-100"
+                >
+                  {status === 'sending' ? 'Sender...' : status === 'error' ? 'Prøv igjen \u2192' : 'Send henvendelse \u2192'}
+                </ShimmerButton>
+
+                {status === 'error' && (
+                  <p className="text-red-600 text-xs text-center">Noe gikk galt. Prøv igjen.</p>
+                )}
+
+                <p className="text-brand-muted/60 text-xs text-center">
+                  Ingen spam. Kun relevant innhold.
+                </p>
               </form>
             )}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
