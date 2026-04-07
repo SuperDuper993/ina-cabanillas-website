@@ -69,8 +69,11 @@ export default function OmPage() {
                 <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] text-[#0f0f0f] leading-[1.15] mb-6 font-bold">
                   Ina Cabanillas Hansen
                 </h1>
-                <p className={`${bodyText} mb-6`}>
+                <p className={`${bodyText} mb-3`}>
                   Gen Z-er, foredragsholder, forfatter og gründer. En av Skandinavias mest etterspurte stemmer innen generasjon Z, ledelse og tilhørighet.
+                </p>
+                <p className="text-[#666] text-base leading-[1.7] mb-6">
+                  En spicy nordlending med bein i nesa — med røtter fra Nord-Norge og Spania.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {["HER Awards 2024", "LinkedIn Topp 200", "BI + UC Berkeley", "Gründer, StudyBuddies"].map((tag) => (
@@ -193,20 +196,20 @@ export default function OmPage() {
               </div>
               <div className="flex flex-col gap-7">
                 <h2 className="text-3xl md:text-4xl text-[#0f0f0f] leading-snug font-bold">
-                  En Gen Z-forsker som studerer sin egen generasjon
+                  En Gen Z-er som forsker på sin egen generasjon
                 </h2>
                 <div className="space-y-6">
                   <p className={bodyText}>
-                    Ina Cabanillas Hansen er en av Skandinavias mest etterspurte stemmer innen Gen Z, ledelse og tilhørighet i arbeidslivet.
+                    Jeg er en av Skandinavias mest etterspurte stemmer innen Gen Z, ledelse og tilhørighet i arbeidslivet.
                   </p>
                   <p className={bodyText}>
-                    Hun er keynote-speaker, forfatter og gründer av StudyBuddies — en plattform som hjelper studenter bygge fellesskap og faglig støttenettverk.
+                    Jeg er keynote-speaker, forfatter og gründer av StudyBuddies — en plattform som hjelper studenter bygge fellesskap og faglig støttenettverk.
                   </p>
                   <p className={bodyText}>
-                    Med bakgrunn i HR og ledelse fra BI Handelshøyskolen og UC Berkeley kombinerer hun forskning, egne erfaringer som Gen Z-profesjonell og et skarpt blikk på generasjonsskillet.
+                    Med bakgrunn i HR og ledelse fra BI Handelshøyskolen og UC Berkeley kombinerer jeg forskning, egne erfaringer som Gen Z-profesjonell og et skarpt blikk på generasjonsskillet.
                   </p>
                   <p className={bodyText}>
-                    Hun gir ledere praktiske verktøy de kan bruke med én gang.
+                    Jeg gir ledere praktiske verktøy de kan bruke med én gang.
                   </p>
                   <p className={bodyText}>
                     Kåret til «Årets unge inspirasjon» i Norge. En av LinkedIns globale Topp 200 Voices innen inkludering og mangfold.
@@ -246,15 +249,17 @@ export default function OmPage() {
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {[
-                  { title: "Tilhørighet", desc: "Folk skal føle at de hører til. Alltid." },
-                  { title: "Inkludering", desc: "Aktivt, ikke performativt. Nysgjerrighet på mennesket foran deg." },
-                  { title: "Mot", desc: "Si det som er sant, selv om det er ubehagelig." },
-                  { title: "Mestring", desc: "Gi folk verktøy — ikke bare inspirasjon." },
-                  { title: "Ærlighet", desc: "Ingen fluff. Ingen fasade." },
+                  { title: "Tilhørighet", desc: "Folk skal føle at de hører til. Alltid.", traits: "Grunnlaget for alt jeg gjør" },
+                  { title: "Mot", desc: "Si det som er sant, selv om det er ubehagelig.", traits: "Uredd · Rettferdig · Sta" },
+                  { title: "Kreativitet", desc: "Se muligheter der andre ser begrensninger.", traits: "Nysgjerrig · Konseptuell · Oppfinnsom" },
+                  { title: "Inkludering", desc: "Aktivt nysgjerrig på andre — og hva som skal til for dem.", traits: "Omsorgsfull · Raus · Lyttende" },
+                  { title: "Autentisitet", desc: "Være sitt ekte selv. Tørre å skille seg ut.", traits: "Ærlig · Tydelig · Sårbar" },
+                  { title: "Mestring", desc: "Gi folk verktøy — ikke bare inspirasjon.", traits: "Konkret · Praktisk · Handlingsrettet" },
                 ].map((v) => (
                   <div key={v.title} className="bg-brand-lavender rounded-2xl p-7 flex flex-col gap-3 hover:shadow-lg transition-shadow duration-300">
                     <h3 className="font-serif text-xl text-[#0f0f0f] font-semibold">{v.title}</h3>
                     <p className="text-[#444] text-base leading-[1.7]">{v.desc}</p>
+                    <p className="text-brand-indigo/60 text-xs font-medium tracking-wide">{v.traits}</p>
                   </div>
                 ))}
               </div>
@@ -341,7 +346,7 @@ export default function OmPage() {
                 Omtalt i media
               </h2>
               <p className="text-[#555] text-lg mb-10 max-w-lg mx-auto leading-[1.7]">
-                Ina er en av Norges mest siterte stemmer på Gen Z og ledelse.
+                Jeg er en av Norges mest siterte stemmer på Gen Z og ledelse.
               </p>
               <div className="flex flex-wrap justify-center gap-4 mb-12">
                 {mediaLogos.map((name) => (
@@ -372,13 +377,13 @@ export default function OmPage() {
                 Foredrag
               </p>
               <h2 className="text-3xl md:text-4xl text-[#0f0f0f] font-bold mb-6">
-                Book Ina som foredragsholder
+                Book meg som foredragsholder
               </h2>
               <p className="text-[#444] text-lg leading-[1.8] mb-4">
-                Et foredrag med Ina varer ca. 45 minutter og tilpasses alltid ditt publikum, din bransje og dine utfordringer.
+                Foredraget varer ca. 45 minutter og tilpasses alltid ditt publikum, din bransje og dine utfordringer.
               </p>
               <p className="text-[#444] text-lg leading-[1.8] mb-6">
-                Hun kombinerer forskning, personlige erfaringer og humor — og gir salen noe de kan bruke med én gang.
+                Jeg kombinerer forskning, personlige erfaringer og humor — og gir salen noe de kan bruke med én gang.
               </p>
               <p className="text-[#0f0f0f] font-bold text-xl mb-10">
                 Pris fra 35 000 kr + mva

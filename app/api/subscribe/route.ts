@@ -1,50 +1,43 @@
 import { NextResponse } from 'next/server';
-import { Resend } from 'resend';
 import { supabase } from '@/lib/supabase';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const BEEHIIV_API_KEY = process.env.BEEHIIV_API_KEY;
+const BEEHIIV_PUBLICATION_ID = process.env.BEEHIIV_PUBLICATION_ID;
 
-async function sendWelcomeEmail(email: string, name: string | null) {
-  if (!process.env.RESEND_API_KEY) {
-    console.warn('RESEND_API_KEY not set — skipping welcome email');
+async function addToBeehiiv(email: string, name: string | null, source: string) {
+  if (!BEEHIIV_API_KEY || !BEEHIIV_PUBLICATION_ID) {
+    console.warn('Beehiiv not configured — skipping');
     return;
   }
 
   try {
-    const { error } = await resend.emails.send({
-      from: 'Ina Cabanillas <onboarding@resend.dev>',
-      to: [email],
-      subject: 'Velkommen — du er med på listen 👋',
-      html: `
-        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 560px; margin: auto; padding: 40px 24px;">
-          <h2 style="font-size: 22px; font-weight: 700; color: #1E1A3A; margin-bottom: 16px;">
-            Hei${name ? ` ${name}` : ''}! 👋
-          </h2>
-          <p style="font-size: 16px; line-height: 1.6; color: #333;">
-            Takk for at du meldte deg på. Du vil nå motta innsikt om Gen Z, ledelse og fremtidens arbeidsliv — direkte i innboksen din.
-          </p>
-          <p style="font-size: 16px; line-height: 1.6; color: #333;">
-            Ingen spam. Bare innhold som faktisk er verdt å lese.
-          </p>
-          <a href="https://www.linkedin.com/in/ina-cabanillas"
-             style="display: inline-block; margin-top: 24px; padding: 12px 24px; background: #2B1FA0; color: #fff; text-decoration: none; border-radius: 999px; font-weight: 600; font-size: 14px;">
-            Følg meg på LinkedIn →
-          </a>
-          <p style="margin-top: 40px; font-size: 13px; color: #999;">
-            Du kan melde deg av når som helst. Bare svar på denne e-posten.
-          </p>
-          <p style="font-size: 14px; color: #555; margin-top: 8px;">– Ina</p>
-        </div>
-      `,
-    });
+    const res = await fetch(
+      `https://api.beehiiv.com/v2/publications/${BEEHIIV_PUBLICATION_ID}/subscriptions`,
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${BEEHIIV_API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          reactivate_existing: true,
+          send_welcome_email: true,
+          utm_source: source || 'website',
+          utm_medium: 'organic',
+          ...(name ? { custom_fields: [{ name: 'First Name', value: name }] } : {}),
+        }),
+      }
+    );
 
-    if (error) {
-      console.error('Resend send error:', error);
+    if (!res.ok) {
+      const err = await res.text();
+      console.error('Beehiiv error:', res.status, err);
     }
   } catch (err) {
-    console.error('Failed to send welcome email:', err);
+    console.error('Failed to add to Beehiiv:', err);
   }
 }
 
@@ -69,6 +62,7 @@ export async function POST(request: Request) {
       );
     }
 
+    // Save to Supabase (local backup)
     const { error } = await supabase.from('newsletter_subscribers').insert({
       email: trimmedEmail,
       name: name?.trim() || null,
@@ -77,6 +71,8 @@ export async function POST(request: Request) {
 
     if (error) {
       if (error.code === '23505') {
+        // Already exists in Supabase — still try Beehiiv (might be new there)
+        addToBeehiiv(trimmedEmail, name?.trim() || null, source || 'website');
         return NextResponse.json({
           success: true,
           message: 'Du er allerede påmeldt! Sjekk innboksen din.',
@@ -90,8 +86,8 @@ export async function POST(request: Request) {
       );
     }
 
-    // Send welcome email (non-blocking)
-    sendWelcomeEmail(trimmedEmail, name?.trim() || null);
+    // Add to Beehiiv (sends welcome email automatically)
+    addToBeehiiv(trimmedEmail, name?.trim() || null, source || 'website');
 
     return NextResponse.json({
       success: true,

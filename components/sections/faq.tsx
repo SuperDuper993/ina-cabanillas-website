@@ -27,7 +27,7 @@ const FAQ_ITEMS = [
   {
     question: "Hvordan booker man Ina?",
     answer:
-      "Fyll ut kontaktskjemaet på denne siden, så svarer jeg innen 24 timer.",
+      "Fyll ut kontaktskjemaet på denne siden, så svarer Ina innen 24 timer.",
   },
   {
     question: "Hva er StudyBuddies?",
