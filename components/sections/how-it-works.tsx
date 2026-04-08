@@ -22,7 +22,7 @@ const steps = [
 
 export function HowItWorksSection() {
   return (
-    <section className="py-20 bg-white border-y border-brand-border">
+    <section id="slik-fungerer-det" className="py-20 bg-white border-y border-brand-border">
       <div className="max-w-[1080px] mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

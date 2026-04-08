@@ -9,6 +9,7 @@ import { TestimonialsSection } from "@/components/sections/testimonials";
 import { FaqSection } from "@/components/sections/faq";
 import { ContactSection } from "@/components/sections/contact";
 import { MobileStickyBar } from "@/components/ui/mobile-sticky-bar";
+import { ForedragNav } from "@/components/ui/foredrag-nav";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -42,6 +43,9 @@ export default function ForedragPage() {
             </a>
           </div>
         </section>
+
+        {/* Sticky seksjonsnavigasjon */}
+        <ForedragNav />
 
         {/* Video — tidlig, bygg troverdighet */}
         <VideoSection />

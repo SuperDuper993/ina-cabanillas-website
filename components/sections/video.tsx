@@ -4,7 +4,7 @@ import { IMAGES } from "@/lib/constants";
 
 export function VideoSection() {
   return (
-    <section className="py-24 bg-white">
+    <section id="video" className="py-24 bg-white">
       <div className="max-w-[1080px] mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
