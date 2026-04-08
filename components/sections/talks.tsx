@@ -22,7 +22,7 @@ export function TalksSection() {
               Foredragstemaer
             </h2>
             <p className="text-brand-muted leading-relaxed">
-              Hvert foredrag varer ca. 45 minutter og tilpasses din bransje, ditt publikum og dine utfordringer. Passer for alt fra teamsamling til 2000 deltakere.
+              Hvert foredrag varer ca. 45 minutter og tilpasses din bransje, ditt publikum og dine utfordringer. Passer for alt fra 10 til 2000 deltakere.
             </p>
           </div>
 
