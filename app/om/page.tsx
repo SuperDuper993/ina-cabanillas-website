@@ -127,6 +127,8 @@ export default function OmPage() {
                     </span>
                   ))}
                 </div>
+
+                <InlineStory bodyText={bodyText} />
               </div>
 
               {/* Image — right on desktop, top on mobile */}
@@ -196,8 +198,6 @@ export default function OmPage() {
                   ))}
                 </div>
 
-                {/* Inline story */}
-                <InlineStory bodyText={bodyText} />
               </div>
             </motion.div>
           </div>
