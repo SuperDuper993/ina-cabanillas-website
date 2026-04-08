@@ -56,7 +56,7 @@ const textMax = "max-w-[680px]";
 function StorySection({ bodyText }: { bodyText: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <section className="bg-brand-lavender py-8">
+    <section className="bg-white py-10">
       <div className="max-w-[680px] mx-auto px-6">
         <div className="bg-white rounded-2xl overflow-hidden shadow-sm">
 
@@ -165,12 +165,6 @@ export default function OmPage() {
           </div>
         </section>
 
-        {/* 2. HISTORIEN — kollapsbar */}
-        <StorySection bodyText={bodyText} />
-
-        {/* Spacer mellom historie og bio */}
-        <div className="h-4 bg-brand-lavender" />
-
         {/* 6. BIO */}
         <section className={`${sectionPad} bg-brand-lavender`}>
           <div className="max-w-[1080px] mx-auto px-6">
@@ -226,6 +220,9 @@ export default function OmPage() {
             </motion.div>
           </div>
         </section>
+
+        {/* HISTORIEN — kollapsbar, etter bio */}
+        <StorySection bodyText={bodyText} />
 
         {/* Verdier */}
         <section className={`${sectionPad} bg-white`}>
