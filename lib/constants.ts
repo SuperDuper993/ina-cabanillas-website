@@ -176,6 +176,7 @@ export const RECOMMENDATIONS_LINKEDIN = [
 
 export const PRESS_ARTICLES = [
   { title: "Generasjon Z — ord har makt, bruk dem riktig", source: "Dagens Næringsliv", date: "Mar 2026", url: "https://www.dn.no/innlegg/generasjon-z/arbeidsliv/utdannelse/generasjon-z-ord-har-makt-bruk-dem-riktig/2-1-1798458" },
+  { title: "Inas råd: Ung og sulten? Søk jobb når du har tre års erfaring", source: "Drammens Tidende", date: "Apr 2026", url: "https://www.dt.no/inas-rad-ung-og-sulten-sok-jobb-nar-du-har-tre-ars-erfaring/o/5-57-2798759" },
   { title: "Alder har ingen ting å si", source: "HR-magasinet", date: "Mar 2026", url: "https://www.hrmagasinet.no/gen-z-ina-cabanillas-hansen/alder-har-ingen-ting-a-si/1514220" },
   { title: "Går ut mot DNB- og NHO-topper: Jeg søkte 560 jobber", source: "kode24", date: "Jan 2026", url: "https://www.kode24.no/artikkel/gar-ut-mot-dnb-og-nho-topper-jeg-sokte-560-jobber/252821" },
   { title: "Kaller KI til rekruttering et «HR-mareritt»", source: "kode24", date: "Des 2025", url: "https://www.kode24.no/artikkel/kaller-ki-til-rekruttering-et-hr-mareritt/252094" },
