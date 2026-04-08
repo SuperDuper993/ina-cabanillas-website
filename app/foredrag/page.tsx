@@ -34,14 +34,19 @@ export default function ForedragPage() {
               Innsikt som setter i gang en samtale i organisasjonen din
             </h1>
             <p className="text-brand-muted text-lg leading-relaxed max-w-xl mb-8">
-              Tilpasses privat og offentlig sektor. Passer for alt fra 10 til 2000 deltakere. Norsk og engelsk.
+              Tilpasses privat og offentlig sektor — tech, industri og kommunal virksomhet. Passer for kick-off med 15 eller konferanse med 2000. Norsk og engelsk.
             </p>
-            <a
-              href="#kontakt"
-              className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-brand-indigo text-white font-semibold text-sm hover:bg-brand-indigo/90 transition-all hover:-translate-y-0.5"
-            >
-              Book foredrag →
-            </a>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+              <a
+                href="#kontakt"
+                className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-brand-indigo text-white font-semibold text-sm hover:bg-brand-indigo/90 transition-all hover:-translate-y-0.5"
+              >
+                Book foredrag →
+              </a>
+              <a href="tel:+4797424957" className="text-sm text-brand-muted hover:text-brand-indigo transition-colors">
+                Foretrekker du å ringe? <span className="font-medium text-foreground">+47 974 24 957</span>
+              </a>
+            </div>
 
             {/* Visuell innholdsfortegnelse */}
             <ForedragMenu />

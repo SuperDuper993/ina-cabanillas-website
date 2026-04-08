@@ -131,9 +131,12 @@ export function ContactSection() {
 
             {/* Pricing */}
             <div className="bg-brand-lavender rounded-xl px-6 py-4 mt-2">
-              <p className="font-semibold text-foreground text-base">Pris fra 35 000 kr + mva</p>
+              <p className="font-semibold text-foreground text-base">Foredrag fra 35 000 kr + mva</p>
               <p className="text-brand-muted text-base mt-1">
-                Inkluderer for- og ettermøte, tilpasset presentasjon og 45 min foredrag. Ta kontakt for et uforpliktende tilbud.
+                Veiledende pris for 45 min foredrag inkl. for- og ettermøte. Reise kommer i tillegg. Workshop prises etter behov.
+              </p>
+              <p className="text-brand-muted text-base mt-1">
+                Alt tilpasses — ta kontakt for et uforpliktende tilbud.
               </p>
             </div>
 
