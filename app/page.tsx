@@ -10,12 +10,10 @@ import { CtaBand } from "@/components/sections/cta-band";
 import { NewsletterSection } from "@/components/sections/newsletter-section";
 import { ContactSection } from "@/components/sections/contact";
 import { MobileStickyBar } from "@/components/ui/mobile-sticky-bar";
-import { JsonLd } from "@/components/seo/json-ld";
 
 export default function Home() {
   return (
     <>
-      <JsonLd />
       <Navbar />
       <main>
         {/* 1. Hero */}
