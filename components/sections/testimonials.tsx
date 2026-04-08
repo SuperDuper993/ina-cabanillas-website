@@ -48,10 +48,10 @@ export function TestimonialsSection() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-16">
-            {TESTIMONIALS_TALERLISTEN.map((t) => (
+            {TESTIMONIALS_TALERLISTEN.map((t, i) => (
               <div
                 key={`${t.author}-${t.date}`}
-                className="border border-brand-border rounded-2xl p-6 flex flex-col gap-4 bg-white"
+                className={`border border-brand-border rounded-2xl p-6 flex flex-col gap-4 bg-white${i >= 2 ? ' hidden md:flex' : ''}`}
               >
                 <StarRow count={t.stars} />
                 <p className="text-foreground text-base leading-relaxed">
@@ -73,10 +73,10 @@ export function TestimonialsSection() {
               LinkedIn-anbefalinger
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {RECOMMENDATIONS_LINKEDIN.map((rec) => (
+              {RECOMMENDATIONS_LINKEDIN.map((rec, i) => (
                 <div
                   key={rec.author}
-                  className="bg-brand-lavender rounded-2xl p-5 flex flex-col gap-3"
+                  className={`bg-brand-lavender rounded-2xl p-5 flex flex-col gap-3${i >= 2 ? ' hidden md:flex' : ''}`}
                 >
                   <p className="text-foreground text-base leading-relaxed">
                     &ldquo;{renderQuoteWithHighlight(rec.quote, rec.highlight)}&rdquo;

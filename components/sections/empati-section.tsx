@@ -42,7 +42,7 @@ export function EmpatiSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1, ease: 'easeOut' }}
-                className="bg-white rounded-2xl p-6 border border-brand-border shadow-sm"
+                className={`bg-white rounded-2xl p-6 border border-brand-border shadow-sm${i > 0 ? ' hidden md:flex md:flex-col' : ''}`}
               >
                 <span className="text-2xl mb-4 block">{s.emoji}</span>
                 <p className="text-brand-dark text-base leading-relaxed">{s.text}</p>

@@ -24,10 +24,10 @@ export function TalksSection() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {TALKS.map((talk) => (
+            {TALKS.map((talk, i) => (
               <div
                 key={talk.title}
-                className="bg-white rounded-2xl p-7 flex flex-col gap-4 hover:shadow-lg transition-shadow duration-300"
+                className={`bg-white rounded-2xl p-7 flex flex-col gap-4 hover:shadow-lg transition-shadow duration-300${i >= 2 ? ' hidden sm:flex' : ''}`}
               >
                 <span
                   className={cn(

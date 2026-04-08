@@ -14,6 +14,7 @@ import { FaqSection } from "@/components/sections/faq";
 import { NewsletterSection } from "@/components/sections/newsletter-section";
 import { StatsSection } from "@/components/sections/stats";
 import { EmpatiSection } from "@/components/sections/empati-section";
+import { MobileStickyBar } from "@/components/ui/mobile-sticky-bar";
 import { JsonLd } from "@/components/seo/json-ld";
 
 export default function Home() {
@@ -53,6 +54,7 @@ export default function Home() {
         {/* 15. FAQ */}
         <FaqSection />
       </main>
+      <MobileStickyBar />
       <Footer />
     </>
   );
