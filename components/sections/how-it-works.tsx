@@ -16,7 +16,7 @@ const steps = [
   {
     number: "03",
     title: "Foredrag levert",
-    description: "Tilpasset innhold, klart til å sette i gang en samtale i organisasjonen din. Praktisk og direkte.",
+    description: "Tilpasset innhold som setter i gang en samtale. Arrangørene rapporterer at de har endret rekruttering, stillingsutlysninger, lederstil og intern kultur.",
   },
 ];
 
@@ -57,7 +57,21 @@ export function HowItWorksSection() {
             ))}
           </div>
 
-          <div className="mt-10">
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {[
+              { icon: "💰", text: "Fra 35 000 kr + mva. Formøte inkludert, reise separat." },
+              { icon: "👥", text: "10–2000 deltakere — kick-off, konferanse, fagdag." },
+              { icon: "🎯", text: "HR, ledere og konferanser — tech, industri, offentlig sektor." },
+              { icon: "⚡", text: "Usikker på budsjettet? Vi finner et format som passer." },
+            ].map((item) => (
+              <div key={item.icon} className="flex items-start gap-3 text-sm text-brand-muted">
+                <span className="text-base leading-none mt-0.5">{item.icon}</span>
+                <span>{item.text}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8">
             <Link
               href="/#kontakt"
               className="inline-flex items-center px-8 py-3.5 rounded-full bg-brand-indigo text-white font-semibold text-sm hover:bg-brand-indigo/90 transition-all hover:-translate-y-0.5"
