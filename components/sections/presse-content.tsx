@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { PRESS_ARTICLES, PODCASTS, TV_RADIO, EVENTS, AWARDS, BRAND, IMAGES } from '@/lib/constants';
+import { CalendarModal } from '@/components/ui/calendar-modal';
 
 const PRESS_PHOTOS = [
   { src: IMAGES.hero, alt: 'Ina Cabanillas Hansen — pressebilete 1' },
@@ -341,14 +342,10 @@ export function PresseContent() {
           <div className="p-5 bg-brand-indigo rounded-2xl text-white">
             <p className="font-semibold mb-1">Intervju eller gjesteoppdrag?</p>
             <p className="text-sm text-white/80 mb-4">Book et 15 min samtale — så tar vi det derfra.</p>
-            <a
-              href="https://calendar.app.google/DdqRYwRpniLiXgcm6"
-              target="_blank"
-              rel="noopener noreferrer"
+            <CalendarModal
+              label="Book samtale →"
               className="inline-block px-5 py-2.5 text-sm font-semibold bg-white text-brand-indigo rounded-full hover:bg-brand-lavender transition-colors"
-            >
-              Book samtale →
-            </a>
+            />
           </div>
         </div>
       )}

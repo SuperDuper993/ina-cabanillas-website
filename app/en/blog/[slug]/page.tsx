@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/seo/json-ld";
+import { CalendarModal } from "@/components/ui/calendar-modal";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -94,14 +95,11 @@ export default async function EnBlogPostPage({ params }: Props) {
           <div className="mt-16 pt-8 border-t border-brand-border text-center">
             <p className="text-brand-muted mb-2">Want to explore this topic with your team?</p>
             <p className="text-brand-muted text-sm mb-6">Book a free 15-minute call — no commitment.</p>
-            <a
-              href="https://calendar.app.google/DdqRYwRpniLiXgcm6"
-              target="_blank"
-              rel="noopener noreferrer"
+            <CalendarModal
+              lang="en"
+              label="Book a 15-min call →"
               className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-brand-indigo text-white font-semibold text-sm hover:bg-brand-indigo/90 transition-all"
-            >
-              Book a 15-min call →
-            </a>
+            />
           </div>
         </article>
       </main>
