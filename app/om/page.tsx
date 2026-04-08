@@ -56,18 +56,18 @@ const textMax = "max-w-[680px]";
 function InlineStory({ bodyText }: { bodyText: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border-t border-brand-border pt-6">
+    <div>
       <button
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-3 text-left group"
+        className="text-left group w-full"
         aria-expanded={open}
       >
-        <span className="text-lg text-[#1a1a1a] leading-[1.85]">
+        <p className="text-lg text-[#1a1a1a] leading-[1.85]">
           Lurer du på hvorfor jeg startet?{' '}
           <span className="font-semibold text-brand-indigo group-hover:underline transition-all">
             Les hele historien her {open ? '↑' : '↓'}
           </span>
-        </span>
+        </p>
       </button>
 
       <AnimatePresence>
@@ -117,14 +117,9 @@ export default function OmPage() {
                 <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] text-[#0f0f0f] leading-[1.15] mb-6 font-bold">
                   Jeg startet fordi ingen andre gjorde det.
                 </h1>
-                <div className="space-y-2">
-                  <p className={bodyText}>
-                    En spicy nordlending med røtter fra Bodø og Spania — som endte opp som Norges fremste stemme på Gen Z og arbeidsliv.
-                  </p>
-                  <p className={bodyText}>
-                    Ikke ved et uhell. Av nødvendighet.
-                  </p>
-                </div>
+                <p className={bodyText}>
+                  En spicy nordlending med røtter fra Bodø og Spania — som endte opp som Norges fremste stemme på Gen Z og arbeidsliv. Ikke ved et uhell. Av nødvendighet.
+                </p>
 
                 <InlineStory bodyText={bodyText} />
 
