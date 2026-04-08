@@ -143,7 +143,7 @@ export function ContactSection() {
               <ol className="flex flex-col gap-1.5">
                 {[
                   'Du sender skjema',
-                  'Jeg svarer innen 24 timer',
+                  'Jeg svarer innen 24 timer. Vi setter opp en 15 min samtale.',
                   'Vi tilpasser innhold og format',
                 ].map((s, i) => (
                   <li key={i} className="flex items-center gap-3 text-brand-muted text-sm">
