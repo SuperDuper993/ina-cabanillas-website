@@ -1,6 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
 import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/navbar";
@@ -52,6 +53,63 @@ const bodyText = "text-[#1a1a1a] text-lg leading-[1.85] text-left";
 const sectionPad = "py-20 md:py-28";
 const textMax = "max-w-[680px]";
 
+function StorySection({ bodyText }: { bodyText: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <section className="bg-white border-b border-brand-lavender">
+      <div className="max-w-[680px] mx-auto px-6">
+        <button
+          onClick={() => setOpen((v) => !v)}
+          className="w-full flex items-center justify-between py-6 text-left group"
+          aria-expanded={open}
+        >
+          <span className="text-sm font-semibold text-brand-muted group-hover:text-foreground transition-colors">
+            Hvorfor startet jeg?
+          </span>
+          <span className={`text-brand-muted transition-transform duration-300 ${open ? 'rotate-180' : ''}`}>
+            ↓
+          </span>
+        </button>
+
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.35, ease: 'easeInOut' }}
+              className="overflow-hidden"
+            >
+              <div className="pb-10 space-y-6">
+                <p className="text-[#1a1a1a] text-lg font-serif leading-[1.7]">
+                  Hun pakket laptopen sin, gikk gjennom et bibliotek med 200 mennesker, og møtte blikkene til ingen.
+                </p>
+                <p className={bodyText}>Det var da jeg skjønte det.</p>
+                <p className={bodyText}>Første studieår. Nord-Norge til Oslo. Pandemi.</p>
+                <p className={bodyText}>Vi hadde gruppeeksamener ment for fem — jeg tok dem alle alene, hjemme, i stillhet. Dag etter dag. Nær ved å gi opp.</p>
+                <p className={bodyText}>Det som reddet meg var ikke et program. Det var én venninne som sa: «Jeg tar eksamen med deg.»</p>
+                <p className={bodyText}>Men bestevenninnen min hadde ikke den venninnen.</p>
+                <p className={`${bodyText} text-brand-indigo font-semibold`}>Hun droppet ut av drømmestudiet sitt.</p>
+                <p className={bodyText}>Ikke fordi hun ikke var god nok. Ikke fordi hun ikke ville nok. Fordi hun ikke hadde noen.</p>
+                <p className={bodyText}>Det øyeblikket satt seg. Ikke som inspirasjon, men som sinne. Stille, bestemt sinne over at dette bare er sånn det er — og ingen gjør noe med det.</p>
+                <p className={bodyText}>Jeg søkte etter løsninger. Fant ingen. Så jeg bestemte meg for å bygge en selv.</p>
+                <p className={bodyText}>Jeg har elsket å stå på scene siden jeg var liten. Jeg visste bare ikke hva jeg skulle si — før nå.</p>
+                <p className={bodyText}>Det jeg fant gjennom forskning og arbeid endret måten jeg ser på alt:</p>
+                <p className="text-[#1a1a1a] text-lg font-serif leading-[1.6]">Problemene vi sliter med på studiet er de nøyaktig samme vi møter i arbeidslivet.</p>
+                <p className={bodyText}>Ensomheten. Mangelen på tilhørighet. Følelsen av å ikke høre til.</p>
+                <p className="text-[#0f0f0f] font-semibold leading-[1.4]">Det er ikke et Gen Z-problem. Det er et lederproblem.</p>
+                <p className={bodyText}>Tenk på din første arbeidsdag. Hvordan ble du møtt?</p>
+                <p className={bodyText}>Nå tenk på hvordan unge ansatte blir møtt i din organisasjon — i dag.</p>
+                <p className="text-brand-indigo font-serif font-semibold leading-[1.3]">Er du fornøyd med det svaret?</p>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </section>
+  );
+}
+
 export default function OmPage() {
   return (
     <>
@@ -96,84 +154,8 @@ export default function OmPage() {
           </div>
         </section>
 
-        {/* 2. HISTORIEN — Én sammenhengende lesebolk */}
-        <section className={`${sectionPad} bg-white`}>
-          <div className={`${textMax} mx-auto px-6`}>
-            <motion.div {...fadeUp}>
-              {/* Heading */}
-              <div className="mb-10">
-                <div className="w-10 h-1 bg-brand-indigo rounded-full mb-5" />
-                <h2 className="text-[28px] md:text-[32px] font-bold text-[#0f0f0f]">
-                  Hvorfor startet jeg?
-                </h2>
-              </div>
-
-              <div className="space-y-7">
-                {/* Åpning */}
-                <p className="text-[#1a1a1a] text-xl md:text-2xl font-serif leading-[1.6]">
-                  Hun pakket laptopen sin, gikk gjennom et bibliotek med 200 mennesker, og møtte blikkene til ingen.
-                </p>
-                <p className={bodyText}>
-                  Det var da jeg skjønte det.
-                </p>
-
-                {/* Story */}
-                <p className={bodyText}>
-                  Første studieår. Nord-Norge til Oslo. Pandemi.
-                </p>
-                <p className={bodyText}>
-                  Vi hadde gruppeeksamener ment for fem — jeg tok dem alle alene, hjemme, i stillhet. Dag etter dag. Nær ved å gi opp.
-                </p>
-                <p className={bodyText}>
-                  Det som reddet meg var ikke et program. Det var én venninne som sa: «Jeg tar eksamen med deg.»
-                </p>
-                <p className={bodyText}>
-                  Men bestevenninnen min hadde ikke den venninnen.
-                </p>
-                <p className={`${bodyText} text-brand-indigo font-semibold`}>
-                  Hun droppet ut av drømmestudiet sitt.
-                </p>
-                <p className={bodyText}>
-                  Ikke fordi hun ikke var god nok. Ikke fordi hun ikke ville nok. Fordi hun ikke hadde noen.
-                </p>
-                <p className={bodyText}>
-                  Det øyeblikket satt seg. Ikke som inspirasjon, men som sinne. Stille, bestemt sinne over at dette bare er sånn det er — og ingen gjør noe med det.
-                </p>
-                <p className={bodyText}>
-                  Jeg søkte etter løsninger. Fant ingen. Så jeg bestemte meg for å bygge en selv.
-                </p>
-                <p className={bodyText}>
-                  Jeg har elsket å stå på scene siden jeg var liten. Jeg visste bare ikke hva jeg skulle si — før nå.
-                </p>
-
-                {/* Innsikt */}
-                <p className={bodyText}>
-                  Det jeg fant gjennom forskning og arbeid endret måten jeg ser på alt:
-                </p>
-                <p className="text-[#1a1a1a] text-xl md:text-2xl font-serif leading-[1.5]">
-                  Problemene vi sliter med på studiet er de nøyaktig samme vi møter i arbeidslivet.
-                </p>
-                <p className={bodyText}>
-                  Ensomheten. Mangelen på tilhørighet. Følelsen av å ikke høre til.
-                </p>
-                <p className="text-[#0f0f0f] text-xl font-semibold leading-[1.4]">
-                  Det er ikke et Gen Z-problem. Det er et lederproblem.
-                </p>
-
-                {/* Utfordring */}
-                <p className={bodyText}>
-                  Tenk på din første arbeidsdag. Hvordan ble du møtt?
-                </p>
-                <p className={bodyText}>
-                  Nå tenk på hvordan unge ansatte blir møtt i din organisasjon — i dag.
-                </p>
-                <p className="text-brand-indigo text-xl md:text-2xl font-serif font-semibold leading-[1.3]">
-                  Er du fornøyd med det svaret?
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </section>
+        {/* 2. HISTORIEN — kollapsbar */}
+        <StorySection bodyText={bodyText} />
 
         {/* Spacer mellom historie og bio */}
         <div className="h-4 bg-brand-lavender" />
