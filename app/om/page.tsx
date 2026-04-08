@@ -56,17 +56,20 @@ const textMax = "max-w-[680px]";
 function StorySection({ bodyText }: { bodyText: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <section className="bg-white border-b border-brand-lavender">
+    <section className="bg-brand-lavender py-6">
       <div className="max-w-[680px] mx-auto px-6">
         <button
           onClick={() => setOpen((v) => !v)}
-          className="w-full flex items-center justify-between py-6 text-left group"
+          className="w-full bg-white rounded-2xl px-7 py-6 flex items-center justify-between text-left shadow-sm hover:shadow-md transition-shadow group"
           aria-expanded={open}
         >
-          <span className="text-sm font-semibold text-brand-muted group-hover:text-foreground transition-colors">
-            Hvorfor startet jeg?
-          </span>
-          <span className={`text-brand-muted transition-transform duration-300 ${open ? 'rotate-180' : ''}`}>
+          <div>
+            <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-1">Min historie</p>
+            <span className="text-lg font-bold text-foreground group-hover:text-brand-indigo transition-colors">
+              Hvorfor startet jeg?
+            </span>
+          </div>
+          <span className={`text-2xl text-brand-muted transition-transform duration-300 ml-4 shrink-0 ${open ? 'rotate-180' : ''}`}>
             ↓
           </span>
         </button>
@@ -80,7 +83,7 @@ function StorySection({ bodyText }: { bodyText: string }) {
               transition={{ duration: 0.35, ease: 'easeInOut' }}
               className="overflow-hidden"
             >
-              <div className="pb-10 space-y-6">
+              <div className="bg-white rounded-b-2xl -mt-2 px-7 pb-10 pt-6 space-y-6">
                 <p className="text-[#1a1a1a] text-lg font-serif leading-[1.7]">
                   Hun pakket laptopen sin, gikk gjennom et bibliotek med 200 mennesker, og møtte blikkene til ingen.
                 </p>
