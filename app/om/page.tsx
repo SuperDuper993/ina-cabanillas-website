@@ -121,7 +121,9 @@ export default function OmPage() {
                   En spicy nordlending med røtter fra Bodø og Spania — som endte opp som Norges fremste stemme på Gen Z og arbeidsliv. Ikke ved et uhell. Av nødvendighet.
                 </p>
 
-                <InlineStory bodyText={bodyText} />
+                <div className="mt-2">
+                  <InlineStory bodyText={bodyText} />
+                </div>
 
                 <div className="flex flex-wrap gap-2 mt-4">
                   {["Årets unge inspirasjon 2025", "LinkedIn Topp 200", "BI + UC Berkeley", "Gründer, StudyBuddies"].map((tag) => (
