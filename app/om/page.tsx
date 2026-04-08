@@ -62,8 +62,11 @@ function InlineStory({ bodyText }: { bodyText: string }) {
         className="flex items-center gap-3 text-left group"
         aria-expanded={open}
       >
-        <span className="text-sm font-semibold text-brand-indigo group-hover:underline transition-all">
-          Hvorfor startet jeg? {open ? '↑' : '↓'}
+        <span className="text-sm text-[#666] group-hover:text-brand-indigo transition-colors">
+          Lurer du på hvorfor jeg startet?{' '}
+          <span className="font-semibold text-brand-indigo group-hover:underline">
+            Les hele historien her {open ? '↑' : '↓'}
+          </span>
         </span>
       </button>
 
@@ -117,9 +120,12 @@ export default function OmPage() {
                 <p className={`${bodyText} mb-3`}>
                   En spicy nordlending med røtter fra Bodø og Spania — som endte opp som Norges fremste stemme på Gen Z og arbeidsliv.
                 </p>
-                <p className="text-[#666] text-base leading-[1.7] mb-6">
+                <p className="text-[#666] text-base leading-[1.7]">
                   Ikke ved et uhell. Av nødvendighet.
                 </p>
+
+                <InlineStory bodyText={bodyText} />
+
                 <div className="flex flex-wrap gap-2">
                   {["HER Awards 2024", "LinkedIn Topp 200", "BI + UC Berkeley", "Gründer, StudyBuddies"].map((tag) => (
                     <span key={tag} className="text-sm font-medium text-brand-indigo bg-brand-lavender border border-brand-indigo/15 rounded-full px-4 py-1.5">
@@ -127,8 +133,6 @@ export default function OmPage() {
                     </span>
                   ))}
                 </div>
-
-                <InlineStory bodyText={bodyText} />
               </div>
 
               {/* Image — right on desktop, top on mobile */}
