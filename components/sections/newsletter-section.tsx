@@ -56,7 +56,7 @@ export function NewsletterSection({ variant = 'default' }: NewsletterSectionProp
           onChange={(e) => setEmail(e.target.value)}
           className={`flex-1 px-4 py-3 rounded-xl text-sm focus:outline-none focus:ring-2 ${
             dark
-              ? 'bg-white/10 border border-white/15 text-white placeholder:text-white/40 focus:ring-brand-indigo/50'
+              ? 'bg-white/10 border border-white/30 text-white placeholder:text-white/50 focus:ring-brand-indigo/50'
               : 'bg-brand-lavender border border-brand-border text-brand-dark placeholder:text-brand-muted/60 focus:ring-brand-indigo/40'
           }`}
         />
@@ -67,7 +67,7 @@ export function NewsletterSection({ variant = 'default' }: NewsletterSectionProp
           onChange={(e) => setName(e.target.value)}
           className={`flex-1 px-4 py-3 rounded-xl text-sm focus:outline-none focus:ring-2 ${
             dark
-              ? 'bg-white/10 border border-white/15 text-white placeholder:text-white/40 focus:ring-brand-indigo/50'
+              ? 'bg-white/10 border border-white/30 text-white placeholder:text-white/50 focus:ring-brand-indigo/50'
               : 'bg-brand-lavender border border-brand-border text-brand-dark placeholder:text-brand-muted/60 focus:ring-brand-indigo/40'
           }`}
         />
@@ -82,7 +82,7 @@ export function NewsletterSection({ variant = 'default' }: NewsletterSectionProp
       {status === 'error' && message && (
         <p className={`text-xs ${dark ? 'text-red-400' : 'text-red-500'}`}>{message}</p>
       )}
-      <p className={`text-xs ${dark ? 'text-white/40' : 'text-brand-muted'}`}>
+      <p className={`text-xs ${dark ? 'text-white/60' : 'text-brand-muted'}`}>
         Innsikt du faktisk bruker. Direkte fra 20+ scener til innboksen din.
       </p>
     </form>
@@ -156,33 +156,18 @@ export function NewsletterSection({ variant = 'default' }: NewsletterSectionProp
         >
           {/* Left — value prop */}
           <div>
-            <p className="text-xs font-semibold tracking-widest uppercase text-white/50 mb-3">
-              Ikke gå glipp av noe
+            <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo/80 mb-3">
+              The Human ROI
             </p>
             <h2 className="text-2xl md:text-3xl font-serif text-white leading-snug mb-3">
-              Oppdateringer om bok, foredrag og fremtidens arbeidsliv.
+              Annenhver uke: én innsikt om hvorfor unge slutter, og ett konkret grep du kan bruke dagen etter.
             </h2>
-            <p className="text-white/60 text-base leading-relaxed mb-1">
-              The Human ROI.
-            </p>
-            <p className="text-white/90 text-base italic mb-5">
+            <p className="text-white/80 text-base italic mb-6">
               Mennesker er ikke en kostnad. De er avkastningen.
             </p>
-            <ul className="space-y-2 mb-6">
-              {[
-                'Innsikt om samspillet mellom mennesker og teknologi',
-                'Oppdateringer fra scenen og ny forskning',
-                'Tips du kan bruke med en gang',
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-2 text-white/60 text-sm">
-                  <span className="text-brand-indigo mt-0.5">→</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
             {/* Bonus */}
-            <div className="bg-white/5 border border-white/10 rounded-xl px-4 py-3">
-              <p className="text-white/40 text-xs font-semibold tracking-widest uppercase mb-1">Velkomstgave</p>
+            <div className="bg-brand-indigo/20 border border-brand-indigo/40 rounded-xl px-4 py-3">
+              <p className="text-brand-indigo/90 text-xs font-semibold tracking-widest uppercase mb-1">Velkomstgave</p>
               <p className="text-white text-sm">«5 grep for å beholde unge talent» — sjekkliste sendes ved påmelding.</p>
             </div>
           </div>
