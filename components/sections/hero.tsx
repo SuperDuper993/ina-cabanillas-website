@@ -39,10 +39,6 @@ export function HeroSection() {
             ))}
             <span className="text-white/70 text-sm ml-1">6/6 på Talerlisten</span>
           </div>
-          <span className="text-white/30">·</span>
-          <span className="text-white/70 text-sm">Årets unge inspirasjon 2024</span>
-          <span className="text-white/30">·</span>
-          <span className="text-white/70 text-sm">20+ scener nasjonalt</span>
         </div>
 
         <div className="max-w-3xl">
