@@ -34,7 +34,21 @@ export function EmpatiSection() {
             Du er ikke alene om å lure på dette.
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Mobil: swipeable karusell */}
+          <div className="md:hidden overflow-x-auto snap-x snap-mandatory flex gap-4 -mx-6 px-6 pb-2 no-scrollbar">
+            {scenarios.map((s, i) => (
+              <div
+                key={i}
+                className="snap-start flex-shrink-0 w-[85vw] bg-white rounded-2xl p-6 border border-brand-border shadow-sm"
+              >
+                <span className="text-2xl mb-4 block">{s.emoji}</span>
+                <p className="text-brand-dark text-base leading-relaxed">{s.text}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop: 3-kolonne grid */}
+          <div className="hidden md:grid md:grid-cols-3 gap-6">
             {scenarios.map((s, i) => (
               <motion.div
                 key={i}
@@ -42,7 +56,7 @@ export function EmpatiSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1, ease: 'easeOut' }}
-                className={`bg-white rounded-2xl p-6 border border-brand-border shadow-sm${i > 0 ? ' hidden md:flex md:flex-col' : ''}`}
+                className="bg-white rounded-2xl p-6 border border-brand-border shadow-sm flex flex-col"
               >
                 <span className="text-2xl mb-4 block">{s.emoji}</span>
                 <p className="text-brand-dark text-base leading-relaxed">{s.text}</p>

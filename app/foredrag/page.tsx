@@ -4,6 +4,7 @@ import { TalksSection } from "@/components/sections/talks";
 import { WorkshopSection } from "@/components/sections/workshop-section";
 import { AudienceSection } from "@/components/sections/audience-section";
 import { VideoSection } from "@/components/sections/video";
+import { EmpatiSection } from "@/components/sections/empati-section";
 import { HowItWorksSection } from "@/components/sections/how-it-works";
 import { TestimonialsSection } from "@/components/sections/testimonials";
 import { FaqSection } from "@/components/sections/faq";
@@ -49,6 +50,9 @@ export default function ForedragPage() {
 
         {/* Video */}
         <VideoSection />
+
+        {/* Kjenner du deg igjen? */}
+        <EmpatiSection />
 
         {/* Foredragstemaer — accordion */}
         <TalksSection />

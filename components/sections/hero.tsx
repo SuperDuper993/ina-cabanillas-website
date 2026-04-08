@@ -53,9 +53,6 @@ export function HeroSection() {
         {/* Authority badges */}
         <div className="flex flex-wrap gap-2">
           <span className="text-sm font-medium text-white/70 border border-white/25 rounded-full px-3 py-1 bg-white/10 backdrop-blur-sm">
-            HER Awards 2024
-          </span>
-          <span className="text-sm font-medium text-white/70 border border-white/25 rounded-full px-3 py-1 bg-white/10 backdrop-blur-sm">
             NRK &middot; TV2 &middot; Dagsnytt 18
           </span>
           <span className="text-sm font-medium text-white/70 border border-white/25 rounded-full px-3 py-1 bg-white/10 backdrop-blur-sm">
