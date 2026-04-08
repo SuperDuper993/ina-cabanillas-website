@@ -273,7 +273,10 @@ export function ContactSection() {
                 )}
 
                 <p className="text-brand-muted/60 text-xs text-center">
-                  Ingen spam. Kun relevant innhold.
+                  Eller ring meg direkte:{" "}
+                  <a href="tel:+4797424957" className="text-brand-indigo hover:underline font-medium">
+                    +47 974 24 957
+                  </a>
                 </p>
               </form>
             )}

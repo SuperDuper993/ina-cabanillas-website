@@ -83,7 +83,7 @@ export function NewsletterSection({ variant = 'default' }: NewsletterSectionProp
         <p className={`text-xs ${dark ? 'text-red-400' : 'text-red-500'}`}>{message}</p>
       )}
       <p className={`text-xs ${dark ? 'text-white/40' : 'text-brand-muted'}`}>
-        Gratis. Meld av når du vil.
+        Innsikt du faktisk bruker. Direkte fra 20+ scener til innboksen din.
       </p>
     </form>
   );
@@ -117,7 +117,7 @@ export function NewsletterSection({ variant = 'default' }: NewsletterSectionProp
                 Få oppdateringer om bok, foredrag og fremtidens arbeidsliv.
               </h2>
               <p className="text-brand-muted text-base leading-relaxed mb-6">
-                Meld deg på The Human ROI. Annenhver uke deler jeg innsikt om samspillet mellom mennesker, teknologi og ledelse. Direkte i innboksen din.
+                Meld deg på The Human ROI. <em className="not-italic text-brand-dark">Mennesker er ikke en kostnad. De er avkastningen.</em> Annenhver uke deler jeg innsikt om samspillet mellom mennesker, teknologi og ledelse. Direkte i innboksen din.
               </p>
 
               {/* Bonus box */}
@@ -162,8 +162,11 @@ export function NewsletterSection({ variant = 'default' }: NewsletterSectionProp
             <h2 className="text-2xl md:text-3xl font-serif text-white leading-snug mb-3">
               Oppdateringer om bok, foredrag og fremtidens arbeidsliv.
             </h2>
-            <p className="text-white/60 text-base leading-relaxed mb-5">
-              The Human ROI. Annenhver uke, rett i innboksen.
+            <p className="text-white/60 text-base leading-relaxed mb-1">
+              The Human ROI.
+            </p>
+            <p className="text-white/90 text-base italic mb-5">
+              Mennesker er ikke en kostnad. De er avkastningen.
             </p>
             <ul className="space-y-2 mb-6">
               {[
