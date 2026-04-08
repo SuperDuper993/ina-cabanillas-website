@@ -62,9 +62,9 @@ function InlineStory({ bodyText }: { bodyText: string }) {
         className="flex items-center gap-3 text-left group"
         aria-expanded={open}
       >
-        <span className="text-base text-[#666] group-hover:text-brand-indigo transition-colors">
+        <span className="text-base text-[#1a1a1a]">
           Lurer du på hvorfor jeg startet?{' '}
-          <span className="font-semibold text-brand-indigo group-hover:underline">
+          <span className="font-semibold text-brand-indigo group-hover:underline transition-all">
             Les hele historien her {open ? '↑' : '↓'}
           </span>
         </span>
