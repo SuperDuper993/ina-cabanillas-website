@@ -4,6 +4,7 @@ import { getAllPosts, getPostBySlug } from "@/lib/blog";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/seo/json-ld";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -41,6 +42,19 @@ export default async function BlogPostPage({ params }: Props) {
 
   if (!post) notFound();
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.title,
+    "description": post.excerpt,
+    "datePublished": post.date,
+    "author": { "@type": "Person", "name": "Ina Cabanillas Hansen", "url": "https://www.inacabanillas.com" },
+    "publisher": { "@type": "Person", "name": "Ina Cabanillas Hansen", "url": "https://www.inacabanillas.com" },
+    "url": `https://www.inacabanillas.com/blogg/${post.slug}`,
+    "inLanguage": "nb",
+    "about": ["Gen Z", "Ledelse", "Tilhørighet", "Fremtidens arbeidsliv"],
+  };
+
   // Simple markdown → HTML (paragraphs, bold, italic, links)
   const html = post.content
     .split('\n\n')
@@ -61,6 +75,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <>
+      <JsonLd data={articleSchema} />
       <Navbar />
       <main className="pt-28 pb-24 bg-white min-h-screen">
         <article className="max-w-[680px] mx-auto px-6">

@@ -118,7 +118,17 @@ const personSchema = {
     "@type": "Organization",
     "name": "Talerlisten",
     "url": "https://www.talerlisten.no"
-  }
+  },
+  "mentions": [
+    { "@type": "Organization", "name": "NRK", "url": "https://www.nrk.no" },
+    { "@type": "Organization", "name": "TV 2", "url": "https://www.tv2.no" },
+    { "@type": "Organization", "name": "Dagsnytt 18", "url": "https://radio.nrk.no/serie/dagsnytt-18" },
+    { "@type": "Organization", "name": "Khrono", "url": "https://www.khrono.no" },
+    { "@type": "Organization", "name": "Dagsavisen", "url": "https://www.dagsavisen.no" },
+    { "@type": "Organization", "name": "forskning.no", "url": "https://www.forskning.no" },
+    { "@type": "Organization", "name": "HR-magasinet", "url": "https://www.hrmagasinet.no" },
+    { "@type": "Organization", "name": "kode24", "url": "https://www.kode24.no" }
+  ]
 };
 
 export default function RootLayout({

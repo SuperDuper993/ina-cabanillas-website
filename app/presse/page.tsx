@@ -3,6 +3,7 @@ import { Footer } from "@/components/layout/footer";
 import { PRESS_ARTICLES, PODCASTS, EVENTS, AWARDS, BRAND } from "@/lib/constants";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/seo/json-ld";
 
 export const metadata: Metadata = {
   title: "I media",
@@ -10,9 +11,33 @@ export const metadata: Metadata = {
   keywords: ["Ina Cabanillas media", "foredragsholder presse", "Gen Z artikler", "podcast tilhørighet"],
 };
 
+const pressSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Ina Cabanillas Hansen i media",
+  "description": "Medieomtaler, podkaster, TV og radio med Ina Cabanillas Hansen",
+  "itemListElement": [
+    ...PRESS_ARTICLES.map((a, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": a.title,
+      "url": a.url,
+      "description": `${a.source} · ${a.date}`,
+    })),
+    ...PODCASTS.map((p, i) => ({
+      "@type": "ListItem",
+      "position": PRESS_ARTICLES.length + i + 1,
+      "name": `${p.title}: ${p.episode}`,
+      "url": p.url,
+      "description": `Podcast · ${p.date}`,
+    })),
+  ],
+};
+
 export default function PressePage() {
   return (
     <>
+      <JsonLd data={pressSchema} />
       <Navbar />
       <main className="pt-20">
         <div className="max-w-3xl mx-auto px-6 py-16">
