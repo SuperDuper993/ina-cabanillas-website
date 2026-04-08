@@ -14,6 +14,7 @@ const KEY_FACTS = [
   { label: 'Hjemsted', value: 'Bodø' },
   { label: 'Utdanning', value: 'BI / UC Berkeley' },
   { label: 'Selskap', value: 'StudyBuddies' },
+  { label: 'Rolle', value: 'Rådgiver, menneske og teknologi' },
   { label: 'Pris', value: 'HER Awards 2024 — Årets unge inspirasjon' },
   { label: 'Anerkjennelse', value: 'LinkedIn Top 200 Voices globalt' },
 ];
