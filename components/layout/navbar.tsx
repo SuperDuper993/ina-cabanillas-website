@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const navLinksNO = [
   { href: "/om", label: "Om Ina" },
-  { href: "/#foredrag", label: "Foredrag" },
+  { href: "/foredrag", label: "Foredrag" },
   { href: "/presse", label: "I media" },
   { href: "/blogg", label: "Blogg" },
   { href: "/#nyhetsbrev", label: "Nyhetsbrev" },

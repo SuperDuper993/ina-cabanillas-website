@@ -2,11 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "dev",
-      "runtimeExecutable": "/Users/inacabanillas/Documents/Claude/ina-cabanillas-website/start-dev.sh",
-      "runtimeArgs": [],
-      "port": 3000,
-      "autoPort": false
+      "name": "next-dev",
+      "runtimeExecutable": "/bin/sh",
+      "runtimeArgs": ["/tmp/start-next.sh"],
+      "port": 3000
     }
   ]
 }
