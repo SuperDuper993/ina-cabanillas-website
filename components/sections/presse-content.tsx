@@ -342,14 +342,11 @@ export function PresseContent() {
         <div className="p-5 bg-brand-lavender rounded-xl">
           <p className="text-sm font-semibold text-foreground mb-1">Kontakt for intervju og gjesteoppdrag</p>
           <p className="text-sm text-brand-muted">
-            Send en e-post til{' '}
-            <a href="mailto:post@inacabanillas.com" className="text-brand-indigo underline">
-              post@inacabanillas.com
-            </a>
-            {' '}eller book et{' '}
+            Book et{' '}
             <a href="https://calendar.app.google/DdqRYwRpniLiXgcm6" target="_blank" rel="noopener noreferrer" className="text-brand-indigo underline">
               15 min samtale
-            </a>.
+            </a>{' '}
+            — så tar vi det derfra.
           </p>
         </div>
       </div>
