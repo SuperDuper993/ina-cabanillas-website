@@ -175,6 +175,7 @@ export const RECOMMENDATIONS_LINKEDIN = [
 ];
 
 export const PRESS_ARTICLES = [
+  { title: "Generasjon Z — ord har makt, bruk dem riktig", source: "Dagens Næringsliv", date: "Mar 2026", url: "https://www.dn.no/innlegg/generasjon-z/arbeidsliv/utdannelse/generasjon-z-ord-har-makt-bruk-dem-riktig/2-1-1798458" },
   { title: "Alder har ingen ting å si", source: "HR-magasinet", date: "Mar 2026", url: "https://www.hrmagasinet.no/gen-z-ina-cabanillas-hansen/alder-har-ingen-ting-a-si/1514220" },
   { title: "Går ut mot DNB- og NHO-topper: Jeg søkte 560 jobber", source: "kode24", date: "Jan 2026", url: "https://www.kode24.no/artikkel/gar-ut-mot-dnb-og-nho-topper-jeg-sokte-560-jobber/252821" },
   { title: "Kaller KI til rekruttering et «HR-mareritt»", source: "kode24", date: "Des 2025", url: "https://www.kode24.no/artikkel/kaller-ki-til-rekruttering-et-hr-mareritt/252094" },
@@ -195,6 +196,12 @@ export const PODCASTS = [
   { title: "Enda Bedre", episode: "Hva er galt med Gen Z?", date: "Apr 2026", url: "https://open.spotify.com/episode/3rZ1NOHsF761v3xDsJQWgY" },
   { title: "Teknologi og mennesker", episode: "Vi knuser 10 myter om generasjon Z", date: "Feb 2025", url: "https://open.spotify.com/episode/0lqLhI8aLvz5DursZ32Ax9" },
   { title: "Teknologi og mennesker", episode: "Live fra Arendalsuka", date: "2024", url: "https://podtail.com/en/podcast/teknologi-av-og-for-mennesker/-56-live-fra-arendalsuka-slik-rigger-du-for-fart-o/" },
+];
+
+export const TV_RADIO = [
+  { show: "Debatten", channel: "NRK TV", date: "Mar 2025", url: "https://tv.nrk.no/serie/debatten/sesong/202503/episode/NNFA51030625" },
+  { show: "Helgemorgen", channel: "NRK TV", date: "Nov 2025", url: "https://tv.nrk.no/serie/helgemorgen-tv/sesong/202511/episode/DNRR62009425" },
+  { show: "Dagsnytt 18", channel: "NRK Radio", date: "Jan 2025", url: "https://radio.nrk.no/serie/dagsnytt-atten/sesong/202501/NMAG03001025" },
 ];
 
 export const EVENTS = [

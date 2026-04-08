@@ -121,8 +121,11 @@ const personSchema = {
   },
   "mentions": [
     { "@type": "Organization", "name": "NRK", "url": "https://www.nrk.no" },
+    { "@type": "CreativeWork", "name": "Debatten", "url": "https://tv.nrk.no/serie/debatten/sesong/202503/episode/NNFA51030625", "publisher": { "@type": "Organization", "name": "NRK" } },
+    { "@type": "CreativeWork", "name": "Helgemorgen", "url": "https://tv.nrk.no/serie/helgemorgen-tv/sesong/202511/episode/DNRR62009425", "publisher": { "@type": "Organization", "name": "NRK" } },
+    { "@type": "CreativeWork", "name": "Dagsnytt 18", "url": "https://radio.nrk.no/serie/dagsnytt-atten/sesong/202501/NMAG03001025", "publisher": { "@type": "Organization", "name": "NRK" } },
     { "@type": "Organization", "name": "TV 2", "url": "https://www.tv2.no" },
-    { "@type": "Organization", "name": "Dagsnytt 18", "url": "https://radio.nrk.no/serie/dagsnytt-18" },
+    { "@type": "Organization", "name": "Dagens Næringsliv", "url": "https://www.dn.no" },
     { "@type": "Organization", "name": "Khrono", "url": "https://www.khrono.no" },
     { "@type": "Organization", "name": "Dagsavisen", "url": "https://www.dagsavisen.no" },
     { "@type": "Organization", "name": "forskning.no", "url": "https://www.forskning.no" },

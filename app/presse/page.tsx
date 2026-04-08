@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
-import { PRESS_ARTICLES, PODCASTS, EVENTS, AWARDS, BRAND } from "@/lib/constants";
+import { PRESS_ARTICLES, PODCASTS, TV_RADIO, EVENTS, AWARDS, BRAND } from "@/lib/constants";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -30,6 +30,13 @@ const pressSchema = {
       "name": `${p.title}: ${p.episode}`,
       "url": p.url,
       "description": `Podcast · ${p.date}`,
+    })),
+    ...TV_RADIO.map((t, i) => ({
+      "@type": "ListItem",
+      "position": PRESS_ARTICLES.length + PODCASTS.length + i + 1,
+      "name": t.show,
+      "url": t.url,
+      "description": `${t.channel} · ${t.date}`,
     })),
   ],
 };
@@ -77,8 +84,21 @@ export default function PressePage() {
           {/* TV & Radio */}
           <section className="mb-16">
             <h2 className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-6 pb-3 border-b border-brand-border">TV & Radio</h2>
-            <div className="py-3 text-sm text-foreground">NRK <span className="text-brand-muted ml-4 text-xs">TV / Nyheter</span></div>
-            <div className="py-3 text-sm text-foreground border-t border-brand-lavender">TV 2 <span className="text-brand-muted ml-4 text-xs">TV</span></div>
+            <div className="space-y-0">
+              {TV_RADIO.map((item) => (
+                <a key={item.url} href={item.url} target="_blank" rel="noopener noreferrer" className="flex justify-between items-baseline py-4 border-b border-brand-lavender hover:pl-2 transition-all group">
+                  <span className="text-sm font-medium text-foreground group-hover:text-brand-indigo transition-colors flex-1 mr-6">{item.show}</span>
+                  <span className="flex items-center gap-4 flex-shrink-0">
+                    <span className="text-xs font-semibold text-brand-muted">{item.channel}</span>
+                    <span className="text-xs text-brand-border">{item.date}</span>
+                  </span>
+                </a>
+              ))}
+              <div className="flex justify-between items-baseline py-4 border-b border-brand-lavender">
+                <span className="text-sm font-medium text-foreground flex-1 mr-6">TV 2</span>
+                <span className="text-xs font-semibold text-brand-muted">TV</span>
+              </div>
+            </div>
           </section>
 
           {/* Events */}
