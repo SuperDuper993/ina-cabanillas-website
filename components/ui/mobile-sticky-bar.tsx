@@ -9,9 +9,19 @@ export function MobileStickyBar() {
 
   useEffect(() => {
     const contact = document.getElementById('kontakt');
+    const hero = document.querySelector('section');
 
     const handleScroll = () => {
       const currentY = window.scrollY;
+
+      // Hide when hero CTA is still visible (top of page)
+      if (hero) {
+        const heroBottom = hero.getBoundingClientRect().bottom;
+        if (heroBottom > 0) {
+          setVisible(false);
+          return;
+        }
+      }
 
       // Hide when contact section is in view
       if (contact) {
@@ -22,8 +32,7 @@ export function MobileStickyBar() {
         }
       }
 
-      // Hide when scrolling down fast, show when scrolling up
-      setVisible(currentY < lastScrollY.current || currentY < 100);
+      setVisible(currentY > lastScrollY.current ? false : true);
       lastScrollY.current = currentY;
     };
 
