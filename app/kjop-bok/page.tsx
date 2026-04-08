@@ -37,6 +37,30 @@ export default function KjopBokPage() {
   const [bulkForm, setBulkForm] = useState({ name: "", email: "", org: "", quantity: "", occasion: "", message: "" });
   const [bulkStatus, setBulkStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
+  // Newsletter modal before Vipps
+  const [showModal, setShowModal] = useState(false);
+  const [nlEmail, setNlEmail] = useState("");
+  const [nlStatus, setNlStatus] = useState<"idle" | "sending" | "done">("idle");
+
+  function openVipps() {
+    window.open(BRAND.vippsLink, "_blank", "noopener,noreferrer");
+    setShowModal(false);
+  }
+
+  async function handleNlSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setNlStatus("sending");
+    try {
+      await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: nlEmail, source: "book_purchase" }),
+      });
+    } catch { /* silent */ }
+    setNlStatus("done");
+    setTimeout(openVipps, 600);
+  }
+
   async function handleBulkSubmit(e: React.FormEvent) {
     e.preventDefault();
     setBulkStatus("sending");
@@ -124,15 +148,13 @@ export default function KjopBokPage() {
               </p>
 
               <div className="flex flex-col gap-3 mt-2">
-                <a
-                  href={BRAND.vippsLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <ShimmerButton
+                  className="w-full sm:w-auto"
+                  style={{ backgroundColor: '#FF5B24' }}
+                  onClick={() => setShowModal(true)}
                 >
-                  <ShimmerButton className="w-full sm:w-auto" style={{ backgroundColor: '#FF5B24' }}>
-                    Kjøp med Vipps — 349 kr
-                  </ShimmerButton>
-                </a>
+                  Kjøp med Vipps — 349 kr
+                </ShimmerButton>
                 <a
                   href="#bulk"
                   className="inline-flex items-center justify-center px-8 py-3.5 rounded-full border border-white/30 text-white/80 font-medium text-sm hover:bg-white/10 transition-all text-center"
@@ -346,15 +368,61 @@ export default function KjopBokPage() {
             <motion.div {...fadeUp}>
               <h2 className="font-serif text-2xl md:text-3xl text-white mb-4">Bestill i dag</h2>
               <p className="text-white/50 text-base mb-8">349 kr · Sendes i hele Norge</p>
-              <a href={BRAND.vippsLink} target="_blank" rel="noopener noreferrer">
-                <ShimmerButton className="mx-auto" style={{ backgroundColor: '#FF5B24' }}>
-                  Kjøp med Vipps — 349 kr
-                </ShimmerButton>
-              </a>
+              <ShimmerButton
+                className="mx-auto"
+                style={{ backgroundColor: '#FF5B24' }}
+                onClick={() => setShowModal(true)}
+              >
+                Kjøp med Vipps — 349 kr
+              </ShimmerButton>
             </motion.div>
           </div>
         </section>
       </main>
+      {/* Newsletter opt-in modal before Vipps */}
+      {showModal && (
+        <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4" onClick={() => setShowModal(false)}>
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+          <div
+            className="relative bg-white rounded-2xl p-8 w-full max-w-md shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {nlStatus === "done" ? (
+              <div className="text-center py-4">
+                <p className="text-2xl mb-3">🎉</p>
+                <p className="font-semibold text-foreground">Du er med! Sender deg videre til Vipps...</p>
+              </div>
+            ) : (
+              <>
+                <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">The Human ROI</p>
+                <h2 className="font-serif text-2xl text-foreground mb-2">Vil du ha mer fra boken?</h2>
+                <p className="text-brand-muted text-sm leading-relaxed mb-6">
+                  Meld deg på nyhetsbrevet og få ukentlig innsikt om Gen Z og ledelse direkte i innboksen. Gratis.
+                </p>
+                <form onSubmit={handleNlSubmit} className="space-y-3">
+                  <input
+                    type="email"
+                    required
+                    value={nlEmail}
+                    onChange={(e) => setNlEmail(e.target.value)}
+                    placeholder="din@epost.no"
+                    className="w-full px-4 py-3 rounded-xl border border-brand-border text-sm focus:outline-none focus:ring-2 focus:ring-brand-indigo/30"
+                  />
+                  <ShimmerButton type="submit" className="w-full" disabled={nlStatus === "sending"}>
+                    {nlStatus === "sending" ? "Melder på..." : "Ja, meld meg på →"}
+                  </ShimmerButton>
+                </form>
+                <button
+                  onClick={openVipps}
+                  className="w-full mt-3 text-sm text-brand-muted hover:text-foreground transition-colors text-center"
+                >
+                  Nei takk — gå direkte til Vipps
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+      )}
       <Footer />
     </>
   );
