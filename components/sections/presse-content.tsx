@@ -1,7 +1,22 @@
 'use client';
 
 import { useState } from 'react';
-import { PRESS_ARTICLES, PODCASTS, TV_RADIO, EVENTS, AWARDS, BRAND } from '@/lib/constants';
+import { PRESS_ARTICLES, PODCASTS, TV_RADIO, EVENTS, AWARDS, BRAND, IMAGES } from '@/lib/constants';
+
+const PRESS_PHOTOS = [
+  { src: IMAGES.hero, alt: 'Ina Cabanillas Hansen — pressebilete 1' },
+  { src: IMAGES.portrait, alt: 'Ina Cabanillas Hansen — portrett' },
+  { src: IMAGES.scene, alt: 'Ina Cabanillas Hansen — på scenen' },
+];
+
+const KEY_FACTS = [
+  { label: 'Alder', value: '25 år' },
+  { label: 'Hjemsted', value: 'Bodø' },
+  { label: 'Utdanning', value: 'BI / UC Berkeley' },
+  { label: 'Selskap', value: 'StudyBuddies' },
+  { label: 'Pris', value: 'HER Awards 2024 — Årets unge inspirasjon' },
+  { label: 'Anerkjennelse', value: 'LinkedIn Top 200 Voices globalt' },
+];
 
 type Tab = 'alle' | 'presse' | 'podcast' | 'tv' | 'events';
 
@@ -250,20 +265,93 @@ export function PresseContent() {
 
       {/* Pressekit — alltid synlig */}
       <div className="mt-16 pt-8 border-t border-brand-border">
-        <h2 className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-4">
+        <h2 className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-8">
           For media og presse
         </h2>
-        <p className="text-sm text-brand-muted mb-4">
-          Last ned pressebilder og logo for bruk i artikler og arrangementer.
-        </p>
-        <a
-          href={BRAND.presskit}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block px-6 py-3 text-sm font-semibold text-brand-indigo border-2 border-brand-indigo rounded-full hover:bg-brand-lavender transition-colors"
-        >
-          Last ned pressekit (Dropbox) →
-        </a>
+
+        {/* Pressebilder */}
+        <div className="mb-10">
+          <p className="text-sm font-semibold text-foreground mb-4">Pressebilder</p>
+          <div className="grid grid-cols-3 gap-3 mb-4">
+            {PRESS_PHOTOS.map((photo, i) => (
+              <a
+                key={i}
+                href={photo.src}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative aspect-[3/4] overflow-hidden rounded-xl bg-brand-lavender"
+                title="Åpne i full størrelse"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-brand-indigo/0 group-hover:bg-brand-indigo/10 transition-colors flex items-end p-2">
+                  <span className="text-white text-[10px] font-medium opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 px-2 py-1 rounded-full">
+                    Åpne ↗
+                  </span>
+                </div>
+              </a>
+            ))}
+          </div>
+          <a
+            href={BRAND.presskit}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-5 py-2.5 text-sm font-semibold text-brand-indigo border-2 border-brand-indigo rounded-full hover:bg-brand-lavender transition-colors"
+          >
+            Last ned alle bilder (Dropbox) →
+          </a>
+        </div>
+
+        {/* Bio */}
+        <div className="mb-10">
+          <p className="text-sm font-semibold text-foreground mb-4">Biografi</p>
+          <div className="space-y-4">
+            <div className="p-5 bg-brand-lavender rounded-xl">
+              <p className="text-[10px] font-bold tracking-wider uppercase text-brand-indigo mb-2">Kort (1–2 setninger)</p>
+              <p className="text-sm text-foreground leading-relaxed select-all">
+                Ina Cabanillas Hansen (25) er foredragsholder, forfatter og gründer av StudyBuddies. Hun er Norges ledende stemme på Gen Z og arbeidsliv, og holder keynote og workshop for ledere og HR i hele Norden.
+              </p>
+            </div>
+            <div className="p-5 bg-brand-lavender rounded-xl">
+              <p className="text-[10px] font-bold tracking-wider uppercase text-brand-indigo mb-2">Lang (avsnitt)</p>
+              <p className="text-sm text-foreground leading-relaxed select-all">
+                Ina Cabanillas Hansen (25) er foredragsholder, forfatter og gründer fra Bodø. Hun er kjent som Norges skarpeste stemme på Gen Z og fremtidens arbeidsliv — og snakker jevnlig i NRK, TV 2 og Dagsnytt 18 om hvorfor unge slutter, hva ledere misforstår og hva som faktisk skal til for å bygge tilhørighet på jobben. Ina er gründer av StudyBuddies, vinneren av HER Awards 2024 «Årets unge inspirasjon» og er kåret til én av LinkedIns topp 200 globale stemmer innen mangfold og inkludering. Hun holder keynote og workshop for HR-ledere, mellomledere og konferanser i hele Norden — med innsikt fra innsiden av generasjonen.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Nøkkelfakta */}
+        <div className="mb-10">
+          <p className="text-sm font-semibold text-foreground mb-4">Nøkkelfakta</p>
+          <div className="grid grid-cols-2 gap-3">
+            {KEY_FACTS.map((fact, i) => (
+              <div key={i} className="p-4 bg-brand-lavender rounded-xl">
+                <p className="text-xs text-brand-muted mb-0.5">{fact.label}</p>
+                <p className="text-sm font-semibold text-foreground">{fact.value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Kontakt */}
+        <div className="p-5 bg-brand-lavender rounded-xl">
+          <p className="text-sm font-semibold text-foreground mb-1">Kontakt for intervju og gjesteoppdrag</p>
+          <p className="text-sm text-brand-muted">
+            Send en e-post til{' '}
+            <a href="mailto:post@inacabanillas.com" className="text-brand-indigo underline">
+              post@inacabanillas.com
+            </a>
+            {' '}eller book et{' '}
+            <a href="https://calendar.app.google/DdqRYwRpniLiXgcm6" target="_blank" rel="noopener noreferrer" className="text-brand-indigo underline">
+              15 min samtale
+            </a>.
+          </p>
+        </div>
       </div>
     </div>
   );
