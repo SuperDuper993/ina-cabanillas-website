@@ -120,7 +120,7 @@ export default function OmPage() {
                 <p className={`${bodyText} mb-3`}>
                   En spicy nordlending med røtter fra Bodø og Spania — som endte opp som Norges fremste stemme på Gen Z og arbeidsliv.
                 </p>
-                <p className="text-[#666] text-base leading-[1.7]">
+                <p className="text-[#1a1a1a] text-base leading-[1.7]">
                   Ikke ved et uhell. Av nødvendighet.
                 </p>
 
