@@ -1,6 +1,7 @@
 'use client';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import { useState } from 'react';
 
 const workshops = [
   {
@@ -20,6 +21,8 @@ const workshops = [
 ];
 
 export function WorkshopSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
   return (
     <section className="py-24 bg-white">
       <div className="max-w-[1080px] mx-auto px-6">
@@ -29,7 +32,7 @@ export function WorkshopSection() {
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <div className="mb-12">
+          <div className="mb-10">
             <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
               Workshop
             </p>
@@ -41,29 +44,52 @@ export function WorkshopSection() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {workshops.map((w) => (
-              <div
-                key={w.title}
-                className="bg-brand-lavender rounded-2xl p-7 flex flex-col gap-4 hover:shadow-lg transition-shadow duration-300"
-              >
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-semibold tracking-wide uppercase px-3 py-1 rounded-full bg-amber-100 text-amber-800 self-start">
-                    {w.tag}
-                  </span>
-                  <span className="text-xs text-brand-muted">{w.duration}</span>
-                </div>
-                <h3 className="font-serif text-xl text-foreground leading-snug">
-                  {w.title}
-                </h3>
-                <p className="text-brand-muted text-base leading-relaxed">
-                  {w.description}
-                </p>
+          <div className="flex flex-col gap-3">
+            {workshops.map((w, i) => (
+              <div key={w.title} className="bg-brand-lavender rounded-2xl overflow-hidden">
+                <button
+                  onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                  className="w-full flex items-center justify-between gap-4 p-6 text-left hover:bg-brand-lavender/60 transition-colors"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-2 flex-shrink-0">
+                      <span className="text-xs font-semibold tracking-wide uppercase px-3 py-1 rounded-full bg-amber-100 text-amber-800">
+                        {w.tag}
+                      </span>
+                      <span className="text-xs text-brand-muted">{w.duration}</span>
+                    </div>
+                    <h3 className="font-serif text-lg text-foreground leading-snug">
+                      {w.title}
+                    </h3>
+                  </div>
+                  <svg
+                    className={`flex-shrink-0 text-brand-muted transition-transform duration-300 ${openIndex === i ? "rotate-180" : ""}`}
+                    width="20" height="20" viewBox="0 0 20 20" fill="none"
+                  >
+                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {openIndex === i && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25, ease: "easeOut" }}
+                      className="overflow-hidden"
+                    >
+                      <p className="px-6 pb-6 text-brand-muted text-base leading-relaxed">
+                        {w.description}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             ))}
           </div>
 
-          <div className="mt-10">
+          <div className="mt-8">
             <Link
               href="/#kontakt"
               className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-brand-indigo text-white font-semibold text-sm hover:bg-brand-indigo/90 transition-all hover:-translate-y-0.5"

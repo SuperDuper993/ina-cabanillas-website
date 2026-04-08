@@ -1,12 +1,12 @@
 'use client';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from "next/link";
 import { useState } from "react";
 import { TALKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export function TalksSection() {
-  const [showAll, setShowAll] = useState(false);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
     <section id="foredrag" className="py-24 bg-brand-lavender">
@@ -17,7 +17,7 @@ export function TalksSection() {
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <div className="mb-12">
+          <div className="mb-10">
             <h2 className="text-3xl md:text-4xl text-foreground mb-3">
               Foredragstemaer
             </h2>
@@ -26,45 +26,56 @@ export function TalksSection() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="flex flex-col gap-3">
             {TALKS.map((talk, i) => (
-              <div
-                key={talk.title}
-                className={cn(
-                  'bg-white rounded-2xl p-7 flex flex-col gap-4 hover:shadow-lg transition-shadow duration-300',
-                  i >= 2 && !showAll ? 'hidden sm:flex' : ''
-                )}
-              >
-                <span
-                  className={cn(
-                    "text-xs font-semibold tracking-wide uppercase px-3 py-1 rounded-full self-start",
-                    talk.tagVariant === "primary"
-                      ? "bg-brand-indigo text-white"
-                      : "bg-brand-light-lav text-brand-indigo"
-                  )}
+              <div key={talk.title} className="bg-white rounded-2xl overflow-hidden">
+                <button
+                  onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                  className="w-full flex items-center justify-between gap-4 p-6 text-left hover:bg-brand-lavender/40 transition-colors"
                 >
-                  {talk.tag}
-                </span>
-                <h3 className="font-serif text-xl text-foreground leading-snug">
-                  {talk.title}
-                </h3>
-                <p className="text-brand-muted text-base leading-relaxed">
-                  {talk.description}
-                </p>
+                  <div className="flex items-center gap-4">
+                    <span
+                      className={cn(
+                        "text-xs font-semibold tracking-wide uppercase px-3 py-1 rounded-full flex-shrink-0",
+                        talk.tagVariant === "primary"
+                          ? "bg-brand-indigo text-white"
+                          : "bg-brand-light-lav text-brand-indigo"
+                      )}
+                    >
+                      {talk.tag}
+                    </span>
+                    <h3 className="font-serif text-lg text-foreground leading-snug">
+                      {talk.title}
+                    </h3>
+                  </div>
+                  <svg
+                    className={cn("flex-shrink-0 text-brand-muted transition-transform duration-300", openIndex === i ? "rotate-180" : "")}
+                    width="20" height="20" viewBox="0 0 20 20" fill="none"
+                  >
+                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {openIndex === i && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25, ease: "easeOut" }}
+                      className="overflow-hidden"
+                    >
+                      <p className="px-6 pb-6 text-brand-muted text-base leading-relaxed">
+                        {talk.description}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             ))}
           </div>
 
-          <div className="mt-10 flex flex-col items-center gap-4">
-            {/* Mobile: show all toggle */}
-            {!showAll && (
-              <button
-                onClick={() => setShowAll(true)}
-                className="sm:hidden text-brand-indigo text-sm font-semibold underline underline-offset-2"
-              >
-                Se alle foredrag →
-              </button>
-            )}
+          <div className="mt-8">
             <Link
               href="/#kontakt"
               className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-brand-indigo text-white font-semibold text-sm hover:bg-brand-indigo/90 transition-all hover:-translate-y-0.5"

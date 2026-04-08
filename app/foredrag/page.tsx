@@ -43,17 +43,17 @@ export default function ForedragPage() {
           </div>
         </section>
 
-        {/* Foredragstemaer */}
+        {/* Video — tidlig, bygg troverdighet */}
+        <VideoSection />
+
+        {/* Foredragstemaer — accordion */}
         <TalksSection />
 
-        {/* Workshop */}
+        {/* Workshop — accordion */}
         <WorkshopSection />
 
         {/* Hvem passer det for */}
         <AudienceSection />
-
-        {/* Video */}
-        <VideoSection />
 
         {/* Slik fungerer det */}
         <HowItWorksSection />
