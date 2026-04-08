@@ -68,9 +68,6 @@ export function ContactSection() {
         >
           {/* Left column — info + trust signals */}
           <div className="flex flex-col gap-6">
-            <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo">
-              Kontakt
-            </p>
             <h2 className="text-3xl md:text-4xl text-foreground leading-snug">
               Book Ina som foredragsholder
             </h2>
@@ -87,7 +84,7 @@ export function ContactSection() {
                     <circle cx="8" cy="7" r="2" stroke="currentColor" strokeWidth="1.5" className="text-brand-indigo" />
                   </svg>
                 </div>
-                <span className="text-foreground text-sm">Oslo, Norge (tilgjengelig nasjonalt)</span>
+                <span className="text-foreground text-base">Oslo, Norge (tilgjengelig nasjonalt)</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-lg bg-brand-lavender flex items-center justify-center flex-shrink-0">
@@ -96,7 +93,7 @@ export function ContactSection() {
                     <path d="M2 8H14M8 2C6 4 5.5 6 5.5 8C5.5 10 6 12 8 14M8 2C10 4 10.5 6 10.5 8C10.5 10 10 12 8 14" stroke="currentColor" strokeWidth="1.2" className="text-brand-indigo" />
                   </svg>
                 </div>
-                <span className="text-foreground text-sm">Norsk og engelsk</span>
+                <span className="text-foreground text-base">Norsk og engelsk</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-lg bg-brand-lavender flex items-center justify-center flex-shrink-0">
@@ -105,7 +102,7 @@ export function ContactSection() {
                     <path d="M8 5V8L10 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" className="text-brand-indigo" />
                   </svg>
                 </div>
-                <span className="text-foreground text-sm">Svar innen 24 timer</span>
+                <span className="text-foreground text-base">Svar innen 24 timer</span>
               </div>
             </div>
 
@@ -125,7 +122,7 @@ export function ContactSection() {
             {/* Pricing */}
             <div className="bg-brand-lavender rounded-xl px-6 py-4 mt-2">
               <p className="font-semibold text-foreground text-base">Pris fra 35 000 kr + mva</p>
-              <p className="text-brand-muted text-sm mt-1">
+              <p className="text-brand-muted text-base mt-1">
                 Tilpasses format, varighet og publikum. Ta kontakt for et uforpliktende tilbud.
               </p>
             </div>
@@ -142,7 +139,7 @@ export function ContactSection() {
                   </svg>
                 </div>
                 <h3 className="text-xl text-foreground font-serif">Takk for henvendelsen!</h3>
-                <p className="text-brand-muted text-sm">Jeg svarer så snart jeg kan, vanligvis innen 24 timer.</p>
+                <p className="text-brand-muted text-base">Jeg svarer så snart jeg kan, vanligvis innen 24 timer.</p>
                 <button onClick={() => setStatus('idle')} className="text-brand-indigo text-sm mt-4 hover:underline">
                   Send en ny henvendelse
                 </button>
@@ -151,7 +148,7 @@ export function ContactSection() {
               <form onSubmit={handleSubmit} className="flex flex-col gap-5 bg-brand-lavender rounded-2xl p-8">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-foreground text-sm font-medium mb-2" htmlFor="navn">
+                    <label className="block text-foreground text-base font-medium mb-2" htmlFor="navn">
                       Navn <span className="text-brand-indigo">*</span>
                     </label>
                     <input
@@ -164,7 +161,7 @@ export function ContactSection() {
                     />
                   </div>
                   <div>
-                    <label className="block text-foreground text-sm font-medium mb-2" htmlFor="epost">
+                    <label className="block text-foreground text-base font-medium mb-2" htmlFor="epost">
                       E-post <span className="text-brand-indigo">*</span>
                     </label>
                     <input
@@ -179,7 +176,7 @@ export function ContactSection() {
                 </div>
 
                 <div>
-                  <label className="block text-foreground text-sm font-medium mb-2" htmlFor="organisasjon">
+                  <label className="block text-foreground text-base font-medium mb-2" htmlFor="organisasjon">
                     Organisasjon <span className="text-brand-muted text-xs font-normal">(valgfritt)</span>
                   </label>
                   <input
@@ -192,7 +189,7 @@ export function ContactSection() {
                 </div>
 
                 <div>
-                  <label className="block text-foreground text-sm font-medium mb-2" htmlFor="anledning">
+                  <label className="block text-foreground text-base font-medium mb-2" htmlFor="anledning">
                     Anledning <span className="text-brand-muted text-xs font-normal">(valgfritt)</span>
                   </label>
                   <div className="relative">
@@ -212,7 +209,7 @@ export function ContactSection() {
                 </div>
 
                 <div>
-                  <label className="block text-foreground text-sm font-medium mb-2" htmlFor="melding">
+                  <label className="block text-foreground text-base font-medium mb-2" htmlFor="melding">
                     Melding
                   </label>
                   <textarea
@@ -231,7 +228,7 @@ export function ContactSection() {
                     onChange={(e) => setNewsletter(e.target.checked)}
                     className="mt-0.5 rounded border-brand-border bg-white text-brand-indigo focus:ring-brand-indigo/20"
                   />
-                  <span className="text-brand-muted text-sm leading-relaxed">
+                  <span className="text-brand-muted text-base leading-relaxed">
                     Hold meg oppdatert om nye foredrag og artikler
                   </span>
                 </label>

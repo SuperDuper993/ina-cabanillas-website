@@ -52,9 +52,6 @@ export function ValueSection() {
           className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-start"
         >
           <div>
-            <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
-              Hva du får
-            </p>
             <h2 className="text-3xl md:text-4xl text-foreground leading-snug mb-5">
               Ikke bare inspirasjon — verktøy
             </h2>

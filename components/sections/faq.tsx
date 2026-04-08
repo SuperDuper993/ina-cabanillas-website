@@ -77,7 +77,7 @@ function FaqItem({ question, answer, isOpen, onToggle }: { question: string; ans
             className="overflow-hidden"
           >
             <div className="pb-5 pr-10">
-              <p className="text-brand-muted text-sm leading-relaxed">{answer}</p>
+              <p className="text-brand-muted text-base leading-relaxed">{answer}</p>
             </div>
           </motion.div>
         )}
@@ -100,9 +100,6 @@ export function FaqSection() {
           className="max-w-2xl mx-auto"
         >
           <div className="mb-10 text-center">
-            <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
-              Ofte stilte spørsmål
-            </p>
             <h2 className="text-3xl md:text-4xl text-foreground leading-snug">
               Spørsmål og svar
             </h2>

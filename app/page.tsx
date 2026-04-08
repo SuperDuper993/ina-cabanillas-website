@@ -12,8 +12,8 @@ import { BookSection } from "@/components/sections/book";
 import { ContactSection } from "@/components/sections/contact";
 import { FaqSection } from "@/components/sections/faq";
 import { NewsletterSection } from "@/components/sections/newsletter-section";
-import { NewsletterPopup } from "@/components/ui/newsletter-popup";
 import { StatsSection } from "@/components/sections/stats";
+import { EmpatiSection } from "@/components/sections/empati-section";
 import { JsonLd } from "@/components/seo/json-ld";
 
 export default function Home() {
@@ -24,32 +24,35 @@ export default function Home() {
       <main>
         {/* 1. Hero */}
         <HeroSection />
-        {/* 2. Kundelogoer — marquee */}
+        {/* 2. Kjenner du deg igjen? */}
+        <EmpatiSection />
+        {/* 3. Kundelogoer — marquee */}
         <LogoCloudSection />
-        {/* 3. Stats */}
+        {/* 4. Stats */}
         <StatsSection />
-        {/* 4. Video */}
-        <VideoSection />
-        {/* 5. Foredragstemaer */}
-        <TalksSection />
-        {/* 6. Hvem er det for */}
-        <AudienceSection />
-        {/* 7. Boken */}
-        <BookSection />
-        {/* 8. Om meg */}
-        <AboutTeaser />
-        {/* 9. Testimonials */}
+        {/* 5. Testimonials — høyt opp */}
         <TestimonialsSection />
-        {/* 10. Newsletter */}
-        <NewsletterSection />
-        {/* 11. CTA */}
+        {/* 6. Nyhetsbrev — tidlig versjon */}
+        <NewsletterSection variant="early" />
+        {/* 7. Video */}
+        <VideoSection />
+        {/* 8. Foredragstemaer */}
+        <TalksSection />
+        {/* 9. Hvem er det for */}
+        <AudienceSection />
+        {/* 10. Boken */}
+        <BookSection />
+        {/* 11. Om meg */}
+        <AboutTeaser />
+        {/* 12. CTA */}
         <CtaBand />
-        {/* 12. Kontakt */}
+        {/* 13. Nyhetsbrev — nedre versjon */}
+        <NewsletterSection />
+        {/* 14. Kontakt */}
         <ContactSection />
-        {/* 13. FAQ */}
+        {/* 15. FAQ */}
         <FaqSection />
       </main>
-      <NewsletterPopup />
       <Footer />
     </>
   );

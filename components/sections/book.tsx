@@ -15,9 +15,6 @@ export function BookSection() {
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
-            Boken
-          </p>
           <h2 className="text-3xl md:text-4xl text-foreground leading-snug mb-12">
             Boken ledere snakker om
           </h2>
@@ -45,7 +42,7 @@ export function BookSection() {
               </p>
 
               {/* Bullet points */}
-              <ul className="space-y-3 text-foreground text-sm">
+              <ul className="space-y-3 text-foreground text-base">
                 <li className="flex items-start gap-3">
                   <span className="text-brand-indigo font-bold mt-0.5">✓</span>
                   <span>Forstå hva Gen Z faktisk trenger fra en leder</span>
@@ -60,7 +57,7 @@ export function BookSection() {
                 </li>
               </ul>
 
-              <p className="text-sm text-brand-muted/70">
+              <p className="text-base text-brand-muted/70">
                 349 kr · Fysisk bok · Utgitt 2025
               </p>
 

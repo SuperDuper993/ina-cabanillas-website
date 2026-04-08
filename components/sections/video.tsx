@@ -13,9 +13,6 @@ export function VideoSection() {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <div className="mb-10">
-            <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
-              Se Ina i aksjon
-            </p>
             <h2 className="text-3xl md:text-4xl text-foreground mb-3">
               Fra scenen
             </h2>

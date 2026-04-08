@@ -21,7 +21,7 @@ export function StatsSection() {
               <p className="text-white/45 text-base leading-snug mb-2">
                 {stat.label}
               </p>
-              <p className="text-white/25 text-xs">
+              <p className="text-white/25 text-sm">
                 {stat.source}
               </p>
             </div>

@@ -16,7 +16,7 @@ export function HeroSection() {
           backgroundPosition: "center 20%",
         }}
       />
-      {/* Mobile background — top center to focus on face/upper body */}
+      {/* Mobile background */}
       <div
         className="absolute inset-0 md:hidden"
         style={{
@@ -37,12 +37,12 @@ export function HeroSection() {
                 <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
               </svg>
             ))}
-            <span className="text-white/70 text-xs ml-1">6/6 på Talerlisten</span>
+            <span className="text-white/70 text-sm ml-1">6/6 på Talerlisten</span>
           </div>
           <span className="text-white/30">·</span>
-          <span className="text-white/70 text-xs">Årets unge inspirasjon 2024</span>
+          <span className="text-white/70 text-sm">Årets unge inspirasjon 2024</span>
           <span className="text-white/30">·</span>
-          <span className="text-white/70 text-xs">20+ scener nasjonalt</span>
+          <span className="text-white/70 text-sm">20+ scener nasjonalt</span>
         </div>
 
         <div className="max-w-3xl">
@@ -56,13 +56,13 @@ export function HeroSection() {
 
         {/* Authority badges */}
         <div className="flex flex-wrap gap-2">
-          <span className="text-[11px] font-medium text-white/60 border border-white/20 rounded-full px-3 py-1 bg-white/5 backdrop-blur-sm">
+          <span className="text-sm font-medium text-white/60 border border-white/20 rounded-full px-3 py-1 bg-white/5 backdrop-blur-sm">
             HER Awards 2024
           </span>
-          <span className="text-[11px] font-medium text-white/60 border border-white/20 rounded-full px-3 py-1 bg-white/5 backdrop-blur-sm">
+          <span className="text-sm font-medium text-white/60 border border-white/20 rounded-full px-3 py-1 bg-white/5 backdrop-blur-sm">
             NRK &middot; TV2 &middot; Dagsnytt 18
           </span>
-          <span className="text-[11px] font-medium text-white/60 border border-white/20 rounded-full px-3 py-1 bg-white/5 backdrop-blur-sm">
+          <span className="text-sm font-medium text-white/60 border border-white/20 rounded-full px-3 py-1 bg-white/5 backdrop-blur-sm">
             LinkedIn Topp 200 Voices
           </span>
         </div>

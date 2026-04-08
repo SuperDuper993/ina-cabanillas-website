@@ -14,9 +14,6 @@ export function CtaBand() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="flex flex-col items-center gap-7 text-center"
         >
-          <p className="text-xs font-semibold tracking-widest uppercase text-white/50">
-            Ta neste steg
-          </p>
           <h2 className="text-2xl md:text-3xl text-white leading-snug max-w-lg">
             Klar for et foredrag som faktisk sitter?
           </h2>

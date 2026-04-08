@@ -33,9 +33,6 @@ export function AboutTeaser() {
           </div>
 
           <div className="order-1 md:order-2 flex flex-col gap-5">
-            <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo">
-              Om Ina
-            </p>
             <h2 className="text-3xl md:text-4xl text-foreground leading-snug">
               Gen Z som forsker på sin egen generasjon
             </h2>
@@ -60,14 +57,14 @@ export function AboutTeaser() {
                   <p className="font-semibold text-brand-indigo text-base">
                     {h.value}
                   </p>
-                  <p className="text-brand-muted text-sm mt-0.5">{h.label}</p>
+                  <p className="text-brand-muted text-base mt-0.5">{h.label}</p>
                 </div>
               ))}
             </div>
 
             <Link
               href="/om"
-              className="inline-flex items-center gap-2 text-brand-indigo font-semibold text-sm hover:gap-3 transition-all mt-2"
+              className="inline-flex items-center gap-2 text-brand-indigo font-semibold text-base hover:gap-3 transition-all mt-2"
             >
               Les mer om Ina
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">

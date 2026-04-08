@@ -43,9 +43,6 @@ export function WhoSection() {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <div className="mb-12 text-center max-w-2xl mx-auto">
-            <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
-              Hvem er dette for?
-            </p>
             <h2 className="text-3xl md:text-4xl text-foreground leading-snug">
               Er dette for deg?
             </h2>
@@ -63,7 +60,7 @@ export function WhoSection() {
                 {forYou.map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <CheckIcon />
-                    <span className="text-foreground text-sm leading-relaxed">{item}</span>
+                    <span className="text-foreground text-base leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -80,7 +77,7 @@ export function WhoSection() {
                 {notForYou.map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <CrossIcon />
-                    <span className="text-brand-muted text-sm leading-relaxed">{item}</span>
+                    <span className="text-brand-muted text-base leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>

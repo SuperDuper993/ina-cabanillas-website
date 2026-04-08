@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 grep for å beholde unge talent — Sjekkliste</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #ffffff;
+      color: #1A1A1A;
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+    }
+
+    .page {
+      padding: 48px 56px;
+      min-height: 297mm;
+      position: relative;
+    }
+
+    /* -- Header -- */
+    .doc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 3px solid #2B1FA0;
+    }
+    .doc-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      color: #1E1A3A;
+    }
+    .doc-logo span { color: #2B1FA0; }
+    .doc-meta {
+      text-align: right;
+      font-size: 12px;
+      color: #4A4566;
+      line-height: 1.5;
+    }
+
+    /* -- Title -- */
+    .doc-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 32px;
+      line-height: 1.2;
+      color: #1A1A1A;
+      margin-bottom: 8px;
+    }
+    .doc-subtitle {
+      font-size: 17px;
+      color: #4A4566;
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
+    /* -- Intro box -- */
+    .intro-box {
+      background: #F4F2F9;
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 36px;
+    }
+    .intro-box p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #4A4566;
+    }
+    .intro-box strong { color: #1A1A1A; }
+
+    /* -- Grep cards -- */
+    .grep-card {
+      margin-bottom: 28px;
+      page-break-inside: avoid;
+    }
+    .grep-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .grep-number {
+      width: 44px;
+      height: 44px;
+      background: #2B1FA0;
+      color: #ffffff;
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .grep-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      color: #1A1A1A;
+      line-height: 1.3;
+    }
+    .grep-body {
+      padding-left: 60px;
+    }
+    .grep-body p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #4A4566;
+      margin-bottom: 10px;
+    }
+    .grep-body strong { color: #1A1A1A; }
+
+    /* -- Action box inside grep -- */
+    .action-box {
+      background: #F4F2F9;
+      border-left: 3px solid #2B1FA0;
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+      margin-top: 8px;
+    }
+    .action-box .action-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #2B1FA0;
+      margin-bottom: 6px;
+    }
+    .action-box p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #1A1A1A;
+      margin: 0;
+    }
+
+    /* -- Checkbox list -- */
+    .checklist {
+      list-style: none;
+      padding: 0;
+    }
+    .checklist li {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #4A4566;
+      padding: 6px 0;
+      padding-left: 28px;
+      position: relative;
+    }
+    .checklist li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 16px;
+      height: 16px;
+      border: 2px solid #2B1FA0;
+      border-radius: 4px;
+    }
+
+    /* -- Divider -- */
+    .grep-divider {
+      height: 1px;
+      background: #E0DDF0;
+      margin: 4px 0 28px 60px;
+    }
+
+    /* -- Quote box -- */
+    .quote-box {
+      background: #1E1A3A;
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin: 36px 0;
+      text-align: center;
+    }
+    .quote-box p {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      color: #ffffff;
+      line-height: 1.5;
+      font-style: italic;
+    }
+    .quote-box .quote-source {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      margin-top: 12px;
+      font-style: normal;
+    }
+
+    /* -- Footer -- */
+    .doc-footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #E0DDF0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .doc-footer p {
+      font-size: 12px;
+      color: #4A4566;
+      line-height: 1.5;
+    }
+    .doc-footer a {
+      color: #2B1FA0;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @media print {
+      body { background: white; }
+      .page { padding: 40px 48px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+
+    <!-- HEADER -->
+    <div class="doc-header">
+      <div class="doc-logo">The Human <span>ROI</span></div>
+      <div class="doc-meta">
+        Av Ina Cabanillas Hansen<br>
+        inacabanillas.com
+      </div>
+    </div>
+
+    <!-- TITLE -->
+    <h1 class="doc-title">5 grep for å beholde unge talent</h1>
+    <p class="doc-subtitle">En praktisk sjekkliste for ledere som vil bygge arbeidsplasser der unge faktisk blir.</p>
+
+    <!-- INTRO -->
+    <div class="intro-box">
+      <p>
+        <strong>Visste du?</strong> 76 % av Gen Z sier de ville forlatt en jobb der de ikke føler tilhørighet (McKinsey, 2024). Turnover blant unge koster norske bedrifter millioner hvert år — men det trenger ikke være sånn. Her er fem forskningsbaserte grep du kan ta allerede denne uken.
+      </p>
+    </div>
+
+    <!-- GREP 1 -->
+    <div class="grep-card">
+      <div class="grep-header">
+        <div class="grep-number">1</div>
+        <div class="grep-title">Still bedre spørsmål</div>
+      </div>
+      <div class="grep-body">
+        <p>
+          «Har du noen spørsmål?» gir nesten alltid svaret «nei». Unge vil ikke virke dumme eller krevende. Men det betyr ikke at de ikke trenger noe.
+        </p>
+        <p>
+          <strong>Bytt til:</strong> «Hva trenger du fra meg for å gjøre en god jobb denne uken?» — det åpner for ærlige svar uten at det føles sårbart.
+        </p>
+        <div class="action-box">
+          <div class="action-label">Gjør dette i dag</div>
+          <p>Velg én person du leder. Still dem dette spørsmålet i neste én-til-én.</p>
+        </div>
+      </div>
+    </div>
+    <div class="grep-divider"></div>
+
+    <!-- GREP 2 -->
+    <div class="grep-card">
+      <div class="grep-header">
+        <div class="grep-number">2</div>
+        <div class="grep-title">Gi kontekst, ikke bare oppgaver</div>
+      </div>
+      <div class="grep-body">
+        <p>
+          Gen Z er ikke late — de er meningsdrevne. Når de ikke forstår <em>hvorfor</em> oppgaven deres betyr noe, mister de motivasjon. Det er ikke generasjonsforkjellighet — det er menneskelig.
+        </p>
+        <p>
+          <strong>Si «vi gjør dette fordi...»</strong> før du delegerer. Det tar 10 sekunder og endrer alt.
+        </p>
+        <div class="action-box">
+          <div class="action-label">Gjør dette i dag</div>
+          <p>Neste gang du gir en oppgave, start med konteksten: Hvem påvirkes? Hvorfor nå? Hvordan passer det inn?</p>
+        </div>
+      </div>
+    </div>
+    <div class="grep-divider"></div>
+
+    <!-- GREP 3 -->
+    <div class="grep-card">
+      <div class="grep-header">
+        <div class="grep-number">3</div>
+        <div class="grep-title">Sjekk inn etter 30 dager</div>
+      </div>
+      <div class="grep-body">
+        <p>
+          De fleste ledere venter til medarbeidersamtalen. Men innen den tid har den unge ansatte allerede bestemt seg for om de vil bli — eller begynne å se seg om.
+        </p>
+        <p>
+          <strong>Én 15-minutters samtale etter 30 dager</strong> viser at du bryr deg. Det er billigere enn en ny rekrutteringsprosess.
+        </p>
+        <div class="action-box">
+          <div class="action-label">Gjør dette i dag</div>
+          <ul class="checklist">
+            <li>Book en 15-min samtale med din nyeste ansatte</li>
+            <li>Spør: «Hva har overrasket deg mest her?»</li>
+            <li>Spør: «Er det noe du savner som ville gjort hverdagen bedre?»</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="grep-divider"></div>
+
+    <!-- QUOTE -->
+    <div class="quote-box">
+      <p>«Tilhørighet er ikke noe du føler etter 6 måneder.<br>Det er noe du føler — eller ikke føler — dag én.»</p>
+      <div class="quote-source">— Ina Cabanillas Hansen</div>
+    </div>
+
+    <!-- GREP 4 -->
+    <div class="grep-card">
+      <div class="grep-header">
+        <div class="grep-number">4</div>
+        <div class="grep-title">Inkluder dem i beslutninger</div>
+      </div>
+      <div class="grep-body">
+        <p>
+          Unge ansatte vil ikke bare utføre — de vil forstå og bidra. Gallup viser at ansatte som føler de har innflytelse er <strong>3,5x mer engasjerte</strong>.
+        </p>
+        <p>
+          Det betyr ikke at alle skal bestemme alt. Det betyr at du spør «hva tenker du?» før du konkluderer.
+        </p>
+        <div class="action-box">
+          <div class="action-label">Gjør dette i dag</div>
+          <p>I neste møte: Still et åpent spørsmål til en junior før du presenterer din løsning. Lytt aktivt.</p>
+        </div>
+      </div>
+    </div>
+    <div class="grep-divider"></div>
+
+    <!-- GREP 5 -->
+    <div class="grep-card">
+      <div class="grep-header">
+        <div class="grep-number">5</div>
+        <div class="grep-title">Vis at du ser fremgangen</div>
+      </div>
+      <div class="grep-body">
+        <p>
+          Gen Z har vokst opp med instant feedback — likes, kommentarer, algoritmer. Det betyr ikke at de trenger ros hele tiden, men de trenger å vite at noen legger merke til innsatsen.
+        </p>
+        <p>
+          <strong>Konkret anerkjennelse</strong> — ikke bare «bra jobba», men «den presentasjonen du holdt i dag var godt strukturert, spesielt innledningen» — bygger tillit og lojalitet.
+        </p>
+        <div class="action-box">
+          <div class="action-label">Gjør dette i dag</div>
+          <p>Send en kort melding til en ung kollega om noe spesifikt de gjorde bra denne uken. Vær konkret.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINAL CHECKLIST -->
+    <div class="quote-box" style="text-align: left; background: #F4F2F9; margin-top: 32px;">
+      <p style="font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700; color: #2B1FA0; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 12px; font-style: normal;">Din ukentlige sjekkliste</p>
+      <ul class="checklist" style="margin: 0;">
+        <li style="color: #1A1A1A;">Still «hva trenger du fra meg?» i stedet for «har du spørsmål?»</li>
+        <li style="color: #1A1A1A;">Gi kontekst før oppgaver: «vi gjør dette fordi...»</li>
+        <li style="color: #1A1A1A;">Book en 15-min innsjekk med din nyeste ansatte</li>
+        <li style="color: #1A1A1A;">Spør en junior «hva tenker du?» i neste møte</li>
+        <li style="color: #1A1A1A;">Send én konkret anerkjennelse til en ung kollega</li>
+      </ul>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="doc-footer">
+      <p>
+        <strong>The Human ROI</strong> — nyhetsbrevet om fremtidens arbeidsliv<br>
+        <a href="https://www.inacabanillas.com">inacabanillas.com</a>
+      </p>
+      <p style="text-align: right;">
+        Vil du gå dypere?<br>
+        <a href="https://www.inacabanillas.com/kjop-bok">Kjøp boken →</a>
+      </p>
+    </div>
+
+  </div>
+
+</body>
+</html>

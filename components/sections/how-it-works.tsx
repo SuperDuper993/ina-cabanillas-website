@@ -30,9 +30,6 @@ export function HowItWorksSection() {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <div className="mb-14 text-center max-w-xl mx-auto">
-            <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
-              Prosessen
-            </p>
             <h2 className="text-3xl md:text-4xl text-foreground leading-snug">
               Slik fungerer det
             </h2>
@@ -51,7 +48,7 @@ export function HowItWorksSection() {
                 </div>
                 <div>
                   <h3 className="font-serif text-xl text-foreground mb-2">{step.title}</h3>
-                  <p className="text-brand-muted text-sm leading-relaxed">{step.description}</p>
+                  <p className="text-brand-muted text-base leading-relaxed">{step.description}</p>
                 </div>
               </div>
             ))}

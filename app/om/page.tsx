@@ -63,9 +63,6 @@ export default function OmPage() {
             <motion.div {...fadeUp} className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center">
               {/* Text — left on desktop */}
               <div className="order-2 md:order-1">
-                <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-5">
-                  Om Ina
-                </p>
                 <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] text-[#0f0f0f] leading-[1.15] mb-6 font-bold">
                   Ina Cabanillas Hansen
                 </h1>
@@ -228,7 +225,7 @@ export default function OmPage() {
                   ].map((h) => (
                     <div key={h.label} className="bg-white rounded-xl px-5 py-4">
                       <p className="font-bold text-brand-indigo text-base">{h.value}</p>
-                      <p className="text-[#555] text-sm mt-0.5">{h.label}</p>
+                      <p className="text-[#555] text-base mt-0.5">{h.label}</p>
                     </div>
                   ))}
                 </div>
@@ -241,9 +238,6 @@ export default function OmPage() {
         <section className={`${sectionPad} bg-white`}>
           <div className="max-w-[1080px] mx-auto px-6">
             <motion.div {...fadeUp}>
-              <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
-                Verdier
-              </p>
               <h2 className="text-3xl md:text-4xl text-[#0f0f0f] font-bold mb-12">
                 Det jeg står for
               </h2>
@@ -259,7 +253,7 @@ export default function OmPage() {
                   <div key={v.title} className="bg-brand-lavender rounded-2xl p-7 flex flex-col gap-3 hover:shadow-lg transition-shadow duration-300">
                     <h3 className="font-serif text-xl text-[#0f0f0f] font-semibold">{v.title}</h3>
                     <p className="text-[#444] text-base leading-[1.7]">{v.desc}</p>
-                    <p className="text-brand-indigo/60 text-xs font-medium tracking-wide">{v.traits}</p>
+                    <p className="text-brand-indigo/60 text-sm font-medium tracking-wide">{v.traits}</p>
                   </div>
                 ))}
               </div>
@@ -271,9 +265,6 @@ export default function OmPage() {
         <section className={`${sectionPad} bg-brand-lavender`}>
           <div className="max-w-[1080px] mx-auto px-6">
             <motion.div {...fadeUp}>
-              <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
-                Mine roller
-              </p>
               <h2 className="text-3xl md:text-4xl text-[#0f0f0f] font-bold mb-12">
                 Tre roller, ett mål
               </h2>
@@ -295,9 +286,6 @@ export default function OmPage() {
           <div className="max-w-[1080px] mx-auto px-6">
             <motion.div {...fadeUp} className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
               <div>
-                <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
-                  Utdanning
-                </p>
                 <h2 className="text-3xl md:text-4xl text-[#0f0f0f] font-bold leading-snug mb-8">
                   Akademisk bakgrunn
                 </h2>
@@ -305,15 +293,12 @@ export default function OmPage() {
                   {education.map((edu) => (
                     <div key={edu.school} className="bg-brand-lavender rounded-xl px-6 py-5">
                       <p className="font-semibold text-[#0f0f0f] text-base">{edu.school}</p>
-                      <p className="text-[#555] text-sm mt-1">{edu.field}</p>
+                      <p className="text-[#555] text-base mt-1">{edu.field}</p>
                     </div>
                   ))}
                 </div>
               </div>
               <div>
-                <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
-                  Priser og anerkjennelse
-                </p>
                 <h2 className="text-3xl md:text-4xl text-[#0f0f0f] font-bold leading-snug mb-8">
                   Awards
                 </h2>
@@ -326,7 +311,7 @@ export default function OmPage() {
                         </span>
                         <p className="font-semibold text-[#0f0f0f] text-base">{award.name}</p>
                       </div>
-                      <p className="text-[#555] text-sm mt-1">{award.org}</p>
+                      <p className="text-[#555] text-base mt-1">{award.org}</p>
                     </div>
                   ))}
                 </div>
@@ -339,9 +324,6 @@ export default function OmPage() {
         <section className={`${sectionPad} bg-brand-lavender`}>
           <div className="max-w-[1080px] mx-auto px-6">
             <motion.div {...fadeUp} className="text-center">
-              <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
-                Sett og hørt
-              </p>
               <h2 className="text-3xl md:text-4xl text-[#0f0f0f] font-bold mb-4">
                 Omtalt i media
               </h2>
@@ -350,17 +332,14 @@ export default function OmPage() {
               </p>
               <div className="flex flex-wrap justify-center gap-4 mb-12">
                 {mediaLogos.map((name) => (
-                  <span key={name} className="text-sm font-semibold text-[#666] border border-brand-border rounded-full px-5 py-2 bg-white">
+                  <span key={name} className="text-base font-semibold text-[#666] border border-brand-border rounded-full px-5 py-2 bg-white">
                     {name}
                   </span>
                 ))}
               </div>
-              <p className="text-xs font-semibold tracking-widest uppercase text-[#888] mb-4">
-                Scener
-              </p>
               <div className="flex flex-wrap justify-center gap-3">
                 {stages.map((name) => (
-                  <span key={name} className="text-sm font-medium text-brand-indigo bg-white border border-brand-indigo/20 rounded-full px-5 py-2">
+                  <span key={name} className="text-base font-medium text-brand-indigo bg-white border border-brand-indigo/20 rounded-full px-5 py-2">
                     {name}
                   </span>
                 ))}
@@ -373,9 +352,6 @@ export default function OmPage() {
         <section className="py-24 md:py-32 bg-white">
           <div className={`${textMax} mx-auto px-6`}>
             <motion.div {...fadeUp} className="text-center">
-              <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
-                Foredrag
-              </p>
               <h2 className="text-3xl md:text-4xl text-[#0f0f0f] font-bold mb-6">
                 Book meg som foredragsholder
               </h2>

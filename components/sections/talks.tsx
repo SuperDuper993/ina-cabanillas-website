@@ -15,9 +15,6 @@ export function TalksSection() {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <div className="mb-12">
-            <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
-              Foredrag
-            </p>
             <h2 className="text-3xl md:text-4xl text-foreground mb-3">
               Foredragstemaer
             </h2>
@@ -45,7 +42,7 @@ export function TalksSection() {
                 <h3 className="font-serif text-xl text-foreground leading-snug">
                   {talk.title}
                 </h3>
-                <p className="text-brand-muted text-sm leading-relaxed">
+                <p className="text-brand-muted text-base leading-relaxed">
                   {talk.description}
                 </p>
               </div>

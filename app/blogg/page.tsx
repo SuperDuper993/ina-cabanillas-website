@@ -20,9 +20,6 @@ export default function BloggPage() {
       <Navbar />
       <main className="pt-28 pb-24 bg-white min-h-screen">
         <div className="max-w-[720px] mx-auto px-6">
-          <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
-            Blogg
-          </p>
           <h1 className="text-4xl md:text-5xl text-foreground font-bold leading-tight mb-4">
             Innsikt fra Ina
           </h1>

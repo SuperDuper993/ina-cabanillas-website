@@ -6,7 +6,7 @@ import { CLIENTS } from '@/lib/constants';
 export function LogoCloudSection() {
   return (
     <section className="border-y border-brand-border py-10 bg-white">
-      <p className="text-center text-xs font-medium tracking-widest uppercase text-brand-muted mb-6">
+      <p className="text-center text-sm font-medium tracking-widest uppercase text-brand-muted mb-6">
         Har holdt foredrag for
       </p>
       <InfiniteSlider gap={32} duration={30} durationOnHover={60}>

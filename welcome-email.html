@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velkommen til The Human ROI</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #F4F2F9;
+      color: #1A1A1A;
+      padding: 40px 16px;
+    }
+
+    .email-wrapper {
+      max-width: 620px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(43, 31, 160, 0.08);
+    }
+
+    /* -- Header -- */
+    .header {
+      background: #1E1A3A;
+      padding: 32px 40px;
+      text-align: center;
+    }
+    .header-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+    }
+    .header-logo span {
+      color: #A89CFF;
+    }
+    .header-tagline {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      margin-top: 6px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* -- Hero / Intro -- */
+    .hero {
+      padding: 40px 40px 0;
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 28px;
+      line-height: 1.25;
+      color: #1A1A1A;
+      margin-bottom: 20px;
+    }
+    .hero-intro {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #4A4566;
+    }
+    .hero-intro strong {
+      color: #1A1A1A;
+      font-weight: 600;
+    }
+
+    /* -- Divider -- */
+    .divider {
+      height: 1px;
+      background: #E0DDF0;
+      margin: 32px 40px;
+    }
+    .divider-thick {
+      height: 3px;
+      background: linear-gradient(90deg, #2B1FA0, #A89CFF);
+      margin: 0 40px;
+      border-radius: 2px;
+      margin-top: 32px;
+    }
+
+    /* -- Sections -- */
+    .section {
+      padding: 0 40px 32px;
+    }
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #2B1FA0;
+      margin-bottom: 16px;
+    }
+    .section h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      line-height: 1.3;
+      color: #1A1A1A;
+      margin-bottom: 12px;
+    }
+    .section p {
+      font-size: 16px;
+      line-height: 1.75;
+      color: #4A4566;
+    }
+    .section p + p {
+      margin-top: 12px;
+    }
+
+    /* -- Highlight box -- */
+    .highlight-box {
+      background: #F4F2F9;
+      border-left: 4px solid #2B1FA0;
+      padding: 20px 24px;
+      margin: 20px 40px 32px;
+      border-radius: 0 12px 12px 0;
+    }
+    .highlight-box p {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #1A1A1A;
+      font-weight: 500;
+      font-style: italic;
+    }
+
+    /* -- Bullet list -- */
+    .bullet-list {
+      padding: 0 40px 32px;
+    }
+    .bullet-list ul {
+      list-style: none;
+      padding: 0;
+    }
+    .bullet-list li {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #4A4566;
+      padding: 8px 0;
+      padding-left: 24px;
+      position: relative;
+    }
+    .bullet-list li::before {
+      content: "\2192";
+      position: absolute;
+      left: 0;
+      color: #2B1FA0;
+      font-weight: 700;
+    }
+
+    /* -- Bonus card -- */
+    .bonus-card {
+      background: linear-gradient(135deg, #2B1FA0, #1E1A3A);
+      margin: 0 40px 32px;
+      padding: 32px;
+      border-radius: 12px;
+      text-align: center;
+    }
+    .bonus-card .bonus-badge {
+      display: inline-block;
+      background: rgba(168, 156, 255, 0.2);
+      color: #A89CFF;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    .bonus-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      color: #ffffff;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .bonus-card p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .bonus-card a {
+      display: inline-block;
+      background: #ffffff;
+      color: #2B1FA0;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 32px;
+      border-radius: 999px;
+      text-decoration: none;
+    }
+
+    /* -- About card -- */
+    .about-card {
+      background: #F4F2F9;
+      margin: 0 40px 32px;
+      padding: 28px 32px;
+      border-radius: 12px;
+    }
+    .about-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      color: #1A1A1A;
+      margin-bottom: 12px;
+    }
+    .about-card p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #4A4566;
+    }
+    .about-card p + p {
+      margin-top: 10px;
+    }
+
+    /* -- CTA button -- */
+    .cta-wrapper {
+      padding: 8px 40px 32px;
+      text-align: center;
+    }
+    .cta-button {
+      display: inline-block;
+      background: #2B1FA0;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 32px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .cta-button:hover { opacity: 0.9; }
+
+    /* -- Footer -- */
+    .footer {
+      background: #1E1A3A;
+      padding: 32px 40px;
+      text-align: center;
+    }
+    .footer-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+    .footer-links {
+      margin-bottom: 16px;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    .footer-links a:hover { color: #ffffff; }
+    .footer-fine {
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+      line-height: 1.6;
+    }
+    .footer-fine a {
+      color: rgba(255,255,255,0.4);
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 16px 8px; }
+      .header, .section, .cta-wrapper, .bullet-list, .footer { padding-left: 24px; padding-right: 24px; }
+      .divider, .divider-thick, .highlight-box, .about-card, .bonus-card { margin-left: 24px; margin-right: 24px; }
+      .hero { padding: 28px 24px 0; }
+      .hero h1 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="email-wrapper">
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="header-logo">The Human <span>ROI</span></div>
+      <div class="header-tagline">Av Ina Cabanillas Hansen</div>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero">
+      <h1>Velkommen til The Human ROI!</h1>
+      <p class="hero-intro">
+        Hei! &#x1F44B;<br><br>
+        Takk for at du meldte deg p&#229; <strong>The Human ROI</strong> &#8212; nyhetsbrevet om fremtidens arbeidsliv, og hva som faktisk skal til for &#229; lede i det.<br><br>
+        Hver utgave tar jeg for meg &#233;n ting som betyr noe i skj&#230;ringspunktet mellom <strong>mennesker, teknologi og ledelse</strong> &#8212; og gir deg noe du faktisk kan bruke.
+      </p>
+    </div>
+
+    <div class="divider-thick"></div>
+
+    <!-- SIGN-UP BONUS -->
+    <div style="height: 32px;"></div>
+    <div class="bonus-card">
+      <div class="bonus-badge">&#127381; Din velkomstgave</div>
+      <h3>5 grep for &#229; beholde unge talent</h3>
+      <p>En praktisk sjekkliste med de viktigste tingene du kan gj&#248;re som leder &#8212; basert p&#229; forskning og erfaring fra 20+ foredrag.</p>
+      <a href="{bonus_pdf_url}">Last ned sjekklisten &#8594;</a>
+    </div>
+
+    <!-- STAT CARD -->
+    <div style="background: #1E1A3A; margin: 0 40px 32px; padding: 28px 32px; border-radius: 12px; text-align: center;">
+      <div style="font-family: 'DM Serif Display', serif; font-size: 42px; color: #ffffff; margin-bottom: 8px;">76%</div>
+      <div style="font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.5;">av Gen Z sier de ville forlatt en jobb<br>der de ikke f&#248;ler tilh&#248;righet</div>
+      <div style="font-size: 12px; color: rgba(255,255,255,0.3); margin-top: 8px;">Kilde: McKinsey, 2024</div>
+    </div>
+
+    <!-- WHAT YOU'LL GET -->
+    <div class="section">
+      <div class="section-label">Dette f&#229;r du</div>
+      <h2>Annenhver uke, rett i innboksen</h2>
+    </div>
+    <div class="bullet-list">
+      <ul>
+        <li><strong>&#201;n innsikt</strong> om hvordan arbeidslivet endrer seg &#8212; og hva ledere m&#229; gj&#248;re med det</li>
+        <li><strong>&#201;n myte knust</strong> om Gen Z, AI eller fremtidens arbeidsliv</li>
+        <li><strong>Tre konkrete grep</strong> du kan pr&#248;ve denne uken</li>
+      </ul>
+    </div>
+
+    <!-- HIGHLIGHT -->
+    <div class="highlight-box">
+      <p>Ingen fluff, ingen spam &#8212; bare det som betyr noe n&#229;r du pr&#248;ver &#229; bygge arbeidsplasser der folk faktisk vil bli.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ABOUT -->
+    <div class="about-card">
+      <h3>Litt om meg</h3>
+      <p>
+        Jeg er Ina Cabanillas Hansen &#8212; foredragsholder, forfatter og gr&#252;nder fra Norge. Jeg studerer fremtidens arbeidsliv fra innsiden: hvordan teknologi, generasjonsskifter og tilh&#248;righet endrer m&#229;ten vi leder og samarbeider p&#229;.
+      </p>
+      <p>
+        Jeg har st&#229;tt p&#229; 20+ scener nasjonalt, skrevet bok om &#229; lede Gen Z, og bygget StudyBuddies &#8212; en EdTech-plattform som hjelper studenter &#229; finne fellesskap.
+      </p>
+    </div>
+
+    <!-- CORE BELIEF -->
+    <div class="highlight-box">
+      <p>Fremtidens arbeidsliv handler ikke om &#229; velge mellom mennesker og teknologi. Det handler om &#229; f&#229; dem til &#229; fungere sammen.</p>
+    </div>
+
+    <div class="section" style="padding-top: 0;">
+      <p style="text-align: center; color: #4A4566; font-size: 17px;">
+        Det er det dette nyhetsbrevet handler om.
+      </p>
+    </div>
+
+    <!-- BOOK PROMO -->
+    <div style="background: #F4F2F9; margin: 0 40px 32px; padding: 24px; border-radius: 12px; display: flex; gap: 20px; align-items: center;">
+      <img src="https://static.wixstatic.com/media/c4e6cf_a7f8a78450b74172a792d41f58323cc8~mv2.jpg" alt="Hvordan forstå og lede Gen Z" style="width: 80px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <div>
+        <h3 style="font-family: 'DM Serif Display', serif; font-size: 16px; color: #1A1A1A; margin-bottom: 6px;">Hvordan forstå og lede Gen Z</h3>
+        <p style="font-size: 14px; color: #4A4566; line-height: 1.5; margin: 0;">Praktisk bok for ledere som vil beholde unge talent. 349 kr.</p>
+        <a href="https://www.inacabanillas.com/kjop-bok" style="display: inline-block; margin-top: 8px; font-size: 14px; font-weight: 600; color: #2B1FA0; text-decoration: none;">Kjøp boken →</a>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-wrapper">
+      <a href="https://www.inacabanillas.com/#kontakt" class="cta-button">Book et foredrag &#8594;</a>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="footer-name">Ina Cabanillas Hansen</div>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/ina-cabanillas/">LinkedIn</a>
+        <a href="https://www.instagram.com/ina_cabanillas/">Instagram</a>
+        <a href="https://www.inacabanillas.com">Nettside</a>
+      </div>
+      <div class="footer-fine">
+        Du mottar dette fordi du meldte deg p&#229; The Human ROI.<br>
+        <a href="{unsubscribe_url}">Meld deg av</a> &middot; <a href="{preferences_url}">Endre preferanser</a>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

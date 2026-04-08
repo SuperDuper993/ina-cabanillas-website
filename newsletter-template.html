@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Human ROI — Nyhetsbrev-mal</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #F4F2F9;
+      color: #1A1A1A;
+      padding: 40px 16px;
+    }
+
+    .email-wrapper {
+      max-width: 620px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(43, 31, 160, 0.08);
+    }
+
+    /* — Header — */
+    .header {
+      background: #1E1A3A;
+      padding: 32px 40px;
+      text-align: center;
+    }
+    .header-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+    }
+    .header-logo span {
+      color: #A89CFF;
+    }
+    .header-tagline {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      margin-top: 6px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* — Hero / Intro — */
+    .hero {
+      padding: 40px 40px 0;
+    }
+    .hero-date {
+      font-size: 13px;
+      color: #4A4566;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 28px;
+      line-height: 1.25;
+      color: #1A1A1A;
+      margin-bottom: 16px;
+    }
+    .hero-intro {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #4A4566;
+    }
+    .hero-intro strong {
+      color: #1A1A1A;
+      font-weight: 600;
+    }
+
+    /* — Divider — */
+    .divider {
+      height: 1px;
+      background: #E0DDF0;
+      margin: 32px 40px;
+    }
+    .divider-thick {
+      height: 3px;
+      background: linear-gradient(90deg, #2B1FA0, #A89CFF);
+      margin: 0 40px;
+      border-radius: 2px;
+      margin-top: 32px;
+    }
+
+    /* — Sections — */
+    .section {
+      padding: 0 40px 32px;
+    }
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #2B1FA0;
+      margin-bottom: 16px;
+    }
+    .section h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      line-height: 1.3;
+      color: #1A1A1A;
+      margin-bottom: 12px;
+    }
+    .section p {
+      font-size: 16px;
+      line-height: 1.75;
+      color: #4A4566;
+    }
+    .section p + p {
+      margin-top: 12px;
+    }
+
+    /* — Highlight box — */
+    .highlight-box {
+      background: #F4F2F9;
+      border-left: 4px solid #2B1FA0;
+      padding: 20px 24px;
+      margin: 20px 40px 32px;
+      border-radius: 0 12px 12px 0;
+    }
+    .highlight-box p {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #1A1A1A;
+      font-weight: 500;
+    }
+
+    /* — Stat card — */
+    .stat-card {
+      background: #1E1A3A;
+      margin: 0 40px 32px;
+      padding: 28px 32px;
+      border-radius: 12px;
+      text-align: center;
+    }
+    .stat-card .stat-value {
+      font-family: 'DM Serif Display', serif;
+      font-size: 42px;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    .stat-card .stat-label {
+      font-size: 15px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.5;
+    }
+    .stat-card .stat-source {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      margin-top: 8px;
+    }
+
+    /* — CTA button — */
+    .cta-wrapper {
+      padding: 8px 40px 32px;
+    }
+    .cta-button {
+      display: inline-block;
+      background: #2B1FA0;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 32px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .cta-button:hover { opacity: 0.9; }
+
+    /* — Bullet list — */
+    .bullet-list {
+      padding: 0 40px 32px;
+    }
+    .bullet-list ul {
+      list-style: none;
+      padding: 0;
+    }
+    .bullet-list li {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #4A4566;
+      padding: 8px 0;
+      padding-left: 24px;
+      position: relative;
+    }
+    .bullet-list li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: #2B1FA0;
+      font-weight: 700;
+    }
+
+    /* — Book promo — */
+    .book-promo {
+      background: #F4F2F9;
+      margin: 0 40px 32px;
+      padding: 24px;
+      border-radius: 12px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .book-promo img {
+      width: 80px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .book-promo-text h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 16px;
+      color: #1A1A1A;
+      margin-bottom: 6px;
+    }
+    .book-promo-text p {
+      font-size: 14px;
+      color: #4A4566;
+      line-height: 1.5;
+    }
+    .book-promo-text a {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #2B1FA0;
+      text-decoration: none;
+    }
+
+    /* — Footer — */
+    .footer {
+      background: #1E1A3A;
+      padding: 32px 40px;
+      text-align: center;
+    }
+    .footer-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+    .footer-links {
+      margin-bottom: 16px;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    .footer-links a:hover { color: #ffffff; }
+    .footer-fine {
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+      line-height: 1.6;
+    }
+    .footer-fine a {
+      color: rgba(255,255,255,0.4);
+      text-decoration: underline;
+    }
+
+    /* — Annotations (design notes, not part of the email) — */
+    .design-note {
+      max-width: 620px;
+      margin: 24px auto 0;
+      padding: 20px 24px;
+      background: #fff;
+      border: 2px dashed #E0DDF0;
+      border-radius: 12px;
+      font-size: 14px;
+      color: #4A4566;
+      line-height: 1.6;
+    }
+    .design-note h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #2B1FA0;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .design-note ul {
+      padding-left: 18px;
+    }
+    .design-note li {
+      margin-bottom: 4px;
+    }
+    .design-note code {
+      background: #F4F2F9;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 16px 8px; }
+      .header, .section, .cta-wrapper, .bullet-list, .footer { padding-left: 24px; padding-right: 24px; }
+      .divider, .divider-thick, .highlight-box, .stat-card, .book-promo { margin-left: 24px; margin-right: 24px; }
+      .hero { padding: 28px 24px 0; }
+      .hero h1 { font-size: 24px; }
+      .book-promo { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== NEWSLETTER TEMPLATE ==================== -->
+  <div class="email-wrapper">
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="header-logo">The Human <span>ROI</span></div>
+      <div class="header-tagline">Av Ina Cabanillas Hansen</div>
+    </div>
+
+    <!-- HERO / INTRO -->
+    <div class="hero">
+      <div class="hero-date">April 2026 · Utgave #1</div>
+      <h1>Unge slutter ikke fordi jobben er kjedelig. De slutter fordi ingen ser dem.</h1>
+      <p class="hero-intro">
+        Hei! 👋<br><br>
+        Velkommen til <strong>The Human ROI</strong> — nyhetsbrevet for ledere som vil forstå og beholde unge talent. Hver utgave gir deg <strong>én innsikt, én myte og ett konkret grep</strong> du kan bruke med én gang.
+      </p>
+    </div>
+
+    <div class="divider-thick"></div>
+
+    <!-- SECTION 1: Innsikt -->
+    <div style="height: 32px;"></div>
+    <div class="section">
+      <div class="section-label">Innsikten</div>
+      <h2>Tilhørighet er ikke en bonus. Det er bunnlinjen.</h2>
+      <p>
+        Ny forskning fra Gallup viser at ansatte som føler tilhørighet er 3,5x mer engasjerte og 5x mer sannsynlige til å bli i jobben. Likevel er «tilhørighet» sjelden en del av onboarding-prosessen.
+      </p>
+      <p>
+        Det handler ikke om fredagspils. Det handler om å bli sett, hørt og inkludert i beslutninger som betyr noe.
+      </p>
+    </div>
+
+    <!-- HIGHLIGHT BOX -->
+    <div class="highlight-box">
+      <p>«Tilhørighet er ikke noe du føler etter 6 måneder. Det er noe du føler — eller ikke føler — dag én.»</p>
+    </div>
+
+    <!-- STAT -->
+    <div class="stat-card">
+      <div class="stat-value">65%</div>
+      <div class="stat-label">av Gen Z slutter innen 12 måneder<br>hvis de ikke føler tilhørighet</div>
+      <div class="stat-source">Kilde: Randstad Workmonitor, 2025</div>
+    </div>
+
+    <!-- SECTION 2: Myteknuser -->
+    <div class="section">
+      <div class="section-label">Myteknuseren</div>
+      <h2>«Gen Z vil ikke jobbe hardt»</h2>
+      <p>
+        Feil. Gen Z vil jobbe hardt — men for noe som betyr noe. De trenger å forstå <em>hvorfor</em> arbeidet deres teller, ikke bare <em>hva</em> de skal gjøre.
+      </p>
+      <p>
+        Forskjellen mellom en Gen Z-er som gir alt og en som slutter? Én leder som tok seg tid til å forklare konteksten.
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 3: Verktøykassen -->
+    <div class="section">
+      <div class="section-label">Verktøykassen</div>
+      <h2>3 grep du kan ta denne uken</h2>
+    </div>
+    <div class="bullet-list">
+      <ul>
+        <li><strong>Spør «hva trenger du fra meg?»</strong> — ikke «har du noen spørsmål?» Sistnevnte gir nesten alltid «nei».</li>
+        <li><strong>Gi kontekst før oppgaver.</strong> «Vi gjør dette fordi...» gjør at unge forstår sin rolle i helheten.</li>
+        <li><strong>Sjekk inn etter 30 dager.</strong> Ikke vent til medarbeidersamtalen. Én 15-minutters prat endrer alt.</li>
+      </ul>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-wrapper">
+      <a href="https://www.inacabanillas.com/#kontakt" class="cta-button">Book et foredrag om dette →</a>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- BOOK PROMO -->
+    <div class="book-promo">
+      <img src="https://static.wixstatic.com/media/c4e6cf_a7f8a78450b74172a792d41f58323cc8~mv2.jpg" alt="Hvordan forstå og lede Gen Z">
+      <div class="book-promo-text">
+        <h3>Hvordan forstå og lede Gen Z</h3>
+        <p>Praktisk bok for ledere som vil beholde unge talent. 349 kr.</p>
+        <a href="https://www.inacabanillas.com/kjop-bok">Kjøp boken →</a>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="footer-name">Ina Cabanillas Hansen</div>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/ina-cabanillas/">LinkedIn</a>
+        <a href="https://www.instagram.com/ina_cabanillas/">Instagram</a>
+        <a href="https://www.inacabanillas.com">Nettside</a>
+      </div>
+      <div class="footer-fine">
+        Du mottar dette fordi du meldte deg på The Human ROI.<br>
+        <a href="{unsubscribe_url}">Meld deg av</a> · <a href="{preferences_url}">Endre preferanser</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ==================== DESIGN NOTES ==================== -->
+  <div class="design-note">
+    <h3>Designnotater for Beehiiv</h3>
+    <ul>
+      <li><strong>Farger:</strong> Brand Indigo <code>#2B1FA0</code>, Dark <code>#1E1A3A</code>, Muted text <code>#4A4566</code>, Lavender bg <code>#F4F2F9</code>, Border <code>#E0DDF0</code></li>
+      <li><strong>Fonter:</strong> DM Sans (brødtekst), DM Serif Display (overskrifter)</li>
+      <li><strong>Fast struktur hver utgave:</strong> Innsikt → Myteknuser → Verktøykasse (3 grep) → CTA → Bokpromo</li>
+      <li><strong>Beehiiv-oppsett:</strong> Sett header/footer-farger til <code>#1E1A3A</code>. Bruk «Custom HTML»-blokker for stat-kortet og highlight-boksen. Resten er standard tekst + knapp-blokker.</li>
+      <li><strong>Tone:</strong> Direkte, varm, ingen bullshit. Skriv som om du snakker til en leder over kaffe.</li>
+    </ul>
+  </div>
+
+</body>
+</html>

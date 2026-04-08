@@ -2,13 +2,12 @@
 
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const navLinksNO = [
   { href: "/om", label: "Om Ina" },
   { href: "/#foredrag", label: "Foredrag" },
   { href: "/presse", label: "I media" },
-  { href: "/kjop-bok", label: "Boken" },
   { href: "/blogg", label: "Blogg" },
 ];
 
@@ -23,7 +22,6 @@ interface NavbarProps {
 }
 
 export function Navbar({ lang = "no" }: NavbarProps) {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const isEN = lang === "en";
@@ -33,20 +31,9 @@ export function Navbar({ lang = "no" }: NavbarProps) {
   const noHref = isEN ? "/" : "/";
   const enHref = isEN ? "/en" : "/en";
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
     <nav
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled
-          ? "bg-white/95 backdrop-blur-xl border-b border-brand-border shadow-sm"
-          : "bg-transparent"
-      )}
+      className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-brand-border shadow-sm"
     >
       <div className="max-w-[1080px] mx-auto px-6 flex items-center justify-between h-14">
         {/* Logo */}
@@ -68,6 +55,12 @@ export function Navbar({ lang = "no" }: NavbarProps) {
               {link.label}
             </Link>
           ))}
+          <Link
+            href={isEN ? "/en#contact" : "/kjop-bok"}
+            className="text-sm font-semibold px-5 py-2 rounded-full border border-brand-indigo text-brand-indigo hover:bg-brand-indigo/5 transition-all hover:-translate-y-0.5"
+          >
+            {isEN ? "Buy the book" : "Kjøp boken min"}
+          </Link>
           <Link
             href={bookHref}
             className="text-sm font-semibold px-5 py-2 rounded-full bg-brand-indigo text-white hover:bg-brand-indigo/90 transition-all hover:-translate-y-0.5"
@@ -126,6 +119,13 @@ export function Navbar({ lang = "no" }: NavbarProps) {
               {link.label}
             </Link>
           ))}
+          <Link
+            href={isEN ? "/en#contact" : "/kjop-bok"}
+            className="block text-center text-sm font-semibold px-5 py-2 rounded-full border border-brand-indigo text-brand-indigo"
+            onClick={() => setMobileOpen(false)}
+          >
+            {isEN ? "Buy the book" : "Kjøp boken min"}
+          </Link>
           <Link
             href={bookHref}
             className="block text-center text-sm font-semibold px-5 py-2 rounded-full bg-brand-indigo text-white"

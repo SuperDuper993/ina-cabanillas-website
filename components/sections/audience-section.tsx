@@ -49,9 +49,6 @@ export function AudienceSection() {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <div className="mb-12">
-            <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
-              For hvem
-            </p>
             <h2 className="text-3xl md:text-4xl text-foreground">
               Hvem passer foredraget for?
             </h2>
@@ -69,7 +66,7 @@ export function AudienceSection() {
                 <h3 className="font-serif text-lg text-foreground leading-snug">
                   {item.title}
                 </h3>
-                <p className="text-brand-muted text-sm leading-relaxed">
+                <p className="text-brand-muted text-base leading-relaxed">
                   {item.description}
                 </p>
               </div>

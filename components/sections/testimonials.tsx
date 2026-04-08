@@ -37,9 +37,6 @@ export function TestimonialsSection() {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <div className="mb-10">
-            <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
-              Hva kundene sier
-            </p>
             <h2 className="text-3xl md:text-4xl text-foreground mb-6">
               7 av 7 gir toppkarakter
             </h2>
@@ -57,15 +54,15 @@ export function TestimonialsSection() {
                 className="border border-brand-border rounded-2xl p-6 flex flex-col gap-4 bg-white"
               >
                 <StarRow count={t.stars} />
-                <p className="text-foreground text-sm leading-relaxed">
+                <p className="text-foreground text-base leading-relaxed">
                   &ldquo;{renderQuoteWithHighlight(t.quote, t.highlight)}&rdquo;
                 </p>
                 <div className="mt-auto pt-2 border-t border-brand-border flex items-center justify-between">
                   <div>
-                    <p className="font-semibold text-sm text-foreground">{t.author}</p>
-                    <p className="text-brand-muted text-xs">{t.org}</p>
+                    <p className="font-semibold text-base text-foreground">{t.author}</p>
+                    <p className="text-brand-muted text-sm">{t.org}</p>
                   </div>
-                  <p className="text-brand-muted text-xs">{t.date}</p>
+                  <p className="text-brand-muted text-sm">{t.date}</p>
                 </div>
               </div>
             ))}
@@ -81,12 +78,12 @@ export function TestimonialsSection() {
                   key={rec.author}
                   className="bg-brand-lavender rounded-2xl p-5 flex flex-col gap-3"
                 >
-                  <p className="text-foreground text-sm leading-relaxed">
+                  <p className="text-foreground text-base leading-relaxed">
                     &ldquo;{renderQuoteWithHighlight(rec.quote, rec.highlight)}&rdquo;
                   </p>
                   <div className="mt-auto">
-                    <p className="font-semibold text-sm text-foreground">{rec.author}</p>
-                    <p className="text-brand-muted text-xs">{rec.role}</p>
+                    <p className="font-semibold text-base text-foreground">{rec.author}</p>
+                    <p className="text-brand-muted text-sm">{rec.role}</p>
                   </div>
                 </div>
               ))}
