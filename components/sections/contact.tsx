@@ -110,8 +110,8 @@ export function ContactSection() {
                     <path d="M3 3C3 2.5 3.5 2 4 2H5.5L6.5 5L5.5 6C6 7.5 7.5 9 9 9.5L10 8.5L13 9.5V11C13 11.5 12.5 12 12 12C7 12 3 8 3 3Z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round" className="text-brand-indigo" />
                   </svg>
                 </div>
-                <a href="tel:+4741234567" className="text-foreground text-base hover:text-brand-indigo transition-colors">
-                  Foretrekker du å ringe? <span className="font-medium">+47 412 34 567</span>
+                <a href="tel:+4797244957" className="text-foreground text-base hover:text-brand-indigo transition-colors">
+                  Foretrekker du å ringe? <span className="font-medium">+47 972 44 957</span>
                 </a>
               </div>
             </div>
