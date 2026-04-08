@@ -9,7 +9,7 @@ import { TestimonialsSection } from "@/components/sections/testimonials";
 import { FaqSection } from "@/components/sections/faq";
 import { ContactSection } from "@/components/sections/contact";
 import { MobileStickyBar } from "@/components/ui/mobile-sticky-bar";
-import { ForedragNav } from "@/components/ui/foredrag-nav";
+import { ForedragMenu } from "@/components/ui/foredrag-menu";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -23,7 +23,7 @@ export default function ForedragPage() {
     <>
       <Navbar />
       <main>
-        {/* Hero */}
+        {/* Hero + visuell innholdsfortegnelse */}
         <section className="pt-32 pb-16 bg-brand-lavender">
           <div className="max-w-[1080px] mx-auto px-6">
             <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-4">
@@ -36,18 +36,18 @@ export default function ForedragPage() {
               Tilpasses privat og offentlig sektor. Passer for alt fra 10 til 2000 deltakere. Norsk og engelsk.
             </p>
             <a
-              href="/#kontakt"
+              href="#kontakt"
               className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-brand-indigo text-white font-semibold text-sm hover:bg-brand-indigo/90 transition-all hover:-translate-y-0.5"
             >
               Book foredrag →
             </a>
+
+            {/* Visuell innholdsfortegnelse */}
+            <ForedragMenu />
           </div>
         </section>
 
-        {/* Sticky seksjonsnavigasjon */}
-        <ForedragNav />
-
-        {/* Video — tidlig, bygg troverdighet */}
+        {/* Video */}
         <VideoSection />
 
         {/* Foredragstemaer — accordion */}
@@ -62,7 +62,7 @@ export default function ForedragPage() {
         {/* Slik fungerer det */}
         <HowItWorksSection />
 
-        {/* Testimonials — alle */}
+        {/* Testimonials */}
         <TestimonialsSection />
 
         {/* FAQ */}
