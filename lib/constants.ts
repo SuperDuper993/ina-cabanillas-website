@@ -26,7 +26,7 @@ export const IMAGES = {
   talkDscf2554: "https://static.wixstatic.com/media/c4e6cf_608ea11dd3464dd3b401bf98702e2d4c~mv2.jpg",
   talkDscf2561: "https://static.wixstatic.com/media/c4e6cf_02d8406dd376416c8f8903ddb06b9530~mv2.jpg",
   talkImg1465: "https://static.wixstatic.com/media/c4e6cf_616d653fd6eb4d6fbe675707962c4fd7~mv2.jpg",
-  video: "https://video.wixstatic.com/video/c4e6cf_13471530aee84b40bc2283246ad67926/file",
+  video: "https://to2maim5bssqiqwv.public.blob.vercel-storage.com/wow-konferansen_2026_ina_cabanillas_v1%20%281080p%29.mp4",
 } as const;
 
 export const CLIENTS = [
