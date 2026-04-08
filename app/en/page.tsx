@@ -346,46 +346,16 @@ export default function EnglishHome() {
           </div>
         </section>
 
-        {/* Book */}
-        <section className="py-24 bg-brand-lavender">
-          <div className="max-w-[1080px] mx-auto px-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
-              <div>
-                <Image
-                  src={IMAGES.portrait}
-                  alt="How to understand and lead Gen Z — book by Ina Cabanillas"
-                  width={520}
-                  height={600}
-                  className="w-full rounded-2xl object-cover shadow-lg"
-                />
-              </div>
-
-              <div className="flex flex-col gap-6">
-                <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo">
-                  New book
-                </p>
-                <h2 className="text-3xl md:text-4xl text-foreground leading-snug">
-                  How to Understand and Lead Gen Z
-                </h2>
-                <p className="text-brand-muted leading-relaxed">
-                  A practical, research-based guide for leaders, HR professionals, and anyone who works with young people. The book gives you evidence-based insight and concrete steps to understand, motivate, and retain Gen Z — the generation taking over the workforce.
-                </p>
-                <p className="text-brand-muted leading-relaxed">
-                  Currently available in Norwegian. English edition in progress.
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-4 mt-2">
-                  <Link
-                    href={BRAND.arkBook}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-brand-indigo text-white font-semibold text-sm hover:bg-brand-indigo/90 transition-all hover:-translate-y-0.5"
-                  >
-                    Buy at Ark.no (Norwegian)
-                  </Link>
-                </div>
-              </div>
-            </div>
+        {/* Book — compact mention */}
+        <section className="py-12 bg-brand-lavender">
+          <div className="max-w-[680px] mx-auto px-6 flex items-center gap-6">
+            <p className="text-[10px] font-bold tracking-widest uppercase text-brand-indigo shrink-0">Book</p>
+            <p className="text-sm text-brand-muted">
+              <span className="font-semibold text-foreground">How to Understand and Lead Gen Z</span> — available in Norwegian.{' '}
+              <Link href={BRAND.arkBook} target="_blank" rel="noopener noreferrer" className="text-brand-indigo underline">
+                Ark.no →
+              </Link>
+            </p>
           </div>
         </section>
 
