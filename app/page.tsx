@@ -7,7 +7,6 @@ import { EmpatiSection } from "@/components/sections/empati-section";
 import { TestimonialsSection } from "@/components/sections/testimonials";
 import { BookSection } from "@/components/sections/book";
 import { CtaBand } from "@/components/sections/cta-band";
-import { NewsletterSection } from "@/components/sections/newsletter-section";
 import { ContactSection } from "@/components/sections/contact";
 import { MobileStickyBar } from "@/components/ui/mobile-sticky-bar";
 
@@ -30,9 +29,7 @@ export default function Home() {
         <BookSection />
         {/* 7. CTA */}
         <CtaBand />
-        {/* 8. Nyhetsbrev — Pipe 3 */}
-        <NewsletterSection />
-        {/* 9. Kontakt — Pipe 1 */}
+        {/* 8. Kontakt */}
         <ContactSection />
       </main>
       <MobileStickyBar />
