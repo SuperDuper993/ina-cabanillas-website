@@ -1,10 +1,13 @@
 'use client';
 import { motion } from 'framer-motion';
 import Link from "next/link";
+import { useState } from "react";
 import { TALKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export function TalksSection() {
+  const [showAll, setShowAll] = useState(false);
+
   return (
     <section id="foredrag" className="py-24 bg-brand-lavender">
       <div className="max-w-[1080px] mx-auto px-6">
@@ -19,7 +22,7 @@ export function TalksSection() {
               Foredragstemaer
             </h2>
             <p className="text-brand-muted leading-relaxed">
-              Hvert foredrag varer ca. 45 minutter og tilpasses din bransje, ditt publikum og dine utfordringer.
+              Hvert foredrag varer ca. 45 minutter og tilpasses din bransje, ditt publikum og dine utfordringer. Passer for alt fra teamsamling til 2000 deltakere.
             </p>
           </div>
 
@@ -27,7 +30,10 @@ export function TalksSection() {
             {TALKS.map((talk, i) => (
               <div
                 key={talk.title}
-                className={`bg-white rounded-2xl p-7 flex flex-col gap-4 hover:shadow-lg transition-shadow duration-300${i >= 2 ? ' hidden sm:flex' : ''}`}
+                className={cn(
+                  'bg-white rounded-2xl p-7 flex flex-col gap-4 hover:shadow-lg transition-shadow duration-300',
+                  i >= 2 && !showAll ? 'hidden sm:flex' : ''
+                )}
               >
                 <span
                   className={cn(
@@ -49,7 +55,16 @@ export function TalksSection() {
             ))}
           </div>
 
-          <div className="mt-10 flex flex-col items-center gap-2">
+          <div className="mt-10 flex flex-col items-center gap-4">
+            {/* Mobile: show all toggle */}
+            {!showAll && (
+              <button
+                onClick={() => setShowAll(true)}
+                className="sm:hidden text-brand-indigo text-sm font-semibold underline underline-offset-2"
+              >
+                Se alle foredrag →
+              </button>
+            )}
             <Link
               href="/#kontakt"
               className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-brand-indigo text-white font-semibold text-sm hover:bg-brand-indigo/90 transition-all hover:-translate-y-0.5"

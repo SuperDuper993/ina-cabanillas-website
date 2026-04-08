@@ -104,6 +104,16 @@ export function ContactSection() {
                 </div>
                 <span className="text-foreground text-base">Svar innen 24 timer</span>
               </div>
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-lg bg-brand-lavender flex items-center justify-center flex-shrink-0">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3 3C3 2.5 3.5 2 4 2H5.5L6.5 5L5.5 6C6 7.5 7.5 9 9 9.5L10 8.5L13 9.5V11C13 11.5 12.5 12 12 12C7 12 3 8 3 3Z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round" className="text-brand-indigo" />
+                  </svg>
+                </div>
+                <a href="tel:+4741234567" className="text-foreground text-base hover:text-brand-indigo transition-colors">
+                  Foretrekker du å ringe? <span className="font-medium">+47 412 34 567</span>
+                </a>
+              </div>
             </div>
 
             {/* LinkedIn button */}
@@ -123,8 +133,25 @@ export function ContactSection() {
             <div className="bg-brand-lavender rounded-xl px-6 py-4 mt-2">
               <p className="font-semibold text-foreground text-base">Pris fra 35 000 kr + mva</p>
               <p className="text-brand-muted text-base mt-1">
-                Tilpasses format, varighet og publikum. Ta kontakt for et uforpliktende tilbud.
+                Inkluderer for- og ettermøte, tilpasset presentasjon og 45 min foredrag. Ta kontakt for et uforpliktende tilbud.
               </p>
+            </div>
+
+            {/* What happens next */}
+            <div className="flex flex-col gap-2 mt-2">
+              <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo">Hva skjer videre?</p>
+              <ol className="flex flex-col gap-1.5">
+                {[
+                  'Du sender skjema',
+                  'Jeg svarer innen 24 timer',
+                  'Vi tilpasser innhold og format',
+                ].map((s, i) => (
+                  <li key={i} className="flex items-center gap-3 text-brand-muted text-sm">
+                    <span className="w-5 h-5 rounded-full bg-brand-indigo/10 text-brand-indigo text-xs flex items-center justify-center font-semibold flex-shrink-0">{i + 1}</span>
+                    {s}
+                  </li>
+                ))}
+              </ol>
             </div>
 
           </div>

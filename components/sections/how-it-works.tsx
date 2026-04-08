@@ -1,27 +1,28 @@
 'use client';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 const steps = [
   {
-    number: "1",
-    title: "Vi snakkes",
-    description: "En kort samtale om behovet ditt — arrangement, publikum, og hva du ønsker at folk skal ta med seg hjem.",
+    number: "01",
+    title: "Send en forespørsel",
+    description: "Fyll ut skjema nedenfor. Fortell om anledning, publikum og ønsket dato. Det tar 2 minutter.",
   },
   {
-    number: "2",
-    title: "Skreddersydd",
-    description: "Foredraget tilpasses tema, format og din organisasjons utfordringer. Ingen hyllevare.",
+    number: "02",
+    title: "Vi snakkes innen 24 timer",
+    description: "Jeg svarer raskt, stiller noen spørsmål og tilpasser temaet til akkurat din gruppe og ditt behov.",
   },
   {
-    number: "3",
-    title: "Foredrag",
-    description: "Et engasjerende og praktisk foredrag som gir salen noe å tenke på — og noe de kan gjøre med én gang.",
+    number: "03",
+    title: "Foredrag levert",
+    description: "Tilpasset innhold, klart til å sette i gang en samtale i organisasjonen din. Praktisk og direkte.",
   },
 ];
 
 export function HowItWorksSection() {
   return (
-    <section className="py-24 bg-brand-lavender">
+    <section className="py-20 bg-white border-y border-brand-border">
       <div className="max-w-[1080px] mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -29,29 +30,40 @@ export function HowItWorksSection() {
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <div className="mb-14 text-center max-w-xl mx-auto">
-            <h2 className="text-3xl md:text-4xl text-foreground leading-snug">
-              Slik fungerer det
-            </h2>
+          <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-4">
+            Slik fungerer det
+          </p>
+          <h2 className="text-2xl md:text-3xl font-serif text-brand-dark leading-snug mb-12 max-w-lg">
+            Fra forespørsel til foredrag. Enkelt og raskt.
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {steps.map((step, i) => (
+              <motion.div
+                key={step.number}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1, ease: "easeOut" }}
+                className="flex flex-col gap-4"
+              >
+                <div className="flex items-center gap-4">
+                  <span className="font-serif text-3xl text-brand-indigo">{step.number}</span>
+                  <div className="flex-1 h-px bg-brand-border" />
+                </div>
+                <h3 className="font-serif text-xl text-brand-dark">{step.title}</h3>
+                <p className="text-brand-muted text-base leading-relaxed">{step.description}</p>
+              </motion.div>
+            ))}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
-            {steps.map((step, i) => (
-              <div key={step.number} className="relative flex flex-col items-center text-center gap-4">
-                {/* Connector line between steps */}
-                {i < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-6 left-[calc(50%+2rem)] right-0 h-px border-t border-dashed border-brand-border" aria-hidden="true" />
-                )}
-
-                <div className="w-12 h-12 rounded-full bg-brand-indigo text-white font-serif text-xl flex items-center justify-center relative z-10">
-                  {step.number}
-                </div>
-                <div>
-                  <h3 className="font-serif text-xl text-foreground mb-2">{step.title}</h3>
-                  <p className="text-brand-muted text-base leading-relaxed">{step.description}</p>
-                </div>
-              </div>
-            ))}
+          <div className="mt-10">
+            <Link
+              href="/#kontakt"
+              className="inline-flex items-center px-8 py-3.5 rounded-full bg-brand-indigo text-white font-semibold text-sm hover:bg-brand-indigo/90 transition-all hover:-translate-y-0.5"
+            >
+              Send forespørsel →
+            </Link>
           </div>
         </motion.div>
       </div>
