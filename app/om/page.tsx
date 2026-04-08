@@ -53,71 +53,49 @@ const bodyText = "text-[#1a1a1a] text-lg leading-[1.85] text-left";
 const sectionPad = "py-20 md:py-28";
 const textMax = "max-w-[680px]";
 
-function StorySection({ bodyText }: { bodyText: string }) {
+function InlineStory({ bodyText }: { bodyText: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <section className="bg-white py-10">
-      <div className="max-w-[680px] mx-auto px-6">
-        <div className="bg-white rounded-2xl overflow-hidden shadow-sm">
+    <div className="border-t border-brand-border pt-6">
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className="flex items-center gap-3 text-left group"
+        aria-expanded={open}
+      >
+        <span className="text-sm font-semibold text-brand-indigo group-hover:underline transition-all">
+          Hvorfor startet jeg? {open ? '↑' : '↓'}
+        </span>
+      </button>
 
-          {/* Alltid synlig — sitat + trigger */}
-          <div className="px-8 pt-8 pb-6">
-            <blockquote className="font-serif text-xl md:text-2xl text-[#1a1a1a] leading-[1.6] mb-6">
-              &ldquo;Hun droppet ut av drømmestudiet sitt. Ikke fordi hun ikke var god nok. Fordi hun ikke hadde noen.&rdquo;
-            </blockquote>
-            <div className="w-full h-px bg-brand-lavender mb-6" />
-            <button
-              onClick={() => setOpen((v) => !v)}
-              className="w-full flex items-center justify-between text-left group"
-              aria-expanded={open}
-            >
-              <div>
-                <p className="text-[10px] font-bold tracking-widest uppercase text-brand-indigo mb-1">Hvorfor startet jeg?</p>
-                <p className="text-sm font-medium text-brand-muted group-hover:text-foreground transition-colors">
-                  Les hele historien {open ? '↑' : '↓'}
-                </p>
-              </div>
-            </button>
-          </div>
-
-          {/* Kollapsbar del */}
-          <AnimatePresence>
-            {open && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.35, ease: 'easeInOut' }}
-                className="overflow-hidden"
-              >
-                <div className="px-8 pb-10 pt-4 border-t border-brand-lavender space-y-6">
-                  <p className="text-[#1a1a1a] text-lg font-serif leading-[1.7]">
-                    Hun pakket laptopen sin, gikk gjennom et bibliotek med 200 mennesker, og møtte blikkene til ingen.
-                  </p>
-                  <p className={bodyText}>Det var da jeg skjønte det.</p>
-                  <p className={bodyText}>Første studieår. Nord-Norge til Oslo. Pandemi.</p>
-                  <p className={bodyText}>Vi hadde gruppeeksamener ment for fem — jeg tok dem alle alene, hjemme, i stillhet. Dag etter dag. Nær ved å gi opp.</p>
-                  <p className={bodyText}>Det som reddet meg var ikke et program. Det var én venninne som sa: «Jeg tar eksamen med deg.»</p>
-                  <p className={bodyText}>Men bestevenninnen min hadde ikke den venninnen.</p>
-                  <p className={`${bodyText} text-brand-indigo font-semibold`}>Hun droppet ut av drømmestudiet sitt.</p>
-                  <p className={bodyText}>Ikke fordi hun ikke var god nok. Ikke fordi hun ikke ville nok. Fordi hun ikke hadde noen.</p>
-                  <p className={bodyText}>Det øyeblikket satt seg. Ikke som inspirasjon, men som sinne. Stille, bestemt sinne over at dette bare er sånn det er — og ingen gjør noe med det.</p>
-                  <p className={bodyText}>Jeg søkte etter løsninger. Fant ingen. Så jeg bestemte meg for å bygge en selv.</p>
-                  <p className={bodyText}>Jeg har elsket å stå på scene siden jeg var liten. Jeg visste bare ikke hva jeg skulle si — før nå.</p>
-                  <p className={bodyText}>Det jeg fant gjennom forskning og arbeid endret måten jeg ser på alt:</p>
-                  <p className="text-[#1a1a1a] text-lg font-serif leading-[1.6]">Problemene vi sliter med på studiet er de nøyaktig samme vi møter i arbeidslivet.</p>
-                  <p className={bodyText}>Ensomheten. Mangelen på tilhørighet. Følelsen av å ikke høre til.</p>
-                  <p className="text-[#0f0f0f] font-semibold leading-[1.4]">Det er ikke et Gen Z-problem. Det er et lederproblem.</p>
-                  <p className={bodyText}>Tenk på din første arbeidsdag. Hvordan ble du møtt?</p>
-                  <p className={bodyText}>Nå tenk på hvordan unge ansatte blir møtt i din organisasjon — i dag.</p>
-                  <p className="text-brand-indigo font-serif font-semibold leading-[1.3]">Er du fornøyd med det svaret?</p>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      </div>
-    </section>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.35, ease: 'easeInOut' }}
+            className="overflow-hidden"
+          >
+            <div className="pt-6 space-y-5">
+              <p className="text-[#1a1a1a] font-serif text-lg leading-[1.7] italic">
+                &ldquo;Hun pakket laptopen sin, gikk gjennom et bibliotek med 200 mennesker, og møtte blikkene til ingen.&rdquo;
+              </p>
+              <p className={bodyText}>Det var da jeg skjønte det.</p>
+              <p className={bodyText}>Første studieår. Nord-Norge til Oslo. Pandemi.</p>
+              <p className={bodyText}>Vi hadde gruppeeksamener ment for fem — jeg tok dem alle alene, hjemme, i stillhet. Dag etter dag. Nær ved å gi opp.</p>
+              <p className={bodyText}>Det som reddet meg var ikke et program. Det var én venninne som sa: «Jeg tar eksamen med deg.»</p>
+              <p className={bodyText}>Men bestevenninnen min hadde ikke den venninnen.</p>
+              <p className={`${bodyText} text-brand-indigo font-semibold`}>Hun droppet ut av drømmestudiet sitt. Ikke fordi hun ikke var god nok. Fordi hun ikke hadde noen.</p>
+              <p className={bodyText}>Det øyeblikket satt seg. Ikke som inspirasjon, men som sinne. Stille, bestemt sinne over at dette bare er sånn det er — og ingen gjør noe med det.</p>
+              <p className={bodyText}>Jeg søkte etter løsninger. Fant ingen. Så jeg bestemte meg for å bygge en selv.</p>
+              <p className={bodyText}>Det jeg fant gjennom forskning endret måten jeg ser på alt: problemene vi sliter med på studiet er de nøyaktig samme vi møter i arbeidslivet.</p>
+              <p className="text-[#0f0f0f] font-semibold">Det er ikke et Gen Z-problem. Det er et lederproblem.</p>
+              <p className="text-brand-indigo font-serif font-semibold">Er du fornøyd med det svaret?</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }
 
@@ -217,13 +195,13 @@ export default function OmPage() {
                     </div>
                   ))}
                 </div>
+
+                {/* Inline story */}
+                <InlineStory bodyText={bodyText} />
               </div>
             </motion.div>
           </div>
         </section>
-
-        {/* HISTORIEN — kollapsbar, etter bio */}
-        <StorySection bodyText={bodyText} />
 
         {/* Verdier */}
         <section className={`${sectionPad} bg-white`}>
