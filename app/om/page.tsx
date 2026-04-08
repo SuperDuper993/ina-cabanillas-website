@@ -62,11 +62,8 @@ function InlineStory({ bodyText }: { bodyText: string }) {
         className="text-left group w-full"
         aria-expanded={open}
       >
-        <p className="text-lg text-[#1a1a1a] leading-[1.85]">
-          Lurer du på hvorfor jeg startet?{' '}
-          <span className="font-semibold text-brand-indigo group-hover:underline transition-all">
-            Les hele historien her {open ? '↑' : '↓'}
-          </span>
+        <p className="text-lg text-brand-indigo font-semibold leading-[1.85] group-hover:underline transition-all">
+          Les hele historien her {open ? '↑' : '↓'}
         </p>
       </button>
 
@@ -118,7 +115,7 @@ export default function OmPage() {
                   Jeg startet fordi ingen andre gjorde det.
                 </h1>
                 <p className={bodyText}>
-                  En spicy nordlending med røtter fra Bodø og Spania — som endte opp som Norges fremste stemme på Gen Z og arbeidsliv. Ikke ved et uhell. Av nødvendighet.
+                  En spicy nordlending med røtter fra Bodø og Spania — som endte opp som Norges fremste stemme på Gen Z og arbeidsliv. Ikke ved et uhell. Av nødvendighet. Lurer du på hvorfor jeg startet?
                 </p>
 
                 <div className="mt-8">
