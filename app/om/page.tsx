@@ -62,7 +62,7 @@ function InlineStory({ bodyText }: { bodyText: string }) {
         className="flex items-center gap-3 text-left group"
         aria-expanded={open}
       >
-        <span className="text-sm text-[#666] group-hover:text-brand-indigo transition-colors">
+        <span className="text-base text-[#666] group-hover:text-brand-indigo transition-colors">
           Lurer du på hvorfor jeg startet?{' '}
           <span className="font-semibold text-brand-indigo group-hover:underline">
             Les hele historien her {open ? '↑' : '↓'}
@@ -92,8 +92,8 @@ function InlineStory({ bodyText }: { bodyText: string }) {
               <p className={bodyText}>Det øyeblikket satt seg. Ikke som inspirasjon, men som sinne. Stille, bestemt sinne over at dette bare er sånn det er — og ingen gjør noe med det.</p>
               <p className={bodyText}>Jeg søkte etter løsninger. Fant ingen. Så jeg bestemte meg for å bygge en selv.</p>
               <p className={bodyText}>Det jeg fant gjennom forskning endret måten jeg ser på alt: problemene vi sliter med på studiet er de nøyaktig samme vi møter i arbeidslivet.</p>
-              <p className="text-[#0f0f0f] font-semibold">Det er ikke et Gen Z-problem. Det er et lederproblem.</p>
-              <p className="text-brand-indigo font-serif font-semibold">Er du fornøyd med det svaret?</p>
+              <p className="text-[#0f0f0f] text-base font-semibold">Det er ikke et Gen Z-problem. Det er et lederproblem.</p>
+              <p className="text-brand-indigo text-base font-serif font-semibold">Er du fornøyd med det svaret?</p>
             </div>
           </motion.div>
         )}
@@ -113,7 +113,7 @@ export default function OmPage() {
             <motion.div {...fadeUp} className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center">
               {/* Text — left on desktop */}
               <div className="order-2 md:order-1">
-                <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-4">Om Ina</p>
+                <p className="text-base font-semibold tracking-widest uppercase text-brand-indigo mb-4">Om Ina</p>
                 <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] text-[#0f0f0f] leading-[1.15] mb-6 font-bold">
                   Jeg startet fordi ingen andre gjorde det.
                 </h1>
@@ -128,7 +128,7 @@ export default function OmPage() {
 
                 <div className="flex flex-wrap gap-2">
                   {["HER Awards 2024", "LinkedIn Topp 200", "BI + UC Berkeley", "Gründer, StudyBuddies"].map((tag) => (
-                    <span key={tag} className="text-sm font-medium text-brand-indigo bg-brand-lavender border border-brand-indigo/15 rounded-full px-4 py-1.5">
+                    <span key={tag} className="text-base font-medium text-brand-indigo bg-brand-lavender border border-brand-indigo/15 rounded-full px-4 py-1.5">
                       {tag}
                     </span>
                   ))}
@@ -226,7 +226,7 @@ export default function OmPage() {
                   <div key={v.title} className="bg-brand-lavender rounded-2xl p-7 flex flex-col gap-3 hover:shadow-lg transition-shadow duration-300">
                     <h3 className="font-serif text-xl text-[#0f0f0f] font-semibold">{v.title}</h3>
                     <p className="text-[#444] text-base leading-[1.7]">{v.desc}</p>
-                    <p className="text-brand-indigo/60 text-sm font-medium tracking-wide">{v.traits}</p>
+                    <p className="text-brand-indigo/60 text-base font-medium tracking-wide">{v.traits}</p>
                   </div>
                 ))}
               </div>
@@ -279,7 +279,7 @@ export default function OmPage() {
                   {awards.map((award) => (
                     <div key={award.name} className="bg-brand-lavender rounded-xl px-6 py-5">
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-semibold text-brand-indigo bg-brand-light-lav px-2.5 py-0.5 rounded-full">
+                        <span className="text-base font-semibold text-brand-indigo bg-brand-light-lav px-2.5 py-0.5 rounded-full">
                           {award.year}
                         </span>
                         <p className="font-semibold text-[#0f0f0f] text-base">{award.name}</p>
