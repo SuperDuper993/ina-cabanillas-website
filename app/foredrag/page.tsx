@@ -33,6 +33,15 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Hjem", "item": "https://www.inacabanillas.com" },
+    { "@type": "ListItem", "position": 2, "name": "Foredrag", "item": "https://www.inacabanillas.com/foredrag" },
+  ],
+};
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -92,6 +101,7 @@ const speakerSchema = {
 export default function ForedragPage() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema} />
       <JsonLd data={faqSchema} />
       <JsonLd data={speakerSchema} />
       <Navbar />

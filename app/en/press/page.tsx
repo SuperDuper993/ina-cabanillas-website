@@ -3,6 +3,7 @@ import { Footer } from "@/components/layout/footer";
 import { BRAND } from "@/lib/constants";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/seo/json-ld";
 
 export const metadata: Metadata = {
   title: "In the media | Ina Cabanillas — Gen Z Keynote Speaker",
@@ -44,6 +45,51 @@ const AWARDS_EN = [
   { year: "2024", name: "Nominated: Female Entrepreneur of the Year", description: "Western Norway" },
 ];
 
+const TV_RADIO_EN = [
+  { show: "Debatten", channel: "NRK TV", date: "Mar 2025", url: "https://tv.nrk.no/serie/debatten/sesong/202503/episode/NNFA51030625" },
+  { show: "Helgemorgen", channel: "NRK TV", date: "Nov 2025", url: "https://tv.nrk.no/serie/helgemorgen-tv/sesong/202511/episode/DNRR62009425" },
+  { show: "Dagsnytt 18", channel: "NRK Radio", date: "Jan 2025", url: "https://radio.nrk.no/serie/dagsnytt-atten/sesong/202501/NMAG03001025" },
+];
+
+const pressSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Ina Cabanillas Hansen in the media",
+  "description": "Press coverage, podcasts, TV and radio appearances featuring Ina Cabanillas Hansen",
+  "itemListElement": [
+    ...PRESS_ARTICLES_EN.map((a, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": a.title,
+      "url": a.url,
+      "description": `${a.source} · ${a.date}`,
+    })),
+    ...PODCASTS_EN.map((p, i) => ({
+      "@type": "ListItem",
+      "position": PRESS_ARTICLES_EN.length + i + 1,
+      "name": `${p.title}: ${p.episode}`,
+      "url": p.url,
+      "description": `Podcast · ${p.date}`,
+    })),
+    ...TV_RADIO_EN.map((t, i) => ({
+      "@type": "ListItem",
+      "position": PRESS_ARTICLES_EN.length + PODCASTS_EN.length + i + 1,
+      "name": t.show,
+      "url": t.url,
+      "description": `${t.channel} · ${t.date}`,
+    })),
+  ],
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.inacabanillas.com/en" },
+    { "@type": "ListItem", "position": 2, "name": "In the media", "item": "https://www.inacabanillas.com/en/press" },
+  ],
+};
+
 const QUOTES_EN = [
   {
     quote: "Communicates her knowledge, experiences and reflections in such a way that makes listening to her very enjoyable and inspirational. She speaks with enthusiasm and conviction.",
@@ -65,6 +111,8 @@ const QUOTES_EN = [
 export default function EnglishPressPage() {
   return (
     <>
+      <JsonLd data={pressSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <Navbar lang="en" />
       <main className="pt-20">
         <div className="max-w-3xl mx-auto px-6 py-16">
@@ -118,8 +166,21 @@ export default function EnglishPressPage() {
           {/* TV & Radio */}
           <section className="mb-16">
             <h2 className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-6 pb-3 border-b border-brand-border">TV & Radio</h2>
-            <div className="py-3 text-sm text-foreground">NRK <span className="text-brand-muted ml-4 text-xs">Norway national TV / News</span></div>
-            <div className="py-3 text-sm text-foreground border-t border-brand-lavender">TV 2 <span className="text-brand-muted ml-4 text-xs">Norway national TV</span></div>
+            <div className="space-y-0">
+              {TV_RADIO_EN.map((item) => (
+                <a key={item.url} href={item.url} target="_blank" rel="noopener noreferrer" className="flex justify-between items-baseline py-4 border-b border-brand-lavender hover:pl-2 transition-all group">
+                  <span className="text-sm font-medium text-foreground group-hover:text-brand-indigo transition-colors flex-1 mr-6">{item.show}</span>
+                  <span className="flex items-center gap-4 flex-shrink-0">
+                    <span className="text-xs font-semibold text-brand-muted">{item.channel}</span>
+                    <span className="text-xs text-brand-border">{item.date}</span>
+                  </span>
+                </a>
+              ))}
+              <div className="flex justify-between items-baseline py-4 border-b border-brand-lavender">
+                <span className="text-sm font-medium text-foreground flex-1 mr-6">TV 2</span>
+                <span className="text-xs font-semibold text-brand-muted">Norway national TV</span>
+              </div>
+            </div>
           </section>
 
           {/* Events */}

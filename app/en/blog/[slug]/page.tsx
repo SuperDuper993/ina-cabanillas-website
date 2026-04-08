@@ -44,19 +44,22 @@ export default async function EnBlogPostPage({ params }: Props) {
     "headline": post.title,
     "description": post.excerpt,
     "datePublished": post.date,
-    "author": {
-      "@type": "Person",
-      "name": "Ina Cabanillas Hansen",
-      "url": "https://www.inacabanillas.com"
-    },
-    "publisher": {
-      "@type": "Person",
-      "name": "Ina Cabanillas Hansen",
-      "url": "https://www.inacabanillas.com"
-    },
+    "image": "https://www.inacabanillas.com/images/ina-ganeshfoto.jpg",
+    "author": { "@type": "Person", "name": "Ina Cabanillas Hansen", "url": "https://www.inacabanillas.com" },
+    "publisher": { "@type": "Person", "name": "Ina Cabanillas Hansen", "url": "https://www.inacabanillas.com" },
     "url": `https://www.inacabanillas.com/en/blog/${post.slug}`,
     "inLanguage": "en",
     "about": ["Gen Z", "Leadership", "Future of Work", "Belonging", "Young talent retention"],
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.inacabanillas.com/en" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.inacabanillas.com/en/blog" },
+      { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://www.inacabanillas.com/en/blog/${post.slug}` },
+    ],
   };
 
   const html = post.content
@@ -76,6 +79,7 @@ export default async function EnBlogPostPage({ params }: Props) {
   return (
     <>
       <JsonLd data={articleSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <Navbar />
       <main className="pt-28 pb-24 bg-white min-h-screen">
         <article className="max-w-[680px] mx-auto px-6">

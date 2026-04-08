@@ -48,11 +48,22 @@ export default async function BlogPostPage({ params }: Props) {
     "headline": post.title,
     "description": post.excerpt,
     "datePublished": post.date,
+    "image": "https://www.inacabanillas.com/images/ina-ganeshfoto.jpg",
     "author": { "@type": "Person", "name": "Ina Cabanillas Hansen", "url": "https://www.inacabanillas.com" },
     "publisher": { "@type": "Person", "name": "Ina Cabanillas Hansen", "url": "https://www.inacabanillas.com" },
     "url": `https://www.inacabanillas.com/blogg/${post.slug}`,
     "inLanguage": "nb",
     "about": ["Gen Z", "Ledelse", "Tilhørighet", "Fremtidens arbeidsliv"],
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Hjem", "item": "https://www.inacabanillas.com" },
+      { "@type": "ListItem", "position": 2, "name": "Blogg", "item": "https://www.inacabanillas.com/blogg" },
+      { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://www.inacabanillas.com/blogg/${post.slug}` },
+    ],
   };
 
   // Simple markdown → HTML (paragraphs, bold, italic, links)
@@ -76,6 +87,7 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <>
       <JsonLd data={articleSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <Navbar />
       <main className="pt-28 pb-24 bg-white min-h-screen">
         <article className="max-w-[680px] mx-auto px-6">

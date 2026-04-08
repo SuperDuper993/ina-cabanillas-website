@@ -3,13 +3,38 @@ import { Footer } from "@/components/layout/footer";
 import { getAllPosts } from "@/lib/blog";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/seo/json-ld";
 
 export const metadata: Metadata = {
   title: "Blogg — Ina Cabanillas | Innsikt om Gen Z, ledelse og tilhørighet",
   description: "Artikler og innsikt fra Ina Cabanillas Hansen om Gen Z, ledelse, tilhørighet og fremtidens arbeidsliv.",
+  keywords: [
+    "Gen Z blogg", "ledelse unge ansatte artikler", "tilhørighet på jobb",
+    "fremtidens arbeidsliv innsikt", "Gen Z tips ledere", "hvorfor slutter unge ansatte",
+    "AI og arbeidsliv", "Ina Cabanillas artikler",
+  ],
   alternates: {
     canonical: "https://www.inacabanillas.com/blogg",
   },
+};
+
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Innsikt fra Ina",
+  "description": "Tanker om Gen Z, ledelse og tilhørighet — fra scenen, forskningen og hverdagen.",
+  "url": "https://www.inacabanillas.com/blogg",
+  "author": { "@type": "Person", "name": "Ina Cabanillas Hansen", "url": "https://www.inacabanillas.com" },
+  "inLanguage": "nb",
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Hjem", "item": "https://www.inacabanillas.com" },
+    { "@type": "ListItem", "position": 2, "name": "Blogg", "item": "https://www.inacabanillas.com/blogg" },
+  ],
 };
 
 export default function BloggPage() {
@@ -17,6 +42,8 @@ export default function BloggPage() {
 
   return (
     <>
+      <JsonLd data={blogSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <Navbar />
       <main className="pt-28 pb-24 bg-white min-h-screen">
         <div className="max-w-[720px] mx-auto px-6">

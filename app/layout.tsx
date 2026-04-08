@@ -134,6 +134,20 @@ const personSchema = {
   ]
 };
 
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Ina Cabanillas Hansen",
+  "url": "https://www.inacabanillas.com",
+  "description": "Norges ledende stemme på Gen Z og arbeidsliv. Foredragsholder, forfatter og gründer av StudyBuddies.",
+  "inLanguage": ["nb", "en"],
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.inacabanillas.com/blogg?q={search_term_string}",
+    "query-input": "required name=search_term_string",
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -146,6 +160,7 @@ export default function RootLayout({
     >
       <head>
         <JsonLd data={personSchema} />
+        <JsonLd data={websiteSchema} />
       </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
