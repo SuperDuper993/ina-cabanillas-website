@@ -12,16 +12,88 @@ import { ContactSection } from "@/components/sections/contact";
 import { MobileStickyBar } from "@/components/ui/mobile-sticky-bar";
 import { ForedragMenu } from "@/components/ui/foredrag-menu";
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/seo/json-ld";
 
 export const metadata: Metadata = {
-  title: "Foredrag og workshop | Ina Cabanillas Hansen",
-  description:
-    "Foredrag og workshop om Gen Z, tilhørighet og ledelse. Tilpasses din bransje og ditt publikum. Passer for alt fra 10 til 2000 deltakere.",
+  title: "Book foredragsholder om Gen Z og ledelse — Keynote & Workshop",
+  description: "Book Ina Cabanillas Hansen som foredragsholder om Gen Z, ledelse av unge ansatte, tilhørighet og AI i arbeidslivet. Keynote og workshop tilpasset din bransje — tech, industri og offentlig sektor. Passer for 10–2000 deltakere. Svar innen 24 timer.",
+  keywords: [
+    "book foredragsholder Gen Z", "keynote speaker ledelse unge ansatte",
+    "foredrag tilhørighet arbeidsliv", "workshop Gen Z HR",
+    "foredragsholder AI og arbeidsliv", "book keynote speaker Norge",
+    "foredrag fremtidens arbeidsliv", "generasjonsledelse foredrag",
+    "Ina Cabanillas foredrag", "Gen Z keynote speaker Norway",
+  ],
+  alternates: { canonical: 'https://www.inacabanillas.com/foredrag' },
+  openGraph: {
+    title: "Book foredragsholder om Gen Z og ledelse — Ina Cabanillas Hansen",
+    description: "Keynote og workshop om ledelse av unge ansatte, tilhørighet og AI. Tilpasset din bransje. Fra 35 000 kr. Svar innen 24 timer.",
+    url: 'https://www.inacabanillas.com/foredrag',
+    images: [{ url: '/images/ina-ganeshfoto.jpg', width: 1200, height: 630, alt: 'Ina Cabanillas Hansen — foredragsholder om Gen Z' }],
+  },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Hvem er Ina Cabanillas Hansen?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Ina Cabanillas Hansen er Gen Z-er, foredragsholder, forfatter og gründer av StudyBuddies. Hun hjelper ledere med å skape tilhørighet for unge ansatte — med innsikt fra innsiden av generasjonen. Vinner av HER Awards 2024 og en av LinkedIns Topp 200 Voices globalt." }
+    },
+    {
+      "@type": "Question",
+      "name": "Hva snakker Ina om?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Ina snakker om tilhørighet — hvorfor unge slutter, hva de faktisk trenger fra ledere, og konkrete grep du kan ta for å beholde dem. Foredraget tilpasses din bransje og ditt publikum." }
+    },
+    {
+      "@type": "Question",
+      "name": "Hvem passer foredraget for?",
+      "acceptedAnswer": { "@type": "Answer", "text": "HR-ledere, mellomledere, konferanser og fagdager i tech, industri og offentlig sektor. Særlig virksomheter som ansetter unge eller ønsker å beholde dem. Passer for 10–2000 deltakere." }
+    },
+    {
+      "@type": "Question",
+      "name": "Hva koster et foredrag?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Foredrag fra 35 000 kr + mva. Veiledende pris for 45 min inkl. for- og ettermøte. Reise kommer i tillegg. Workshop prises etter behov. Alt tilpasses — ta kontakt for et uforpliktende tilbud." }
+    },
+    {
+      "@type": "Question",
+      "name": "Hvordan booker man Ina Cabanillas som foredragsholder?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Fyll ut kontaktskjemaet på denne siden eller ring +47 974 24 957. Ina svarer innen 24 timer. Du kan også booke en gratis 15 min samtale på calendar.app.google/DdqRYwRpniLiXgcm6" }
+    },
+  ]
+};
+
+const speakerSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Foredrag og keynote om Gen Z, ledelse og fremtidens arbeidsliv",
+  "provider": {
+    "@type": "Person",
+    "name": "Ina Cabanillas Hansen",
+    "url": "https://www.inacabanillas.com"
+  },
+  "description": "Keynote og workshop om ledelse av Gen Z, tilhørighet på jobb og AI i arbeidslivet. Tilpasset tech, industri og offentlig sektor. For 10–2000 deltakere.",
+  "areaServed": ["Norway", "Sweden", "Denmark", "Finland", "Nordic countries"],
+  "availableLanguage": ["Norwegian", "English"],
+  "offers": {
+    "@type": "Offer",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "price": "35000",
+      "priceCurrency": "NOK",
+      "minPrice": "35000",
+      "description": "Veiledende pris for 45 min foredrag inkl. for- og ettermøte. Reise faktureres separat."
+    }
+  }
 };
 
 export default function ForedragPage() {
   return (
     <>
+      <JsonLd data={faqSchema} />
+      <JsonLd data={speakerSchema} />
       <Navbar />
       <main>
         {/* Hero + visuell innholdsfortegnelse */}
