@@ -80,6 +80,9 @@ export function HeroSection() {
             Les mer om meg
           </Link>
         </div>
+        <Link href="/foredrag" className="text-white/50 text-sm hover:text-white/80 transition-colors self-start">
+          Se foredragstemaer og workshop →
+        </Link>
       </div>
     </section>
   );
