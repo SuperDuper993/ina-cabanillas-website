@@ -127,7 +127,7 @@ export default function OmPage() {
                 <InlineStory bodyText={bodyText} />
 
                 <div className="flex flex-wrap gap-2 mt-4">
-                  {["HER Awards 2024", "LinkedIn Topp 200", "BI + UC Berkeley", "Gründer, StudyBuddies"].map((tag) => (
+                  {["Årets unge inspirasjon 2025", "LinkedIn Topp 200", "BI + UC Berkeley", "Gründer, StudyBuddies"].map((tag) => (
                     <span key={tag} className="text-base font-medium text-brand-indigo bg-brand-lavender border border-brand-indigo/15 rounded-full px-4 py-1.5">
                       {tag}
                     </span>
