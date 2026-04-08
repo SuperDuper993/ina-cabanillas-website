@@ -132,14 +132,15 @@ export default function OmPage() {
             <motion.div {...fadeUp} className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center">
               {/* Text — left on desktop */}
               <div className="order-2 md:order-1">
+                <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-4">Om Ina</p>
                 <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] text-[#0f0f0f] leading-[1.15] mb-6 font-bold">
-                  Ina Cabanillas Hansen
+                  Jeg startet fordi ingen andre gjorde det.
                 </h1>
                 <p className={`${bodyText} mb-3`}>
-                  Gen Z-er, foredragsholder, forfatter og gründer. En av Skandinavias mest etterspurte stemmer innen generasjon Z, ledelse og tilhørighet.
+                  En spicy nordlending med røtter fra Bodø og Spania — som endte opp som Norges fremste stemme på Gen Z og arbeidsliv.
                 </p>
                 <p className="text-[#666] text-base leading-[1.7] mb-6">
-                  En spicy nordlending med bein i nesa — med røtter fra Nord-Norge og Spania.
+                  Ikke ved et uhell. Av nødvendighet.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {["HER Awards 2024", "LinkedIn Topp 200", "BI + UC Berkeley", "Gründer, StudyBuddies"].map((tag) => (
