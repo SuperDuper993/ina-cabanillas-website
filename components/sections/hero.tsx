@@ -25,8 +25,8 @@ export function HeroSection() {
           backgroundPosition: "top center",
         }}
       />
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/70 to-transparent md:bg-brand-dark/65" />
+      {/* Gradient overlay — mobile: full dark cover, desktop: semi-transparent */}
+      <div className="absolute inset-0 bg-brand-dark/80 md:bg-brand-dark/65" />
 
       <div className="relative z-10 max-w-[1080px] mx-auto px-6 pt-24 pb-12 md:pb-16 flex flex-col gap-6 md:gap-8">
         {/* Social proof strip — above fold */}
