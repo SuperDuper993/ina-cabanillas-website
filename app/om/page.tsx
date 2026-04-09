@@ -339,7 +339,7 @@ export default function OmPage() {
               <p className="text-[#0f0f0f] font-bold text-xl mb-10">
                 Pris fra 35 000 kr + mva
               </p>
-              <Link href="/#kontakt">
+              <Link href="/foredrag#kontakt">
                 <ShimmerButton className="mx-auto">
                   Book foredrag →
                 </ShimmerButton>

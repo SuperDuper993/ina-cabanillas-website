@@ -47,7 +47,7 @@ export function MobileStickyBar() {
       }`}
     >
       <Link
-        href="/#kontakt"
+        href="/foredrag#kontakt"
         className="block w-full text-center py-3 rounded-full bg-brand-indigo text-white font-semibold text-sm"
       >
         Book foredrag →

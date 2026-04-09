@@ -28,7 +28,7 @@ export function Navbar({ lang = "no" }: NavbarProps) {
 
   const isEN = lang === "en";
   const navLinks = isEN ? navLinksEN : navLinksNO;
-  const bookHref = isEN ? "/en#contact" : "/#kontakt";
+  const bookHref = isEN ? "/en#contact" : "/foredrag#kontakt";
   const bookLabel = isEN ? "Book Ina" : "Book Ina";
   const noHref = isEN ? "/" : "/";
   const enHref = isEN ? "/en" : "/en";
@@ -123,7 +123,7 @@ export function Navbar({ lang = "no" }: NavbarProps) {
               {/* Action cards */}
               <div className="grid grid-cols-2 gap-4">
                 <Link
-                  href="/#kontakt"
+                  href="/foredrag#kontakt"
                   onClick={() => setMobileOpen(false)}
                   className="bg-brand-indigo rounded-2xl p-5 flex flex-col gap-2 active:opacity-80 transition-opacity"
                 >

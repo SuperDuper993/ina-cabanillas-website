@@ -73,7 +73,7 @@ export function HowItWorksSection() {
 
           <div className="mt-8">
             <Link
-              href="/#kontakt"
+              href="/foredrag#kontakt"
               className="inline-flex items-center px-8 py-3.5 rounded-full bg-brand-indigo text-white font-semibold text-sm hover:bg-brand-indigo/90 transition-all hover:-translate-y-0.5"
             >
               Send forespørsel →

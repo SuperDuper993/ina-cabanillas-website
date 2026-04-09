@@ -72,7 +72,7 @@ export function ValueSection() {
 
             <div className="mt-4">
               <Link
-                href="/#kontakt"
+                href="/foredrag#kontakt"
                 className="inline-flex items-center gap-2 text-brand-indigo font-semibold text-sm hover:gap-3 transition-all"
               >
                 Book en samtale

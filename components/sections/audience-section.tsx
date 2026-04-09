@@ -75,7 +75,7 @@ export function AudienceSection() {
 
           <div className="mt-10 flex flex-col items-center gap-2">
             <Link
-              href="/#kontakt"
+              href="/foredrag#kontakt"
               className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-brand-indigo text-white font-semibold text-sm hover:bg-brand-indigo/90 transition-all hover:-translate-y-0.5"
             >
               Book foredrag

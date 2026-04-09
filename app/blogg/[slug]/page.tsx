@@ -108,7 +108,7 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="mt-16 pt-8 border-t border-brand-border text-center">
             <p className="text-brand-muted mb-4">Vil du høre mer om dette temaet?</p>
             <Link
-              href="/#kontakt"
+              href="/foredrag#kontakt"
               className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-brand-indigo text-white font-semibold text-sm hover:bg-brand-indigo/90 transition-all"
             >
               Book foredrag →

@@ -18,7 +18,7 @@ export function CtaBand() {
             Klar for et foredrag som faktisk sitter?
           </h2>
           <div className="flex flex-col items-center gap-3">
-            <Link href="/#kontakt">
+            <Link href="/foredrag#kontakt">
               <ShimmerButton>
                 Book foredrag
               </ShimmerButton>
