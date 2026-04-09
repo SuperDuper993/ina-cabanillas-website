@@ -113,15 +113,26 @@ export default function EnglishHome() {
       <Navbar lang="en" />
       <main>
         {/* Hero */}
-        <section
-          className="relative min-h-screen flex flex-col justify-center"
-          style={{
-            backgroundImage: `url(${IMAGES.hero})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center top",
-          }}
-        >
-          <div className="absolute inset-0 bg-brand-dark/70" />
+        <section className="relative min-h-screen flex flex-col justify-end md:justify-center overflow-hidden">
+          {/* Desktop background */}
+          <div
+            className="absolute inset-0 hidden md:block"
+            style={{
+              backgroundImage: `url(${IMAGES.hero})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center 20%",
+            }}
+          />
+          {/* Mobile background */}
+          <div
+            className="absolute inset-0 md:hidden"
+            style={{
+              backgroundImage: `url(${IMAGES.heroMobile})`,
+              backgroundSize: "cover",
+              backgroundPosition: "top center",
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/95 via-brand-dark/60 to-transparent md:bg-brand-dark/70 md:bg-none" />
           <div className="relative z-10 max-w-[1080px] mx-auto px-6 pt-24 pb-16 flex flex-col gap-8">
             <div className="max-w-3xl">
               <h1 className="text-white text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
