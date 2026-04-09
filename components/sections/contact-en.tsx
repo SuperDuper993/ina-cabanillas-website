@@ -15,6 +15,7 @@ const occasions = [
 
 export function ContactSectionEN() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [newsletter, setNewsletter] = useState(false);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -37,6 +38,14 @@ export function ContactSectionEN() {
       });
 
       if (!res.ok) throw new Error();
+
+      if (newsletter) {
+        await fetch('/api/newsletter', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: data.email, name: data.name }),
+        });
+      }
 
       setStatus('success');
       form.reset();
@@ -150,6 +159,17 @@ export function ContactSectionEN() {
                     className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/25 text-sm focus:outline-none focus:border-brand-indigo/50 transition-colors resize-none"
                   />
                 </div>
+                <label className="flex items-start gap-3 cursor-pointer mt-1">
+                  <input
+                    type="checkbox"
+                    checked={newsletter}
+                    onChange={(e) => setNewsletter(e.target.checked)}
+                    className="mt-0.5 rounded border-white/20 bg-white/5 text-brand-indigo focus:ring-brand-indigo/20"
+                  />
+                  <span className="text-white/50 text-sm leading-relaxed">
+                    Keep me updated on new keynotes and articles
+                  </span>
+                </label>
                 <NeonButton variant="solid" size="lg" type="submit" className="w-full mt-2" disabled={status === 'sending'}>
                   {status === 'sending' ? 'Sending...' : status === 'error' ? 'Try again' : 'Send enquiry'}
                 </NeonButton>
