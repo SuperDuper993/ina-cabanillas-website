@@ -10,7 +10,7 @@ const navLinksNO = [
   { href: "/foredrag", label: "Foredrag" },
   { href: "/presse", label: "I media" },
   { href: "/blogg", label: "Blogg" },
-  { href: "/#nyhetsbrev", label: "Nyhetsbrev" },
+  { href: "/kontakt", label: "Send melding" },
 ];
 
 const navLinksEN = [

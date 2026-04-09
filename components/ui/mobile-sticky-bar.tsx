@@ -57,7 +57,7 @@ export function MobileStickyBar() {
           href="/kontakt"
           className="flex-1 text-center py-3 rounded-full border border-brand-indigo text-brand-indigo font-semibold text-sm"
         >
-          Kontakt
+          Send melding
         </Link>
       </div>
     </div>
