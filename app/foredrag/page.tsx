@@ -9,7 +9,6 @@ import { HowItWorksSection } from "@/components/sections/how-it-works";
 import { TestimonialsSection } from "@/components/sections/testimonials";
 import { FaqSection } from "@/components/sections/faq";
 import { ContactSection } from "@/components/sections/contact";
-import { MobileStickyBar } from "@/components/ui/mobile-sticky-bar";
 import { ForedragMenu } from "@/components/ui/foredrag-menu";
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -162,7 +161,6 @@ export default function ForedragPage() {
         {/* Kontakt */}
         <ContactSection />
       </main>
-      <MobileStickyBar />
       <Footer />
     </>
   );
