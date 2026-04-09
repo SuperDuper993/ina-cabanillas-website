@@ -16,7 +16,7 @@ export function Footer() {
             <Link href="/om" className="hover:text-white/70 transition-colors">Om Ina</Link>
             <Link href="/presse" className="hover:text-white/70 transition-colors">I media</Link>
             <Link
-              href="/foredrag#kontakt"
+              href="/kontakt"
               className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-white text-brand-indigo font-semibold text-xs hover:bg-white/90 transition-all hover:-translate-y-0.5"
             >
               Send melding →
