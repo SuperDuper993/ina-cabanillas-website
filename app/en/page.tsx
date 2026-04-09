@@ -2,7 +2,8 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ContactSectionEN } from "@/components/sections/contact-en";
 import { TestimonialsSection } from "@/components/sections/testimonials";
-import { IMAGES, BRAND } from "@/lib/constants";
+import { IMAGES, BRAND, CLIENTS } from "@/lib/constants";
+import { InfiniteSlider } from "@/components/ui/infinite-slider";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -137,18 +138,21 @@ export default function EnglishHome() {
           </div>
         </section>
 
-        {/* Logo cloud */}
+        {/* Logo cloud — infinite scroll like NO version */}
         <section className="border-y border-brand-border py-10 bg-white">
-          <div className="max-w-[1080px] mx-auto px-6">
-            <p className="text-center text-xs font-medium tracking-widest uppercase text-brand-muted mb-6">
-              Has spoken for
-            </p>
-            <div className="flex flex-wrap justify-center gap-x-8 gap-y-3">
-              {["NAV", "Politiet", "Falck", "University of Oslo", "WOW-konferansen", "SHE Conference", "Arendalsuka", "BISO", "Katapult Future Fest"].map((logo) => (
-                <span key={logo} className="text-sm font-medium text-brand-muted/70 tracking-wide">{logo}</span>
-              ))}
-            </div>
-          </div>
+          <p className="text-center text-sm font-medium tracking-widest uppercase text-brand-muted mb-6">
+            Has spoken for
+          </p>
+          <InfiniteSlider gap={32} duration={30} durationOnHover={60}>
+            {CLIENTS.map((client) => (
+              <span
+                key={client.domain}
+                className="inline-flex items-center px-4 py-2 text-sm font-semibold text-brand-muted/70 tracking-wide whitespace-nowrap select-none hover:text-brand-indigo transition-colors duration-300"
+              >
+                {client.name}
+              </span>
+            ))}
+          </InfiniteSlider>
         </section>
 
         {/* Stats */}
