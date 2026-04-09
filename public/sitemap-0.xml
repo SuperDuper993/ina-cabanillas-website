@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://www.inacabanillas.com</loc><lastmod>2026-04-08T13:10:34.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.inacabanillas.com/blogg</loc><lastmod>2026-04-08T13:10:34.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.inacabanillas.com/blogg/gen-z-slutter-fordi-de-ikke-horer-til</loc><lastmod>2026-04-08T13:10:34.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.inacabanillas.com/blogg/hvorfor-slutter-gen-z</loc><lastmod>2026-04-08T13:10:34.201Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://www.inacabanillas.com/blogg/ai-og-ledelse</loc><lastmod>2026-04-08T13:10:34.201Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://www.inacabanillas.com/en</loc><lastmod>2026-04-08T13:10:34.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.inacabanillas.com/en/blog/why-gen-z-quits</loc><lastmod>2026-04-08T13:10:34.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.inacabanillas.com/en/press</loc><lastmod>2026-04-08T13:10:34.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.inacabanillas.com/foredrag</loc><lastmod>2026-04-08T13:10:34.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.inacabanillas.com/kjop-bok</loc><lastmod>2026-04-08T13:10:34.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.inacabanillas.com/om</loc><lastmod>2026-04-08T13:10:34.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.inacabanillas.com/presse</loc><lastmod>2026-04-08T13:10:34.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.inacabanillas.com</loc><lastmod>2026-04-09T19:44:39.257Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.inacabanillas.com/blogg</loc><lastmod>2026-04-09T19:44:39.259Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.inacabanillas.com/blogg/ai-og-ledelse</loc><lastmod>2026-04-09T19:44:39.259Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.inacabanillas.com/blogg/gen-z-slutter-fordi-de-ikke-horer-til</loc><lastmod>2026-04-09T19:44:39.259Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.inacabanillas.com/blogg/hvorfor-slutter-gen-z</loc><lastmod>2026-04-09T19:44:39.259Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.inacabanillas.com/en</loc><lastmod>2026-04-09T19:44:39.259Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.inacabanillas.com/en/about</loc><lastmod>2026-04-09T19:44:39.259Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.inacabanillas.com/en/blog/why-gen-z-quits</loc><lastmod>2026-04-09T19:44:39.259Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.inacabanillas.com/en/contact</loc><lastmod>2026-04-09T19:44:39.259Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.inacabanillas.com/en/keynotes</loc><lastmod>2026-04-09T19:44:39.259Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.inacabanillas.com/en/press</loc><lastmod>2026-04-09T19:44:39.259Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.inacabanillas.com/foredrag</loc><lastmod>2026-04-09T19:44:39.259Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.inacabanillas.com/kjop-bok</loc><lastmod>2026-04-09T19:44:39.259Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.inacabanillas.com/kontakt</loc><lastmod>2026-04-09T19:44:39.259Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.inacabanillas.com/om</loc><lastmod>2026-04-09T19:44:39.259Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.inacabanillas.com/presse</loc><lastmod>2026-04-09T19:44:39.259Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>
