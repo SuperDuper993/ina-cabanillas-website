@@ -73,14 +73,11 @@ export function BookSection() {
                   Kjøp med Vipps
                 </Link>
                 <Link
-                  href="/#kontakt"
+                  href="/kjop-bok#bulk"
                   className="inline-flex items-center justify-center px-8 py-3.5 rounded-full border border-brand-border text-foreground font-medium text-sm hover:bg-brand-lavender transition-all"
                 >
-                  Bestille til ansatte? Ta kontakt →
+                  Bestill til hele teamet — se rabatt →
                 </Link>
-                <p className="text-brand-muted/60 text-xs text-center">
-                  Vi tilbyr rabatt ved kjøp av 10+ eksemplarer.
-                </p>
               </div>
             </div>
           </div>
