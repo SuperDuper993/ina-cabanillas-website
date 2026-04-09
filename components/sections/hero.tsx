@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { BRAND, IMAGES } from "@/lib/constants";
-import ShimmerButton from "@/components/ui/shimmer-button";
 
 export function HeroSection() {
   return (
@@ -50,29 +49,6 @@ export function HeroSection() {
           </p>
         </div>
 
-        {/* Authority badges */}
-        <div className="flex flex-wrap gap-2">
-          <span className="text-sm font-medium text-white/70 border border-white/25 rounded-full px-3 py-1 bg-white/10 backdrop-blur-sm">
-            NRK &middot; TV2 &middot; Dagsnytt 18
-          </span>
-          <span className="text-sm font-medium text-white/70 border border-white/25 rounded-full px-3 py-1 bg-white/10 backdrop-blur-sm">
-            LinkedIn Topp 200 Voices
-          </span>
-        </div>
-
-        <div className="flex flex-col sm:flex-row gap-3">
-          <Link href="/foredrag#kontakt">
-            <ShimmerButton className="w-full sm:w-auto min-h-[52px] md:min-h-0">
-              Book foredrag
-            </ShimmerButton>
-          </Link>
-          <Link
-            href="/om"
-            className="inline-flex items-center justify-center px-8 py-3.5 min-h-[52px] md:min-h-0 rounded-full border border-white/40 text-white/90 font-medium text-sm hover:bg-white/10 transition-all"
-          >
-            Les mer om meg
-          </Link>
-        </div>
         <Link href="/foredrag" className="text-white/50 text-sm hover:text-white/80 transition-colors self-start">
           Se foredragstemaer og workshop →
         </Link>

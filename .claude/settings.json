@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path // .tool_response.filePath // empty' | grep -E '\\.(tsx|ts|css)$' | { read -r f; [ -n \"$f\" ] && echo '{\"systemMessage\": \"WCAG-krav: Sjekk at kontrastforhold er ≥4.5:1 for normal tekst og ≥3:1 for stor tekst (≥18px bold / ≥24px). Bruk brand-tokens: brand-indigo (#4F46E5) på hvit = 5.9:1 ✓, brand-muted (#6B7280) på hvit = 4.6:1 ✓, brand-muted på brand-lavender (#EEF2FF) = 4.1:1 ✗ — bruk mørkere farge der.\"}' || true; } 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,6 +1,8 @@
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { HeroSection } from "@/components/sections/hero";
+import { ThreeChoiceSection } from "@/components/sections/three-choice";
+import { VideoSection } from "@/components/sections/video";
 import { LogoCloudSection } from "@/components/sections/logo-cloud-section";
 import { StatsSection } from "@/components/sections/stats";
 import { EmpatiSection } from "@/components/sections/empati-section";
@@ -14,15 +16,19 @@ export default function Home() {
       <main>
         {/* 1. Hero */}
         <HeroSection />
-        {/* 2. Kundelogoer */}
+        {/* 2. 3-valg — hjelper besøkende å velge riktig spor */}
+        <ThreeChoiceSection />
+        {/* 3. Video — scroller-triggered autoplay */}
+        <VideoSection />
+        {/* 4. Kundelogoer */}
         <LogoCloudSection />
-        {/* 3. Stats */}
+        {/* 5. Stats */}
         <StatsSection />
-        {/* 4. Kjenner du deg igjen? */}
+        {/* 6. Kjenner du deg igjen? */}
         <EmpatiSection />
-        {/* 5. Testimonials */}
+        {/* 7. Testimonials */}
         <TestimonialsSection />
-        {/* 6. Boken — Pipe 2 */}
+        {/* 8. Boken */}
         <BookSection />
       </main>
       <Footer />

@@ -8,9 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const navLinksNO = [
   { href: "/om", label: "Om Ina" },
   { href: "/foredrag", label: "Foredrag" },
-  { href: "/presse", label: "I media" },
-  { href: "/blogg", label: "Blogg" },
-  { href: "/kontakt", label: "Send melding" },
+  { href: "/kjop-bok", label: "Bok" },
 ];
 
 const navLinksEN = [
@@ -57,16 +55,10 @@ export function Navbar({ lang = "no" }: NavbarProps) {
               </Link>
             ))}
             <Link
-              href={isEN ? "/en#contact" : "/kjop-bok"}
-              className="text-sm font-semibold px-5 py-2 rounded-full border border-brand-indigo text-brand-indigo hover:bg-brand-indigo/5 transition-all hover:-translate-y-0.5"
-            >
-              {isEN ? "Buy the book" : "Kjøp boken min"}
-            </Link>
-            <Link
               href={bookHref}
               className="text-sm font-semibold px-5 py-2 rounded-full bg-brand-indigo text-white hover:bg-brand-indigo/90 transition-all hover:-translate-y-0.5"
             >
-              {bookLabel}
+              {isEN ? "Book Ina" : "Book foredrag →"}
             </Link>
             {/* Language switcher */}
             <div className="flex items-center gap-1 ml-1 border border-brand-border rounded-full px-2 py-1">
