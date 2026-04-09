@@ -25,34 +25,6 @@ export const metadata: Metadata = {
 };
 
 
-const englishTalks = [
-  {
-    tag: "Most booked",
-    tagVariant: "primary" as const,
-    title: "Gen Z & Leadership: What Young Talent Actually Needs to Stay",
-    description: "How Gen Z thinks, works, and what motivates them. Practical tools you can use immediately — grounded in research and lived experience.",
-  },
-  {
-    tag: "New",
-    tagVariant: "soft" as const,
-    title: "Attract & Retain: Recruitment That Actually Works",
-    description: "What young talent really looks for in an employer — and what makes them stay beyond the first year.",
-  },
-  {
-    tag: "Keynote",
-    tagVariant: "primary" as const,
-    title: "Belonging in a Technology-Driven World",
-    description: "The interplay between people and AI, and why belonging becomes more critical the more technology we adopt. A Nordic perspective on the future of work.",
-  },
-  {
-    tag: "Tailored",
-    tagVariant: "soft" as const,
-    title: "Your Challenge, Ina's Perspective",
-    description: "A customised talk built around your organisation's specific challenges with young talent. Get in touch to discuss.",
-  },
-];
-
-
 const englishStats = [
   { value: "1 in 3", label: "Gen Z plans to leave their job within 6 months", source: "TriNet, 2025" },
   { value: "0.5–2x", label: "annual salary is the cost of losing one employee", source: "Gallup / SHRM" },
@@ -196,43 +168,21 @@ export default function EnglishHome() {
           </div>
         </section>
 
-        {/* Talks */}
-        <section id="talks" className="py-24 bg-brand-lavender">
-          <div className="max-w-[1080px] mx-auto px-6">
-            <div className="mb-12">
-              <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-3">
-                Keynotes
-              </p>
-              <h2 className="text-3xl md:text-4xl text-foreground">
-                Keynote topics
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {englishTalks.map((talk) => (
-                <div
-                  key={talk.title}
-                  className="bg-white rounded-2xl p-7 flex flex-col gap-4 hover:shadow-lg transition-shadow duration-300"
-                >
-                  <span
-                    className={
-                      "text-xs font-semibold tracking-wide uppercase px-3 py-1 rounded-full self-start " +
-                      (talk.tagVariant === "primary"
-                        ? "bg-brand-indigo text-white"
-                        : "bg-brand-light-lav text-brand-indigo")
-                    }
-                  >
-                    {talk.tag}
-                  </span>
-                  <h3 className="font-serif text-xl text-foreground leading-snug">
-                    {talk.title}
-                  </h3>
-                  <p className="text-brand-muted text-sm leading-relaxed">
-                    {talk.description}
-                  </p>
-                </div>
-              ))}
-            </div>
+        {/* Keynotes CTA */}
+        <section className="py-16 bg-brand-lavender">
+          <div className="max-w-[680px] mx-auto px-6 text-center">
+            <h2 className="text-2xl md:text-3xl font-serif text-foreground mb-4">
+              Keynotes &amp; Workshops
+            </h2>
+            <p className="text-brand-muted text-lg leading-relaxed mb-8">
+              Explore topics, formats and pricing — from a 45-minute keynote to a full-day workshop. Tailored to your audience.
+            </p>
+            <Link
+              href="/en/keynotes"
+              className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-brand-indigo text-white font-semibold text-sm hover:bg-brand-indigo/90 transition-all hover:-translate-y-0.5"
+            >
+              View keynotes &amp; workshops →
+            </Link>
           </div>
         </section>
 
