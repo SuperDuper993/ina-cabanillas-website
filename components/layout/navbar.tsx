@@ -12,7 +12,7 @@ const navLinksNO = [
 ];
 
 const navLinksEN = [
-  { href: "/en#about", label: "About" },
+  { href: "/en/about", label: "About" },
   { href: "/en/keynotes", label: "Keynotes" },
 ];
 

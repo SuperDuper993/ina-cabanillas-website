@@ -4,7 +4,6 @@ import { ContactSectionEN } from "@/components/sections/contact-en";
 import { TestimonialsSection } from "@/components/sections/testimonials";
 import { IMAGES, BRAND, CLIENTS } from "@/lib/constants";
 import { InfiniteSlider } from "@/components/ui/infinite-slider";
-import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -25,12 +24,6 @@ export const metadata: Metadata = {
   },
 };
 
-const credentials = [
-  "Gen Z speaking from the inside",
-  "HR & Leadership, BI + UC Berkeley",
-  "Founder, StudyBuddies",
-  "LinkedIn Top 200 Voices",
-];
 
 const englishTalks = [
   {
@@ -59,12 +52,6 @@ const englishTalks = [
   },
 ];
 
-const aboutHighlights = [
-  { value: "6/6", label: "Speaker rating" },
-  { value: "BI + UC Berkeley", label: "HR & Leadership" },
-  { value: "Top 200", label: "LinkedIn Voices" },
-  { value: "StudyBuddies", label: "Founder" },
-];
 
 const englishStats = [
   { value: "1 in 3", label: "Gen Z plans to leave their job within 6 months", source: "TriNet, 2025" },
@@ -110,31 +97,12 @@ export default function EnglishHome() {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="#contact"
-                className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-white text-brand-indigo font-semibold text-sm hover:bg-white/90 transition-all hover:-translate-y-0.5"
-              >
-                Book Ina for your event
-              </Link>
-              <Link
-                href="#talks"
-                className="inline-flex items-center justify-center px-8 py-3.5 rounded-full border border-white/60 text-white font-semibold text-sm hover:bg-white/10 transition-all hover:-translate-y-0.5"
-              >
-                View keynotes ↓
-              </Link>
-            </div>
-
-            <div className="flex flex-wrap gap-3 mt-2">
-              {credentials.map((cred) => (
-                <span
-                  key={cred}
-                  className="text-xs font-medium text-white/60 border border-white/20 rounded-full px-4 py-1.5 backdrop-blur-sm bg-white/5"
-                >
-                  {cred}
-                </span>
-              ))}
-            </div>
+            <Link
+              href="/en/keynotes"
+              className="text-white/50 text-sm hover:text-white/80 transition-colors self-start"
+            >
+              View keynotes and workshops →
+            </Link>
           </div>
         </section>
 
@@ -176,50 +144,55 @@ export default function EnglishHome() {
           </div>
         </section>
 
-        {/* About */}
-        <section id="about" className="py-24 bg-white">
+        {/* About teaser */}
+        <section className="py-16 bg-white">
           <div className="max-w-[1080px] mx-auto px-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
-              <div className="order-2 md:order-1">
-                <Image
-                  src={IMAGES.bookPortrait}
-                  alt="Ina Cabanillas Hansen — Gen Z keynote speaker"
-                  width={520}
-                  height={650}
-                  className="w-full rounded-2xl object-cover"
-                  priority
-                />
-              </div>
-
-              <div className="order-1 md:order-2 flex flex-col gap-6">
-                <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo">
-                  About Ina
-                </p>
-                <h2 className="text-3xl md:text-4xl text-foreground leading-snug">
-                  A Gen Z researcher studying her own generation
-                </h2>
-                <div className="space-y-4 text-brand-muted leading-relaxed">
-                  <p>
-                    Ina Cabanillas Hansen is one of Scandinavia&apos;s most in-demand voices on Gen Z, leadership, and belonging in the workplace. She is a keynote speaker, author, and founder of StudyBuddies — a platform helping students build community and academic support networks.
-                  </p>
-                  <p>
-                    With a background in HR and leadership from BI Norwegian Business School and UC Berkeley, she combines research, lived experience as a Gen Z professional, and a sharp eye on the generational divide to give leaders practical tools they can use immediately.
-                  </p>
-                  <p>
-                    Named &ldquo;Young Inspiration of the Year 2025&rdquo; in Norway, she is one of LinkedIn&apos;s global Top 200 Voices in inclusion and diversity, and has spoken at events from government agencies to international innovation festivals.
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-2 gap-3 mt-2">
-                  {aboutHighlights.map((h) => (
-                    <div key={h.label} className="bg-brand-lavender rounded-xl px-5 py-4">
-                      <p className="font-semibold text-brand-indigo text-base">{h.value}</p>
-                      <p className="text-brand-muted text-sm mt-0.5">{h.label}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+            <div className="max-w-2xl">
+              <p className="text-brand-muted text-lg leading-relaxed mb-6">
+                Gen Z speaking from the inside. HR &amp; Leadership from BI + UC Berkeley. Founder of StudyBuddies. LinkedIn Top 200 Voices.
+              </p>
+              <Link href="/en/about" className="text-brand-indigo text-sm font-medium hover:underline">
+                Read more about Ina →
+              </Link>
             </div>
+          </div>
+        </section>
+
+        {/* Does this sound familiar? */}
+        <section className="py-20 bg-brand-lavender">
+          <div className="max-w-[1080px] mx-auto px-6">
+            <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-4">Does this sound familiar?</p>
+            <h2 className="text-2xl md:text-3xl font-serif text-brand-dark leading-snug mb-10 max-w-xl">You&apos;re not alone in wondering about this.</h2>
+
+            <div className="md:hidden overflow-x-auto snap-x snap-mandatory flex gap-4 -mx-6 px-6 pb-2 no-scrollbar">
+              {[
+                { emoji: '😮‍💨', text: "You've done everything by the book, yet the youngest employees still leave after a short time. What are you getting wrong?" },
+                { emoji: '🙄', text: "You're tired of the debate about which generation is right or wrong. You'd rather understand how to build a workplace where people actually want to stay." },
+                { emoji: '🤯', text: "AI is changing everything. You know you need to act, but you don't know how. And nobody's talking about the people behind the technology." },
+              ].map((s, i) => (
+                <div key={i} className="snap-start flex-shrink-0 w-[85vw] bg-white rounded-2xl p-6 border border-brand-border shadow-sm">
+                  <span className="text-2xl mb-4 block">{s.emoji}</span>
+                  <p className="text-brand-dark text-base leading-relaxed">{s.text}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="hidden md:grid md:grid-cols-3 gap-6">
+              {[
+                { emoji: '😮‍💨', text: "You've done everything by the book, yet the youngest employees still leave after a short time. What are you getting wrong?" },
+                { emoji: '🙄', text: "You're tired of the debate about which generation is right or wrong. You'd rather understand how to build a workplace where people actually want to stay." },
+                { emoji: '🤯', text: "AI is changing everything. You know you need to act, but you don't know how. And nobody's talking about the people behind the technology." },
+              ].map((s, i) => (
+                <div key={i} className="bg-white rounded-2xl p-6 border border-brand-border shadow-sm flex flex-col">
+                  <span className="text-2xl mb-4 block">{s.emoji}</span>
+                  <p className="text-brand-dark text-base leading-relaxed">{s.text}</p>
+                </div>
+              ))}
+            </div>
+
+            <p className="mt-10 text-brand-muted text-base leading-relaxed max-w-2xl">
+              As founder of StudyBuddies and one of Norway&apos;s leading voices on Gen Z, I work with these questions every day. Through research, lived experience and 20+ stages, I help leaders find the answers — and actually use them.
+            </p>
           </div>
         </section>
 
