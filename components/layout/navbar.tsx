@@ -115,21 +115,27 @@ export function Navbar({ lang = "no" }: NavbarProps) {
               {/* Action cards */}
               <div className="grid grid-cols-2 gap-4">
                 <Link
-                  href="/foredrag#kontakt"
+                  href={bookHref}
                   onClick={() => setMobileOpen(false)}
                   className="bg-brand-indigo rounded-2xl p-5 flex flex-col gap-2 active:opacity-80 transition-opacity"
                 >
                   <span className="text-2xl">🎤</span>
-                  <p className="text-white font-semibold text-base leading-tight">Book foredrag</p>
-                  <p className="text-white/60 text-xs">Send forespørsel</p>
+                  <p className="text-white font-semibold text-base leading-tight">
+                    {isEN ? "Book a keynote" : "Book foredrag"}
+                  </p>
+                  <p className="text-white/60 text-xs">
+                    {isEN ? "Send inquiry" : "Send forespørsel"}
+                  </p>
                 </Link>
                 <Link
-                  href="/kjop-bok"
+                  href={isEN ? "/en#book" : "/kjop-bok"}
                   onClick={() => setMobileOpen(false)}
                   className="bg-brand-lavender rounded-2xl p-5 flex flex-col gap-2 active:opacity-80 transition-opacity"
                 >
                   <span className="text-2xl">📚</span>
-                  <p className="text-brand-dark font-semibold text-base leading-tight">Kjøp boken</p>
+                  <p className="text-brand-dark font-semibold text-base leading-tight">
+                    {isEN ? "Buy the book" : "Kjøp boken"}
+                  </p>
                   <p className="text-brand-muted text-xs">349 kr</p>
                 </Link>
               </div>
