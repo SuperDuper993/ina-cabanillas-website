@@ -267,7 +267,7 @@ export function ContactSection() {
                   disabled={status === 'sending'}
                   className="w-full mt-1 h-auto py-4 text-base disabled:opacity-60 disabled:hover:scale-100"
                 >
-                  {status === 'sending' ? 'Sender...' : status === 'error' ? 'Prøv igjen \u2192' : 'Send melding \u2192'}
+                  {status === 'sending' ? 'Sender...' : status === 'error' ? 'Prøv igjen \u2192' : 'Start en samtale \u2192'}
                 </ShimmerButton>
 
                 {status === 'error' && (
