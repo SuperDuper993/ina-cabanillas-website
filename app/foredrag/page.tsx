@@ -135,11 +135,11 @@ export default function ForedragPage() {
           </div>
         </section>
 
-        {/* Video */}
-        <VideoSection />
-
         {/* Kjenner du deg igjen? */}
         <EmpatiSection />
+
+        {/* Video */}
+        <VideoSection />
 
         {/* Foredragstemaer — accordion */}
         <TalksSection />
