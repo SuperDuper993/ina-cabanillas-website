@@ -61,7 +61,7 @@ export function HeroSection() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-3">
-          <Link href="/#kontakt">
+          <Link href="/foredrag#kontakt">
             <ShimmerButton className="w-full sm:w-auto min-h-[52px] md:min-h-0">
               Book foredrag
             </ShimmerButton>
