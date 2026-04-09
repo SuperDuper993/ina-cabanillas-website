@@ -6,7 +6,6 @@ import { StatsSection } from "@/components/sections/stats";
 import { EmpatiSection } from "@/components/sections/empati-section";
 import { TestimonialsSection } from "@/components/sections/testimonials";
 import { BookSection } from "@/components/sections/book";
-import { ContactSection } from "@/components/sections/contact";
 import { MobileStickyBar } from "@/components/ui/mobile-sticky-bar";
 
 export default function Home() {
@@ -26,8 +25,6 @@ export default function Home() {
         <TestimonialsSection />
         {/* 6. Boken — Pipe 2 */}
         <BookSection />
-        {/* 7. Kontakt */}
-        <ContactSection />
       </main>
       <MobileStickyBar />
       <Footer />
