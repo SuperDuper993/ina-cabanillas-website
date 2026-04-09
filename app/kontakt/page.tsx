@@ -116,7 +116,8 @@ export default function KontaktPage() {
             Ta kontakt
           </h1>
           <p className="text-brand-muted text-lg leading-relaxed mb-10">
-            Foredrag, bokbestilling, samarbeid eller noe annet — fyll ut skjemaet så svarer jeg innen 24 timer.
+            Her kan du nå meg — enten du vil booke foredrag, har en mediehenvendelse, ønsker samarbeid eller bare har et spørsmål. Fyll ut skjemaet eller ring meg direkte på{' '}
+            <a href="tel:+4797424957" className="text-brand-indigo font-medium hover:underline">+47 974 24 957</a>.
           </p>
 
           {/* FAQ */}
