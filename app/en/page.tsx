@@ -38,9 +38,8 @@ export default function EnglishHome() {
     <>
       <Navbar lang="en" />
       <main>
-        {/* Hero */}
-        <section className="relative min-h-screen flex flex-col justify-end md:justify-center overflow-hidden">
-          {/* Desktop background */}
+        {/* 1. Hero — problem + CTA + credentials */}
+        <section className="relative min-h-[85vh] md:min-h-screen flex flex-col justify-end md:justify-center overflow-hidden">
           <div
             className="absolute inset-0 hidden md:block"
             style={{
@@ -49,7 +48,6 @@ export default function EnglishHome() {
               backgroundPosition: "center 20%",
             }}
           />
-          {/* Mobile background */}
           <div
             className="absolute inset-0 md:hidden"
             style={{
@@ -58,27 +56,38 @@ export default function EnglishHome() {
               backgroundPosition: "top center",
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/95 via-brand-dark/60 to-transparent md:bg-brand-dark/70 md:bg-none" />
-          <div className="relative z-10 max-w-[1080px] mx-auto px-6 pt-24 pb-16 flex flex-col gap-8">
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/95 via-brand-dark/60 to-transparent md:bg-brand-dark/65 md:bg-none" />
+          <div className="relative z-10 max-w-[1080px] mx-auto px-6 pt-24 pb-12 md:pb-16 flex flex-col gap-6 md:gap-8">
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="flex items-center gap-1.5">
+                {[...Array(6)].map((_, i) => (
+                  <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="#FBBF24" aria-hidden="true">
+                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                  </svg>
+                ))}
+                <span className="text-white/70 text-sm ml-1">6/6 on Talerlisten</span>
+              </div>
+            </div>
+
             <div className="max-w-3xl">
-              <h1 className="text-white text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
+              <h1 className="text-white text-2xl sm:text-3xl md:text-5xl lg:text-[3.5rem] leading-[1.1] mb-4 md:mb-6">
                 Belonging is the competitive advantage you&apos;re missing
               </h1>
-              <p className="text-white/75 text-lg md:text-xl leading-relaxed max-w-2xl">
-                Gen Z keynote speaker, author, and founder. I help leaders understand, retain, and develop young talent through insight, research, and technology.
+              <p className="text-white/70 text-base md:text-lg leading-relaxed max-w-2xl">
+                Gen Z insider · BI + UC Berkeley · Founder, StudyBuddies · LinkedIn Top 200 Voices. I help leaders understand, retain, and develop young talent.
               </p>
             </div>
 
-            <Link
-              href="/en/keynotes"
-              className="text-white/50 text-sm hover:text-white/80 transition-colors self-start"
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center self-start px-8 py-3.5 rounded-full bg-white text-brand-indigo font-semibold text-sm hover:bg-white/90 transition-all hover:-translate-y-0.5"
             >
-              View keynotes and workshops →
-            </Link>
+              Book a keynote →
+            </a>
           </div>
         </section>
 
-        {/* Logo cloud — infinite scroll like NO version */}
+        {/* 2. Logo cloud */}
         <section className="border-y border-brand-border py-10 bg-white">
           <p className="text-center text-sm font-medium tracking-widest uppercase text-brand-muted mb-6">
             Has spoken for
@@ -95,42 +104,22 @@ export default function EnglishHome() {
           </InfiniteSlider>
         </section>
 
-        {/* Stats */}
+        {/* 3. Stats — the problem is real */}
         <section className="bg-brand-dark py-20">
           <div className="max-w-[1080px] mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
               {englishStats.map((stat) => (
                 <div key={stat.value} className="text-center md:text-left">
-                  <p className="text-white text-5xl md:text-6xl font-serif mb-3">
-                    {stat.value}
-                  </p>
-                  <p className="text-white/45 text-base leading-snug mb-2">
-                    {stat.label}
-                  </p>
-                  <p className="text-white/25 text-xs">
-                    {stat.source}
-                  </p>
+                  <p className="text-white text-5xl md:text-6xl font-serif mb-3">{stat.value}</p>
+                  <p className="text-white/45 text-base leading-snug mb-2">{stat.label}</p>
+                  <p className="text-white/25 text-xs">{stat.source}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* About teaser */}
-        <section className="py-16 bg-white">
-          <div className="max-w-[1080px] mx-auto px-6">
-            <div className="max-w-2xl">
-              <p className="text-brand-muted text-lg leading-relaxed mb-6">
-                Gen Z speaking from the inside. HR &amp; Leadership from BI + UC Berkeley. Founder of StudyBuddies. LinkedIn Top 200 Voices.
-              </p>
-              <Link href="/en/about" className="text-brand-indigo text-sm font-medium hover:underline">
-                Read more about Ina →
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* Does this sound familiar? */}
+        {/* 4. Does this sound familiar? */}
         <section className="py-20 bg-brand-lavender">
           <div className="max-w-[1080px] mx-auto px-6">
             <p className="text-xs font-semibold tracking-widest uppercase text-brand-indigo mb-4">Does this sound familiar?</p>
@@ -168,8 +157,11 @@ export default function EnglishHome() {
           </div>
         </section>
 
-        {/* Keynotes CTA */}
-        <section className="py-16 bg-brand-lavender">
+        {/* 5. Testimonials */}
+        <TestimonialsSection lang="en" />
+
+        {/* 6. Keynotes CTA */}
+        <section className="py-16 bg-white border-t border-brand-border">
           <div className="max-w-[680px] mx-auto px-6 text-center">
             <h2 className="text-2xl md:text-3xl font-serif text-foreground mb-4">
               Keynotes &amp; Workshops
@@ -186,22 +178,7 @@ export default function EnglishHome() {
           </div>
         </section>
 
-        {/* Testimonials — carousel with all EN translations */}
-        <TestimonialsSection lang="en" />
-
-        {/* Book — compact mention */}
-        <section className="py-12 bg-brand-lavender">
-          <div className="max-w-[680px] mx-auto px-6 flex items-center gap-6">
-            <p className="text-[10px] font-bold tracking-widest uppercase text-brand-indigo shrink-0">Book</p>
-            <p className="text-sm text-brand-muted">
-              <span className="font-semibold text-foreground">How to Understand and Lead Gen Z</span> — available in Norwegian.{' '}
-              <Link href={BRAND.arkBook} target="_blank" rel="noopener noreferrer" className="text-brand-indigo underline">
-                Ark.no →
-              </Link>
-            </p>
-          </div>
-        </section>
-
+        {/* 7. Contact / Booking */}
         <ContactSectionEN />
       </main>
       <Footer />
