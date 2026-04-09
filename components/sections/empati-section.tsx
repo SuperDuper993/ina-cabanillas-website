@@ -65,7 +65,7 @@ export function EmpatiSection() {
           </div>
 
           <p className="mt-10 text-brand-muted text-base leading-relaxed max-w-2xl">
-            Det er akkurat disse spørsmålene jeg jobber med. Gjennom forskning, foredrag og erfaring fra 20+ scener hjelper jeg ledere å finne svarene, og faktisk bruke dem.
+            Som gründer av StudyBuddies og Norges fremste stemme på Gen Z jobber jeg daglig med disse spørsmålene. Gjennom forskning, egne erfaringer og 20+ scener hjelper jeg ledere å finne svarene — og faktisk bruke dem.
           </p>
         </motion.div>
       </div>
