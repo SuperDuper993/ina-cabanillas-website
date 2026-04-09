@@ -77,7 +77,6 @@ function InlineStory({ bodyText }: { bodyText: string }) {
             className="overflow-hidden"
           >
             <div className="pt-6 space-y-5">
-              <p className={bodyText}>Det startet med bestevenninnen min.</p>
               <p className="text-[#1a1a1a] font-serif text-lg leading-[1.7] italic">
                 &ldquo;Hun pakket laptopen sin, gikk gjennom et bibliotek med 200 mennesker, og møtte blikkene til ingen.&rdquo;
               </p>
@@ -86,11 +85,17 @@ function InlineStory({ bodyText }: { bodyText: string }) {
               <p className={bodyText}>Vi hadde gruppeeksamener ment for fem — jeg tok dem alle alene, hjemme, i stillhet. Dag etter dag. Nær ved å gi opp.</p>
               <p className={bodyText}>Det som reddet meg var ikke et program. Det var én venninne som sa: «Jeg tar eksamen med deg.»</p>
               <p className={bodyText}>Men bestevenninnen min hadde ikke den venninnen.</p>
-              <p className={`${bodyText} text-brand-indigo font-semibold`}>Hun droppet ut av drømmestudiet sitt. Ikke fordi hun ikke var god nok. Fordi hun ikke hadde noen.</p>
+              <p className={`${bodyText} text-brand-indigo font-semibold`}>Hun droppet ut av drømmestudiet sitt.</p>
+              <p className={bodyText}>Ikke fordi hun ikke var god nok. Ikke fordi hun ikke ville nok. Fordi hun ikke hadde noen.</p>
               <p className={bodyText}>Det øyeblikket satt seg. Ikke som inspirasjon, men som sinne. Stille, bestemt sinne over at dette bare er sånn det er — og ingen gjør noe med det.</p>
               <p className={bodyText}>Jeg søkte etter løsninger. Fant ingen. Så jeg bestemte meg for å bygge en selv.</p>
-              <p className={bodyText}>Det jeg fant gjennom forskning endret måten jeg ser på alt: problemene vi sliter med på studiet er de nøyaktig samme vi møter i arbeidslivet.</p>
+              <p className={bodyText}>Jeg har elsket å stå på scene siden jeg var liten. Jeg visste bare ikke hva jeg skulle si — før nå.</p>
+              <p className={bodyText}>Det jeg fant gjennom forskning og arbeid endret måten jeg ser på alt:</p>
+              <p className="text-[#1a1a1a] font-serif text-lg leading-[1.6]">Problemene vi sliter med på studiet er de nøyaktig samme vi møter i arbeidslivet.</p>
+              <p className={bodyText}>Ensomheten. Mangelen på tilhørighet. Følelsen av å ikke høre til.</p>
               <p className="text-[#0f0f0f] text-base font-semibold">Det er ikke et Gen Z-problem. Det er et lederproblem.</p>
+              <p className={bodyText}>Tenk på din første arbeidsdag. Hvordan ble du møtt?</p>
+              <p className={bodyText}>Nå tenk på hvordan unge ansatte blir møtt i din organisasjon — i dag.</p>
               <p className="text-brand-indigo text-base font-serif font-semibold">Er du fornøyd med det svaret?</p>
             </div>
           </motion.div>
