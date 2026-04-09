@@ -136,14 +136,14 @@ export function Navbar({ lang = "no" }: NavbarProps) {
 
               {/* Nav links */}
               <div className="flex flex-col">
-                {navLinks.map((link, i) => (
+                {[...navLinks, ...(isEN ? [] : [{ href: "/kontakt", label: "Send melding" }])].map((link, i, arr) => (
                   <Link
                     key={link.href}
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
                     className={cn(
                       "flex items-center justify-between py-4 text-white text-lg font-medium",
-                      i < navLinks.length - 1 && "border-b border-white/10"
+                      i < arr.length - 1 && "border-b border-white/10"
                     )}
                   >
                     {link.label}
