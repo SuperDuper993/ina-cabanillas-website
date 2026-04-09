@@ -174,6 +174,98 @@ export const RECOMMENDATIONS_LINKEDIN = [
   },
 ];
 
+export const TESTIMONIALS_TALERLISTEN_EN = [
+  {
+    stars: 6,
+    quote: "Struck us right in the heart. She gave us new perspectives and elegantly debunked some persistent myths about Gen Z. She managed to build bridges between generations without pointing fingers.",
+    highlight: "She managed to build bridges between generations without pointing fingers.",
+    author: "Eva Finseth",
+    org: "IMA Norway",
+    date: "Nov 2025",
+  },
+  {
+    stars: 6,
+    quote: "Excellent talk — clear and professional on stage, with the ability to truly engage the audience. Humorous, yet unafraid to put her finger on important issues. We received overwhelmingly positive feedback.",
+    highlight: "Humorous, yet unafraid to put her finger on important issues.",
+    author: "Hege Karina Thoresen",
+    org: "Mosjøen Næringsforening",
+    date: "Feb 2026",
+  },
+  {
+    stars: 6,
+    quote: "Engaging and lively talk on Gen Z. Humour, clear examples and energy. The audience was inspired to think differently and left with concrete ideas. Ina was curious, positive and a pleasure to work with.",
+    highlight: "Humour, clear examples and energy.",
+    author: "Håkon Wåge-Lorentzen",
+    org: "Ophelix Scandinavia",
+    date: "Nov 2025",
+  },
+  {
+    stars: 6,
+    quote: "Communicates her knowledge, experiences and reflections in such a way that makes listening to her very enjoyable and inspirational. She speaks with enthusiasm and conviction.",
+    highlight: "makes listening to her very enjoyable and inspirational.",
+    author: "Mikael Heian Frølandshagen",
+    org: "KANDU",
+    date: "Dec 2025",
+  },
+  {
+    stars: 6,
+    quote: "A cheerful and compelling delivery of important topics. The content hits the mark perfectly and she easily gets participants engaged. Several were so inspired they asked questions after the talk.",
+    highlight: "The content hits the mark perfectly",
+    author: "Espen Framvik",
+    org: "Negotia Øst",
+    date: "Oct 2025",
+  },
+  {
+    stars: 6,
+    quote: "An inspiring speaker whose message resonates and leads to concrete action. Highly recommended!",
+    highlight: "An inspiring speaker whose message resonates and leads to concrete action.",
+    author: "Astrid Rønning Skaugseth",
+    org: "Stiftelsen Sykehusbarn",
+    date: "Dec 2025",
+  },
+  {
+    stars: 6,
+    quote: "Ina communicates with energy, straight from the heart and with an honesty that truly resonates. She shares generously from her own experiences and provides valuable insight into what it actually takes to build your own brand and dare to go for it.",
+    highlight: "communicates with energy, straight from the heart and with an honesty that truly resonates.",
+    author: "Vilde Regine Tellnes",
+    org: "Founder / TEDx Speaker",
+    date: "Jun 2025",
+  },
+];
+
+export const RECOMMENDATIONS_LINKEDIN_EN = [
+  {
+    quote: "I've been giving talks myself for 5 years and attended countless conferences, and I have to say this is some of the best I've seen. Concrete. Engaging. Simply outstanding.",
+    highlight: "this is some of the best I've seen.",
+    author: "Kimiya Sajjadi",
+    role: "Diversity & Inclusion",
+  },
+  {
+    quote: "Ina tackled everything said about Gen Z and debunked myths with humour and self-awareness. She masters every format: keynotes, podcasts and TV.",
+    highlight: "debunked myths with humour and self-awareness.",
+    author: "Vigdis Austrheim",
+    role: "Leadership Development",
+  },
+  {
+    quote: "Ina-Christine stood out in my Experiential Entrepreneurship course at UC Berkeley as an exceptionally driven and creative individual. As CEO of her team, she led them to deliver the top-rated presentation to a panel of investors.",
+    highlight: "exceptionally driven and creative individual.",
+    author: "Naeem Zafar",
+    role: "CEO Coach, UC Berkeley Professor",
+  },
+  {
+    quote: "Ina combines humility with a desire to learn. Her ability to validate both the problem and the market need for the solution is impressive. Determination and ability to deliver results.",
+    highlight: "Determination and ability to deliver results.",
+    author: "Nikolai Nordbotn",
+    role: "Co-founder & CEO, Rockslice",
+  },
+  {
+    quote: "It's not often I meet someone with so much drive and strength as Ina. She tackles every challenge head-on and always figures things out. She always ensures everyone feels included, seen and heard.",
+    highlight: "everyone feels included, seen and heard.",
+    author: "Sara Nielsen",
+    role: "Tender Engineer, Beerenberg",
+  },
+];
+
 export const PRESS_ARTICLES = [
   { title: "Generasjon Z — ord har makt, bruk dem riktig", source: "Dagens Næringsliv", date: "Mar 2026", url: "https://www.dn.no/innlegg/generasjon-z/arbeidsliv/utdannelse/generasjon-z-ord-har-makt-bruk-dem-riktig/2-1-1798458" },
   { title: "Inas råd: Ung og sulten? Søk jobb når du har tre års erfaring", source: "Drammens Tidende", date: "Apr 2026", url: "https://www.dt.no/inas-rad-ung-og-sulten-sok-jobb-nar-du-har-tre-ars-erfaring/o/5-57-2798759" },

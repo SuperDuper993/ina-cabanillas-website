@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { TESTIMONIALS_TALERLISTEN, RECOMMENDATIONS_LINKEDIN } from "@/lib/constants";
+import { TESTIMONIALS_TALERLISTEN, RECOMMENDATIONS_LINKEDIN, TESTIMONIALS_TALERLISTEN_EN, RECOMMENDATIONS_LINKEDIN_EN } from "@/lib/constants";
 
 function StarRow({ count }: { count: number }) {
   return (
@@ -27,21 +27,24 @@ function renderQuoteWithHighlight(quote: string, highlight: string) {
   );
 }
 
-const mixedTestimonials = [
-  { type: 'talerlisten' as const, data: TESTIMONIALS_TALERLISTEN[0] },
-  { type: 'linkedin' as const, data: RECOMMENDATIONS_LINKEDIN[0] },
-  { type: 'talerlisten' as const, data: TESTIMONIALS_TALERLISTEN[1] },
-  { type: 'linkedin' as const, data: RECOMMENDATIONS_LINKEDIN[1] },
-  { type: 'talerlisten' as const, data: TESTIMONIALS_TALERLISTEN[2] },
-  { type: 'linkedin' as const, data: RECOMMENDATIONS_LINKEDIN[2] },
-  ...TESTIMONIALS_TALERLISTEN.slice(3).map(t => ({ type: 'talerlisten' as const, data: t })),
-  ...RECOMMENDATIONS_LINKEDIN.slice(3).map(r => ({ type: 'linkedin' as const, data: r })),
-];
+function buildMixed(testimonials: typeof TESTIMONIALS_TALERLISTEN, linkedin: typeof RECOMMENDATIONS_LINKEDIN) {
+  return [
+    { type: 'talerlisten' as const, data: testimonials[0] },
+    { type: 'linkedin' as const, data: linkedin[0] },
+    { type: 'talerlisten' as const, data: testimonials[1] },
+    { type: 'linkedin' as const, data: linkedin[1] },
+    { type: 'talerlisten' as const, data: testimonials[2] },
+    { type: 'linkedin' as const, data: linkedin[2] },
+    ...testimonials.slice(3).map(t => ({ type: 'talerlisten' as const, data: t })),
+    ...linkedin.slice(3).map(r => ({ type: 'linkedin' as const, data: r })),
+  ];
+}
 
 const ITEMS_PER_PAGE = 3;
-const TOTAL_PAGES = Math.ceil(mixedTestimonials.length / ITEMS_PER_PAGE);
 
-function TestimonialCard({ item }: { item: typeof mixedTestimonials[0] }) {
+type MixedItem = ReturnType<typeof buildMixed>[0];
+
+function TestimonialCard({ item }: { item: MixedItem }) {
   if (item.type === 'talerlisten') {
     const t = item.data as typeof TESTIMONIALS_TALERLISTEN[0];
     return (
@@ -76,9 +79,20 @@ function TestimonialCard({ item }: { item: typeof mixedTestimonials[0] }) {
   );
 }
 
-export function TestimonialsSection() {
+interface TestimonialsSectionProps {
+  lang?: "no" | "en";
+}
+
+export function TestimonialsSection({ lang = "no" }: TestimonialsSectionProps) {
   const [page, setPage] = useState(0);
   const [direction, setDirection] = useState(1);
+  const isEN = lang === "en";
+
+  const mixedTestimonials = buildMixed(
+    isEN ? TESTIMONIALS_TALERLISTEN_EN : TESTIMONIALS_TALERLISTEN,
+    isEN ? RECOMMENDATIONS_LINKEDIN_EN : RECOMMENDATIONS_LINKEDIN
+  );
+  const TOTAL_PAGES = Math.ceil(mixedTestimonials.length / ITEMS_PER_PAGE);
 
   function goTo(next: number) {
     setDirection(next > page ? 1 : -1);
@@ -98,11 +112,13 @@ export function TestimonialsSection() {
         >
           <div className="mb-10 px-6">
             <h2 className="text-3xl md:text-4xl text-foreground mb-6">
-              7 av 7 gir toppkarakter
+              {isEN ? "Top-rated on every booking" : "7 av 7 gir toppkarakter"}
             </h2>
             <blockquote className="border-l-4 border-brand-indigo pl-5 max-w-2xl">
               <p className="text-brand-muted italic leading-relaxed">
-                Alle anmeldelser på Talerlisten er verifiserte av arrangøren etter foredraget. Ina har mottatt toppkarakter på samtlige bookinger.
+                {isEN
+                  ? "All reviews on Talerlisten (Norway's leading speaker platform) are verified by the event organiser after the talk. Ina has received the highest possible rating on every single booking."
+                  : "Alle anmeldelser på Talerlisten er verifiserte av arrangøren etter foredraget. Ina har mottatt toppkarakter på samtlige bookinger."}
               </p>
             </blockquote>
           </div>
