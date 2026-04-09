@@ -13,8 +13,7 @@ const navLinksNO = [
 
 const navLinksEN = [
   { href: "/en#about", label: "About" },
-  { href: "/en#talks", label: "Keynotes" },
-  { href: "/en/press", label: "In the media" },
+  { href: "/en/keynotes", label: "Keynotes" },
 ];
 
 interface NavbarProps {
