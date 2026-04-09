@@ -126,22 +126,32 @@ export function Navbar({ lang = "no" }: NavbarProps) {
                     {isEN ? "Send inquiry" : "Send forespørsel"}
                   </p>
                 </Link>
-                <Link
-                  href={isEN ? "/en#book" : "/kjop-bok"}
-                  onClick={() => setMobileOpen(false)}
-                  className="bg-brand-lavender rounded-2xl p-5 flex flex-col gap-2 active:opacity-80 transition-opacity"
-                >
-                  <span className="text-2xl">📚</span>
-                  <p className="text-brand-dark font-semibold text-base leading-tight">
-                    {isEN ? "Buy the book" : "Kjøp boken"}
-                  </p>
-                  <p className="text-brand-muted text-xs">349 kr</p>
-                </Link>
+                {isEN ? (
+                  <Link
+                    href="/en#contact"
+                    onClick={() => setMobileOpen(false)}
+                    className="bg-brand-lavender rounded-2xl p-5 flex flex-col gap-2 active:opacity-80 transition-opacity"
+                  >
+                    <span className="text-2xl">✉️</span>
+                    <p className="text-brand-dark font-semibold text-base leading-tight">Contact</p>
+                    <p className="text-brand-muted text-xs">Get in touch</p>
+                  </Link>
+                ) : (
+                  <Link
+                    href="/kjop-bok"
+                    onClick={() => setMobileOpen(false)}
+                    className="bg-brand-lavender rounded-2xl p-5 flex flex-col gap-2 active:opacity-80 transition-opacity"
+                  >
+                    <span className="text-2xl">📚</span>
+                    <p className="text-brand-dark font-semibold text-base leading-tight">Kjøp boken</p>
+                    <p className="text-brand-muted text-xs">349 kr</p>
+                  </Link>
+                )}
               </div>
 
               {/* Nav links */}
               <div className="flex flex-col">
-                {[...navLinks, ...(isEN ? [] : [{ href: "/kontakt", label: "Send melding" }])].map((link, i, arr) => (
+                {[...navLinks, ...(isEN ? [{ href: "/en#book", label: "Buy the book" }] : [{ href: "/kontakt", label: "Send melding" }])].map((link, i, arr) => (
                   <Link
                     key={link.href}
                     href={link.href}
