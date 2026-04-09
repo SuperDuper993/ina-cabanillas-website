@@ -11,22 +11,17 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Ina Cabanillas
           </p>
           <SocialIcons />
-          <div className="flex gap-4 text-xs">
+          <div className="flex items-center gap-4 text-xs">
             <Link href={BRAND.linkedin} target="_blank" className="hover:text-white/70 transition-colors">LinkedIn</Link>
-            <Link href="/#kontakt" className="hover:text-white/70 transition-colors">Kontakt</Link>
             <Link href="/om" className="hover:text-white/70 transition-colors">Om Ina</Link>
             <Link href="/presse" className="hover:text-white/70 transition-colors">I media</Link>
+            <Link
+              href="/foredrag#kontakt"
+              className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-white text-brand-indigo font-semibold text-xs hover:bg-white/90 transition-all hover:-translate-y-0.5"
+            >
+              Send melding →
+            </Link>
           </div>
-        </div>
-
-        <div className="flex flex-col items-center gap-4 mt-10 pt-8 border-t border-white/10 text-center">
-          <p className="text-white text-lg font-semibold">Ta kontakt</p>
-          <Link
-            href="/foredrag#kontakt"
-            className="inline-flex items-center justify-center px-7 py-3 rounded-full bg-white text-brand-indigo font-semibold text-sm hover:bg-white/90 transition-all hover:-translate-y-0.5"
-          >
-            Send melding →
-          </Link>
         </div>
       </div>
     </footer>
