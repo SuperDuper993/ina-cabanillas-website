@@ -128,7 +128,7 @@ export function Navbar({ lang = "no" }: NavbarProps) {
                 </Link>
                 {isEN ? (
                   <Link
-                    href="/en#contact"
+                    href="/en/contact"
                     onClick={() => setMobileOpen(false)}
                     className="bg-brand-lavender rounded-2xl p-5 flex flex-col gap-2 active:opacity-80 transition-opacity"
                   >
