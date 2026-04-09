@@ -1,9 +1,58 @@
 'use client';
 
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import ShimmerButton from "@/components/ui/shimmer-button";
+
+function FaqItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border border-brand-border rounded-xl overflow-hidden">
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className="w-full flex items-center justify-between px-5 py-4 text-left bg-white hover:bg-brand-lavender/50 transition-colors"
+        aria-expanded={open}
+      >
+        <span className="text-base font-medium text-foreground">{q}</span>
+        <span className="text-brand-indigo text-lg ml-4 flex-shrink-0">{open ? '−' : '+'}</span>
+      </button>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
+            className="overflow-hidden"
+          >
+            <p className="px-5 pb-5 text-brand-muted text-base leading-relaxed">{a}</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+const faqs = [
+  {
+    q: 'Hva koster et foredrag?',
+    a: 'Foredrag fra 35 000 kr + mva. Veiledende pris for 45 min inkl. for- og ettermøte. Reise faktureres separat. Ta kontakt for et uforpliktende tilbud.',
+  },
+  {
+    q: 'Holder Ina foredrag på engelsk?',
+    a: 'Ja, Ina holder foredrag på både norsk og engelsk og er tilgjengelig for arrangementer i hele Norden.',
+  },
+  {
+    q: 'Hvor raskt får jeg svar?',
+    a: 'Vanligvis innen 24 timer på hverdager. Du kan også ringe direkte på +47 974 24 957.',
+  },
+  {
+    q: 'Kan jeg bestille boken til hele teamet?',
+    a: 'Ja — vi tilbyr rabatt ved kjøp av 10+ eksemplarer. Velg "Bokbestilling" i skjemaet under.',
+  },
+];
 
 const occasions = [
   "",
@@ -69,6 +118,13 @@ export default function KontaktPage() {
           <p className="text-brand-muted text-lg leading-relaxed mb-10">
             Foredrag, bokbestilling, samarbeid eller noe annet — fyll ut skjemaet så svarer jeg innen 24 timer.
           </p>
+
+          {/* FAQ */}
+          <div className="mb-12 space-y-3">
+            {faqs.map((faq) => (
+              <FaqItem key={faq.q} q={faq.q} a={faq.a} />
+            ))}
+          </div>
 
           {status === 'success' ? (
             <div className="flex flex-col items-center justify-center gap-4 text-center bg-brand-lavender rounded-2xl p-12">

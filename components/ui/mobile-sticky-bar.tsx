@@ -46,12 +46,20 @@ export function MobileStickyBar() {
         visible ? 'translate-y-0' : 'translate-y-full'
       }`}
     >
-      <Link
-        href="/foredrag#kontakt"
-        className="block w-full text-center py-3 rounded-full bg-brand-indigo text-white font-semibold text-sm"
-      >
-        Book foredrag →
-      </Link>
+      <div className="flex gap-3">
+        <Link
+          href="/foredrag#kontakt"
+          className="flex-1 text-center py-3 rounded-full bg-brand-indigo text-white font-semibold text-sm"
+        >
+          Book foredrag →
+        </Link>
+        <Link
+          href="/kontakt"
+          className="flex-1 text-center py-3 rounded-full border border-brand-indigo text-brand-indigo font-semibold text-sm"
+        >
+          Kontakt
+        </Link>
+      </div>
     </div>
   );
 }
