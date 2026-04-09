@@ -77,6 +77,7 @@ function InlineStory({ bodyText }: { bodyText: string }) {
             className="overflow-hidden"
           >
             <div className="pt-6 space-y-5">
+              <p className={bodyText}>Det startet med bestevenninnen min.</p>
               <p className="text-[#1a1a1a] font-serif text-lg leading-[1.7] italic">
                 &ldquo;Hun pakket laptopen sin, gikk gjennom et bibliotek med 200 mennesker, og møtte blikkene til ingen.&rdquo;
               </p>
