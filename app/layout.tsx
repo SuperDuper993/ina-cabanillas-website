@@ -4,6 +4,7 @@ import "./globals.css";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { ClarityAnalytics } from "@/components/analytics/clarity";
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -168,6 +169,7 @@ export default function RootLayout({
         {children}
         <Analytics />
         <SpeedInsights />
+        <ClarityAnalytics />
       </body>
     </html>
   );
